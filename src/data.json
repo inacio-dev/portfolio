@@ -55,7 +55,7 @@
       },
       "about": {
         "title": "SOBRE MIM",
-        "text": [
+        "texts": [
           "Tenho ampla experiência em projetos de desenvolvimento de software, utilizando linguagens como C, Java, Python e outras tecnologias voltadas para a web. Também atuei como designer gráfico freelancer e possuo certificação técnica da Adobe Inc. Atualmente, sou graduando em Engenharia da Computação na Universidade Federal do Ceará.",
           "Estou em constante busca por aprimorar minhas habilidades e conhecimentos, sempre atento às tendências e novidades do mercado digital. Meu objetivo é oferecer soluções inovadoras e personalizadas aos meus clientes, visando sempre sua satisfação e o sucesso de seus negócios."
         ],
@@ -64,28 +64,18 @@
       "terms": {
         "title": "Termos de Uso e Política de Privacidade",
         "header": "Este documento contém os termos de uso e política de privacidade do site pessoal de Inácio Rodrigues, que apresenta informações profissionais sobre o titular e projetos que compõem sua trajetória profissional. Ao acessar e utilizar este site, você concorda com os termos descritos abaixo:",
-        "sub-titles": [
+        "texts": [
           {
-            "id": 1,
-            "sub-title": "Termos de Uso:"
-          },
-          {
-            "id": 2,
-            "sub-title": "Política de Privacidade:"
-          }
-        ],
-        "paragraphs": [
-          {
-            "sub-title": 1,
-            "texts": [
+            "sub-title": "Termos de Uso:",
+            "paragraphs": [
               "Todo o conteúdo deste site é protegido por direitos autorais e propriedade intelectual, incluindo imagens, textos e design. Qualquer reprodução ou distribuição sem autorização prévia e expressa do titular é proibida, sujeitando o infrator às sanções previstas em lei.",
               "As informações apresentadas neste site são fornecidas para fins exclusivamente informativos, sem qualquer garantia de exatidão, atualização ou adequação para fins específicos. O titular não se responsabiliza por quaisquer prejuízos decorrentes do uso ou da impossibilidade de utilização deste site.",
               "O titular reserva-se o direito de atualizar ou modificar estes termos de uso a qualquer momento, sem necessidade de aviso prévio. Recomenda-se que o usuário verifique regularmente esta página para manter-se informado sobre eventuais alterações."
             ]
           },
           {
-            "sub-title": 2,
-            "texts": [
+            "sub-title": "Política de Privacidade:",
+            "paragraphs": [
               "O titular do site garante a privacidade e segurança dos dados pessoais fornecidos pelo usuário, comprometendo-se a não compartilhar informações sem prévia autorização ou salvo por obrigação legal.",
               "O site utiliza cookies para otimizar a experiência de navegação do usuário, armazenando informações técnicas como endereço IP, tipo de navegador e sistema operacional. Esses dados são coletados apenas para fins estatísticos e de melhoria da performance do site.",
               "Este site pode conter links para outros sites externos. O titular não se responsabiliza pela política de privacidade ou conteúdo desses sites, recomendando-se que o usuário leia as respectivas políticas antes de fornecer qualquer informação pessoal.",
@@ -121,7 +111,7 @@
             "link": "https://www.digitalquatro.com.br/",
             "time": "JULHO / 2022 / ATUALMENTE",
             "name": "MARKETING DIGITAL, DIGITAL QUATRO",
-            "text": [
+            "paragraphs": [
               "Co-proprietário da empresa Digital Quatro que executa serviços de Marketing Digital, gestão de Mídia Social e Desenvolvimento Web para outras empresas. Executa o papel de administrador, designer geral, gestor de anúncios (Google ADS, Facebook ADS) e programador Full-Stack."
             ]
           },
@@ -131,7 +121,7 @@
             "link": "/projects/dev/",
             "time": "MAIO / 2022 / ATUALMENTE",
             "name": "PROGRAMADOR FREELANCER",
-            "text": [
+            "paragraphs": [
               "Programação Front-End e integração com Back-End do site https://b2b.apeuloja.com.br/ da empresa Auto Peças Estados Unidos com objetivo de compra e venda (E-commerce) entre empresas do segmento de auto peças.",
               "Programa com interfáce de usuário utilizando a linguagem Python visando a leitura e análise de PDF’s para inserção em Excel como banco de dados de forma automatizada em sistemas Windows."
             ]
@@ -141,7 +131,7 @@
             "presently": true,
             "time": "NOVEMBRO / 2020 / ATUALMENTE",
             "name": "BACHARELADO EM ENGENHARIA DE COMPUTAÇÃO, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
-            "text": [
+            "paragraphs": [
               "Atualmente no 7º semestre.",
               "Participação da maratona HackPI Ceará: Hackathon para a Primeira Infância Cearense no ano de 2021.",
               "Participação dos minicursos Autenticação em Redes e Redes Neurais convolucionais com Tensorflow oferecidos durante a Semana da Tecnologia da Informação e Comunicação (SETIC) no ano de 2020."
@@ -152,7 +142,7 @@
             "presently": false,
             "time": "DEZEMBRO / 2018",
             "name": "ENSINO MÉDIO, COLÉGIO LOURENÇO FILHO",
-            "text": [
+            "paragraphs": [
               "Conclusão do ensino médio completo."
             ]
           },
@@ -161,7 +151,7 @@
             "presently": false,
             "time": "JULHO / 2022",
             "name": "DIGITAL MARKETING PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
-            "text": [
+            "paragraphs": [
               "Certificado de aprovação do exame baseado em compreensão detalhada sobre os conceitos, estratégias e implementação de Marketing Digital, incluindo campanhas de e-mail e Search Engine Optimization (SEO), campanhas Pay Per Click (PPC), marketing social, retargeting e integração de marketing digital com marketing tradicional. equivalente à DMPC."
             ]
           },
@@ -170,7 +160,7 @@
             "presently": false,
             "time": "JULHO / 2022",
             "name": "IMERSÃO GOOGLE ADS, ESCOLA BRASILEIRA DE MARKETING DIGITAL - EBMD",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso de Imersão Google Ads - Search, Display e Vídeo, com foco em desenvolver técnicas para trabalhar com os recursos e ferramentas do Google."
             ]
           },
@@ -179,7 +169,7 @@
             "presently": true,
             "time": "MARÇO / 2022 / ATUALMENTE",
             "name": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
-            "text": [
+            "paragraphs": [
               "Curso de Programação Web utilizando Python e JavaScript da Universidade de Harvard às empresas intelectuais da ciência da computação e à arte da programação para alunos de graduação."
             ]
           },
@@ -188,7 +178,7 @@
             "presently": false,
             "time": "MARÇO / 2022",
             "name": "SCRUM FOUNDATION PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
-            "text": [
+            "paragraphs": [
               "Certificado de aprovação do exame baseado no “The Scrum Guide™, The Definitive Guide to Scrum: The Rules of the Game, developed and sustained by the founders of Scrum – Ken Schwaber and Jeff Sutherland” equivalente à SFPC."
             ]
           },
@@ -197,7 +187,7 @@
             "presently": false,
             "time": "DEZEMBRO / 2020",
             "name": "INGLÊS AVANÇADO, CULTURA INGLESA",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso de inglês Cultura Express Plus B1, com certificação internacional equivalente ao nível B1 do Quadro Comum Europeu de Referência para Línguas (CEFR B1)."
             ]
           },
@@ -206,7 +196,7 @@
             "presently": false,
             "time": "DEZEMBRO / 2019",
             "name": "INGLÊS INTERMEDIÁRIO, CULTURA INGLESA",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso de inglês Cultura Express A2, com certificação internacional equivalente ao nível A2 do Quadro Comum Europeu de Referência para Línguas (CEFR A2)."
             ]
           },
@@ -215,7 +205,7 @@
             "presently": false,
             "time": "JUNHO / 2019",
             "name": "PRÁTICAS DE CLOUD SERVICES USANDO SWIFT COM ÊNFASE EM IOT, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso Práticas de Cloud Services usando Swift com ênfase em IoT, com certificação do Instituto de Pesquisas Eldorado patrocinado pela IBM Brasil e Flex em colaboração com a Apple."
             ]
           },
@@ -224,7 +214,7 @@
             "presently": false,
             "time": "ABRIL / 2019",
             "name": "LÓGICA DE PROGRAMAÇÃO, SWIFT, JAVASCRIPT E RESTFUL API, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso Conceitos e Fundamentos: Lógica de Programação, Orientação a Objetos, Swift, JavaScript e RESTful API, com certificação do Instituto de Pesquisas Eldorado patrocinado pela IBM Brasil e Flex em colaboração com a Apple."
             ]
           },
@@ -233,7 +223,7 @@
             "presently": false,
             "time": "AGOSTO / 2018",
             "name": "COMPUTAÇÃO GRÁFICA, GRACOM - ESCOLA DE EFEITOS VISUAIS",
-            "text": [
+            "paragraphs": [
               "Conclusão do curso Open CG, com certificação da Adobe Inc."
             ]
           }
