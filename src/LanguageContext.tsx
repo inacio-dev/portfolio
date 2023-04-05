@@ -1,49 +1,62 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
+import i18n from 'i18next'
+import { initReactI18next, useTranslation } from 'react-i18next'
+
 import ptBrData from './data/pt-br.json'
 import enUsData from './data/en-us.json'
 import { Language } from './config'
-import { Root } from './types'
 
-type Data = Root
-
-interface LanguageContextType {
-  language: Language
-  setLanguage: (language: Language) => void
-  data: Data
-}
-
-const LanguageContext = createContext<LanguageContextType>({
-  language: 'pt-br',
-  setLanguage: () => {},
-  data: ptBrData
+// Configuração da biblioteca i18next
+i18n.use(initReactI18next).init({
+  resources: {
+    'pt-br': { translation: ptBrData },
+    'en-us': { translation: enUsData }
+  },
+  lng: Language.PT_BR,
+  fallbackLng: Language.PT_BR,
+  interpolation: { escapeValue: false }
 })
 
-function getData(language: Language): Data {
-  switch (language) {
-    case 'pt-br':
-      return ptBrData
-    case 'en-us':
-      return enUsData
-    default:
-      throw new Error(`Language '${language}' not supported`)
-  }
+type LanguageContextData = {
+  language: Language
+  setLanguage: (language: Language) => void
 }
 
-function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('pt-br')
-  const data = getData(language)
+const LanguageContext = createContext<LanguageContextData>({
+  language: Language.PT_BR,
+  setLanguage: () => {}
+})
+
+export function useLanguage(): LanguageContextData {
+  const context = useContext(LanguageContext)
+  if (!context) {
+    throw new Error('useLanguage must be used within an LanguageProvider')
+  }
+  return context
+}
+
+type LanguageProviderProps = {
+  children: React.ReactNode
+}
+
+export function LanguageProvider({ children }: LanguageProviderProps): JSX.Element {
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    const language = localStorage.getItem('language') as Language
+    if (language) {
+      i18n.changeLanguage(language)
+    }
+  }, [i18n])
+
+  function setLanguage(language: Language) {
+    localStorage.setItem('language', language)
+    i18n.changeLanguage(language)
+  }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, data }}>
+    <LanguageContext.Provider value={{ language: i18n.language as Language, setLanguage }}>
       {children}
     </LanguageContext.Provider>
   )
 }
-
-function useLanguage() {
-  const { language, setLanguage } = useContext(LanguageContext)
-  return { language, setLanguage }
-}
-
-export { LanguageProvider, useLanguage }
-export type { Language }

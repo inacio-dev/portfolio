@@ -1,24 +1,15 @@
-import { useContext } from 'react'
-import { getData } from '../data'
-import { LanguageContext } from '../LanguageContext'
-import { Home, Information } from '../types'
+import { useTranslation } from 'react-i18next'
 
 export default function HomePage() {
-  const language = useContext(LanguageContext).language
-  const data = getData(language) as unknown as Home
+  const { t } = useTranslation()
 
   return (
-    <div className="flex justify-center items-center h-full w-full">
-      <div>
-        <h1>{data.text}</h1>
-        <p>{data.contact}</p>
-        <p>{data.tour}</p>
-        {data.informations.map((info: Information) => (
-          <div key={info.id}>
-            <h2>{info.title}</h2>
-            <p>{info.text}</p>
-          </div>
-        ))}
+    <div className="container">
+      <div className="home-text">{t('home.text')}</div>
+
+      <div className="home-buttons">
+        <button className="contact-button">{t('home.contact')}</button>
+        <button className="tour-button">{t('home.tour')}</button>
       </div>
     </div>
   )

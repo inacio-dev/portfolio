@@ -6,11 +6,13 @@ import { LanguageProvider } from './LanguageContext'
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/:lang/*" element={<RootPage />} />
-        <Route path="/" element={<RootPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <LanguageProvider>
+        <Routes>
+          <Route path="/:lang/*" element={<RootPage />} />
+          <Route path="/" element={<RootPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </LanguageProvider>
     </BrowserRouter>
   )
 }

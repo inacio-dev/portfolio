@@ -1,7 +1,6 @@
-export type Language = 'pt-br' | 'en-us'
-
-export const supportedLanguages: Language[] = ['pt-br', 'en-us']
-
-export const config = {
-  defaultLanguage: 'pt-br'
+enum Language {
+  PT_BR = 'pt-br',
+  EN_US = 'en-us'
 }
+
+export { Language }

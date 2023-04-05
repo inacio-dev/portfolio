@@ -1,17 +1,29 @@
-import { useContext } from 'react'
-import { LanguageContext } from '../LanguageContext'
-import { Header } from '../types'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
-export default function HeaderBar() {
-  const headerData = useContext(LanguageContext).header as Header[]
+const Header = () => {
+  const { t } = useTranslation()
 
   return (
-    <nav>
-      <ul>
-        {headerData.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
-    </nav>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#home">{t('header.name')}</a>
+          </li>
+          <li>
+            <a href="#about">{t('header.about')}</a>
+          </li>
+          <li>
+            <a href="#terms">{t('header.terms')}</a>
+          </li>
+          <li>
+            <a href="#history">{t('header.history')}</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
+
+export default Header
