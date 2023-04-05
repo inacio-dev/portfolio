@@ -4,7 +4,8 @@ import { LanguageContext } from '../LanguageContext'
 import { Home, Information } from '../types'
 
 export default function HomePage() {
-  const data = getData(useContext(LanguageContext).language) as unknown as Home
+  const language = useContext(LanguageContext).language
+  const data = getData(language) as unknown as Home
 
   return (
     <div className="flex justify-center items-center h-full w-full">

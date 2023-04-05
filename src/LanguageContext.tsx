@@ -1,23 +1,49 @@
-import { createContext, useState } from 'react'
-import { config, Language } from './config'
+import { createContext, ReactNode, useContext, useState } from 'react'
+import ptBrData from './data/pt-br.json'
+import enUsData from './data/en-us.json'
+import { Language } from './config'
+import { Root } from './types'
 
-export interface LanguageContextType {
+type Data = Root
+
+interface LanguageContextType {
   language: Language
-  setLanguage: (newLanguage: Language) => void
+  setLanguage: (language: Language) => void
+  data: Data
 }
 
-export const LanguageContext = createContext<LanguageContextType>({
-  language: config.defaultLanguage as Language,
-  setLanguage: () => {}
+const LanguageContext = createContext<LanguageContextType>({
+  language: 'pt-br',
+  setLanguage: () => {},
+  data: ptBrData
 })
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(config.defaultLanguage as Language)
+function getData(language: Language): Data {
+  switch (language) {
+    case 'pt-br':
+      return ptBrData
+    case 'en-us':
+      return enUsData
+    default:
+      throw new Error(`Language '${language}' not supported`)
+  }
+}
+
+function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguage] = useState<Language>('pt-br')
+  const data = getData(language)
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage, data }}>
       {children}
     </LanguageContext.Provider>
   )
 }
+
+function useLanguage() {
+  const { language, setLanguage } = useContext(LanguageContext)
+  return { language, setLanguage }
+}
+
+export { LanguageProvider, useLanguage }
 export type { Language }

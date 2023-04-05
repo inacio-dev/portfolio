@@ -5,14 +5,16 @@ import { Root } from './types'
 
 type Data = Root
 
-let ptBrInitialData = ptBrData as Data
-let enUsInitialData = enUsData as Data
+let ptBrInitialData: Data = {} as Data
+let enUsInitialData: Data = {} as Data
 
 function getData(language: Language): Data {
   switch (language) {
     case 'pt-br':
+      ptBrInitialData = ptBrData as Data
       return ptBrInitialData
     case 'en-us':
+      enUsInitialData = enUsData as Data
       return enUsInitialData
     default:
       throw new Error(`Language '${language}' not supported`)
