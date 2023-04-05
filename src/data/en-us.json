@@ -1,0 +1,226 @@
+{
+  "language": "EN-US",
+  "country": "US",
+  "logo-header": "PORTFOLIO",
+  "header": [
+    {
+      "id": 1,
+      "name": "Home"
+    },
+    {
+      "id": 2,
+      "name": "Historic"
+    },
+    {
+      "id": 3,
+      "name": "About"
+    },
+    {
+      "id": 4,
+      "name": "Projects"
+    },
+    {
+      "id": 5,
+      "name": "Terms and Policies"
+    }
+  ],
+  "home": {
+    "text": "Hello, I'm Inácio Rodrigues, an experienced professional in full stack development, graphic design, paid traffic management and computer engineering student. This site features my projects, previous work and information about my skills in each area.",
+    "contact": "TALK TO ME",
+    "tour": "TAKE A TOUR",
+    "informations": [
+      {
+        "id": 1,
+        "title": "Full Stack",
+        "text": "Web application developer specializing in front-end, with skills also in back-end."
+      },
+      {
+        "id": 2,
+        "title": "Design",
+        "text": "Creator of visual solutions to communicate messages through visual identities, printed and digital materials, advertising and packaging."
+      },
+      {
+        "id": 3,
+        "title": "Engineer",
+        "text": "Apply engineering, computer science, and mathematics principles to design and develop computer systems and software."
+      },
+      {
+        "id": 4,
+        "title": "Traffic",
+        "text": "Manage and optimize online advertising campaigns, using knowledge in digital marketing, data analysis and conversion strategies."
+      }
+    ]
+  },
+  "about": {
+    "title": "ABOUT ME",
+    "texts": [
+      "I have extensive experience in software development projects, using languages such as C, Java, Python and other web-oriented technologies. I have also worked as a freelance graphic designer and have a technical certification from Adobe Inc. I am currently studying Computer Engineering at Universidade Federal do Ceará.",
+      "I am constantly looking to improve my skills and knowledge, always attentive to trends and news in the digital market. My objective is to offer innovative and personalized solutions to my clients, always aiming at their satisfaction and the success of their businesses."
+    ],
+    "contact-title": "LINKS & CONTACT"
+  },
+  "terms": {
+    "title": "Terms of Use and Privacy Policy",
+    "header": "This document contains the terms of use and privacy policy of Inácio Rodrigues' personal website, which presents professional information about the owner and projects that make up his professional career. By accessing and using this website, you agree to the terms described below:",
+    "texts": [
+      {
+        "sub-title": "Terms of use:",
+        "paragraphs": [
+          "All content on this site is protected by copyright and intellectual property, including images, texts and design. Any reproduction or distribution without the prior and express authorization of the holder is prohibited, subjecting the violator to the sanctions provided by law.",
+          "The information presented on this website is provided for informational purposes only, without any guarantee of accuracy, updating or suitability for specific purposes. The owner is not responsible for any damages resulting from the use or impossibility of using this website.",
+          "The holder reserves the right to update or modify these terms of use at any time, without prior notice. It is recommended that the user regularly check this page to stay informed of any changes."
+        ]
+      },
+      {
+        "sub-title": "Privacy Policy:",
+        "paragraphs": [
+          "The owner of the site guarantees the privacy and security of the personal data provided by the user, committing himself not to share information without prior authorization or except for legal obligation.",
+          "The site uses cookies to optimize the user's browsing experience, storing technical information such as IP address, browser type and operating system. This data is collected only for statistical purposes and to improve the site's performance.",
+          "This site may contain links to other external sites. The owner is not responsible for the privacy policy or content of these sites, recommending that the user read the respective policies before providing any personal information.",
+          "The data collected will be kept confidential, access being allowed only to the professionals responsible for managing the site."
+        ]
+      }
+    ],
+    "footer": "The use of this website implies full and unrestricted acceptance of these terms of use and privacy policy. If you have any questions, please contact the owner using the form available on the website. Thank you for visiting this personal website."
+  },
+  "history": {
+    "short-title": "AT THE MOMENT",
+    "button": "VIEW MORE",
+    "back-button": "TURN BACK",
+    "download-button": "DOWNLOAD RESUME",
+    "titles": [
+      {
+        "id": 1,
+        "title": "EXPERIENCES"
+      },
+      {
+        "id": 2,
+        "title": "ACADEMIC EDUCATION"
+      },
+      {
+        "id": 3,
+        "title": "COMPLEMENTARY TRAINING"
+      }
+    ],
+    "informations": [
+      {
+        "title": 1,
+        "presently": true,
+        "link": "https://www.digitalquatro.com.br/",
+        "time": "JULY / 2022 / CURRENTLY",
+        "name": "MARKETING DIGITAL, DIGITAL QUATRO",
+        "paragraphs": [
+          "Co-owner of the company Digital Quatro that performs Digital Marketing, Social Media Management and Web Development services for other companies. Performs the role of administrator, general designer, ads manager (Google ADS, Facebook ADS) and Full-Stack programmer."
+        ]
+      },
+      {
+        "title": 1,
+        "presently": true,
+        "link": "/projects/dev/",
+        "time": "MAY / 2022 / CURRENTLY",
+        "name": "FREELANCER PROGRAMMER",
+        "paragraphs": [
+          "Front-End programming and Back-End integration of the website https://b2b.apeuloja.com.br/ of the company Auto Peças United States with the purpose of buying and selling (E-commerce) between companies in the auto parts segment. ",
+          "Program with user interface using the Python language to read and analyze PDFs for insertion into Excel as a database in an automated way on Windows systems."
+        ]
+      },
+      {
+        "title": 2,
+        "presently": true,
+        "time": "NOVEMBER / 2020 / CURRENTLY",
+        "name": "BACHELOR'S DEGREE IN COMPUTER ENGINEERING, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
+        "paragraphs": [
+          "Currently in the 7th semester.",
+          "Participation of the HackPI Ceará marathon: Hackathon for Ceará's First Childhood in the year 2021.",
+          "Participation of the mini-courses Authentication in Networks and Convolutional Neural Networks with Tensorflow offered during the Information and Communication Technology Week (SETIC) in the year 2020."
+        ]
+      },
+      {
+        "title": 2,
+        "presently": false,
+        "time": "DECEMBER / 2018",
+        "name": "HIGH SCHOOL, COLÉGIO LOURENÇO FILHO",
+        "paragraphs": ["Full high school completion."]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "JULY / 2022",
+        "name": "DIGITAL MARKETING PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+        "paragraphs": [
+          "Exam passing certificate based on detailed understanding of Digital Marketing concepts, strategies, and implementation, including email campaigns and Search Engine Optimization (SEO), Pay Per Click (PPC) campaigns, social marketing, retargeting, and digital marketing with traditional marketing. equivalent to DMPC."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "JULY / 2022",
+        "name": "GOOGLE ADS IMMERSION, ESCOLA BRASILEIRA DE MARKETING DIGITAL - EBMD",
+        "paragraphs": [
+          "Completion of the Google Ads Immersion course - Search, Display and Video, focusing on developing techniques to work with Google resources and tools."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": true,
+        "time": "MARCH / 2022 / CURRENTLY",
+        "name": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
+        "paragraphs": [
+          "Harvard University's Web Programming Course Using Python and JavaScript to the Intellectual Enterprises of Computer Science and the Art of Programming for Undergraduate Students."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "MARCH / 2022",
+        "name": "SCRUM FOUNDATION PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+        "paragraphs": [
+          "Certificate of passing the exam based on “The Scrum Guide™, The Definitive Guide to Scrum: The Rules of the Game, developed and maintained by the founders of Scrum – Ken Schwaber and Jeff Sutherland” equivalent to the SFPC."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "DECEMBER / 2020",
+        "name": "ADVANCED ENGLISH, CULTURA INGLESA",
+        "paragraphs": [
+          "Completion of the Cultura Express Plus B1 English course, with international certification equivalent to the B1 level of the Common European Framework of Reference for Languages (CEFR B1)."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "DECEMBER / 2019",
+        "name": "INTERMEDIATE ENGLISH, CULTURA INGLESA",
+        "paragraphs": [
+          "Completion of the Cultura Express A2 English course, with international certification equivalent to the A2 level of the Common European Framework of Reference for Languages (CEFR A2)."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "JUNE / 2019",
+        "name": "CLOUD SERVICES PRACTICES USING SWIFT WITH AN EMPHASIS ON IOT, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
+        "paragraphs": [
+          "Completion of the Cloud Services Practices course using Swift with an emphasis on IoT, with certification from the Instituto de Pesquisas Eldorado sponsored by IBM Brazil and Flex in collaboration with Apple."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "APRIL / 2019",
+        "name": "PROGRAMMING LOGIC, SWIFT, JAVASCRIPT AND RESTFUL API, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
+        "paragraphs": [
+          "Completion of the course Concepts and Fundamentals: Programming Logic, Object Orientation, Swift, JavaScript and RESTful API, with certification from Instituto de Pesquisas Eldorado sponsored by IBM Brazil and Flex in collaboration with Apple."
+        ]
+      },
+      {
+        "title": 3,
+        "presently": false,
+        "time": "AUGUST / 2018",
+        "name": "CG, GRACOM - ESCOLA DE EFEITOS VISUAIS",
+        "paragraphs": ["Completion of the Open CG course, certified by Adobe Inc."]
+      }
+    ]
+  }
+}
