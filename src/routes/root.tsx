@@ -1,10 +1,14 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header'
 
-export default function RootPage() {
+interface HeaderProps {
+  setLanguage: (lang: string) => void
+}
+
+export default function RootPage({ setLanguage }: HeaderProps) {
   return (
     <>
-      <Header />
+      <Header setLanguage={setLanguage} />
       <Outlet />
     </>
   )
