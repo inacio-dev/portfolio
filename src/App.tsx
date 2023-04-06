@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { I18nextProvider, useTranslation } from 'react-i18next'
 import RootPage from './routes/root'
+import i18next from 'i18next'
 
 export default function App() {
   const { i18n } = useTranslation()

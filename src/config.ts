@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+
 import ptBrData from './data/pt-br.json'
 import enUsData from './data/en-us.json'
 
