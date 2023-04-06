@@ -6,14 +6,15 @@ import enUsData from './data/en-us.json'
 
 i18n.use(initReactI18next).init({
   resources: {
-    'pt-br': { translation: ptBrData },
-    'en-us': { translation: enUsData }
+    'pt-BR': { translation: ptBrData },
+    'en-US': { translation: enUsData }
   },
-  lng: 'pt-br',
-  fallbackLng: 'pt-br',
+  lng: 'pt-BR',
+  fallbackLng: 'pt-BR',
   interpolation: {
     escapeValue: false
-  }
+  },
+  debug: true
 })
 
 export default i18n
