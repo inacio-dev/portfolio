@@ -8,12 +8,12 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<RootPage setLanguage={i18n.changeLanguage} />}>
+        <Route path="/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
           <Route index element={<HomePage />} />
           <Route path="history" element={<HistoryPage />} />
         </Route>
 
-        <Route path="/:lang/*" element={<RootPage setLanguage={i18n.changeLanguage} />}>
+        <Route path="/:lang/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
           <Route index element={<HomePage />} />
           <Route path="history" element={<HistoryPage />} />
         </Route>

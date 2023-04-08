@@ -6,11 +6,11 @@ import enUsData from './data/en-us.json'
 
 i18n.use(initReactI18next).init({
   resources: {
-    'pt-BR': { translation: ptBrData },
-    'en-US': { translation: enUsData }
+    pt: { translation: ptBrData },
+    en: { translation: enUsData }
   },
-  lng: 'pt-BR',
-  fallbackLng: 'pt-BR',
+  lng: 'pt',
+  fallbackLng: 'pt',
   interpolation: {
     escapeValue: false
   },
