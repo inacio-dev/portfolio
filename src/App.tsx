@@ -4,10 +4,6 @@ import i18n from './config'
 import HomePage from './routes/home'
 
 export default function App() {
-  const setLanguage = (lang: string) => {
-    i18n.changeLanguage(lang)
-  }
-
   return (
     <BrowserRouter>
       <Routes>
@@ -15,7 +11,7 @@ export default function App() {
           <Route index element={<HomePage />} />
         </Route>
 
-        <Route path="/" element={<Navigate to={`/${i18n.language}/`} replace />} />
+        <Route path="*" element={<Navigate to={`/${i18n.language}/`} replace />} />
       </Routes>
     </BrowserRouter>
   )
