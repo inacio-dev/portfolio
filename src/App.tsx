@@ -9,10 +9,13 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
-          <Route path="/:lang/">
-            <Route index element={<HomePage />} />
-            <Route path="history" element={<HistoryPage />} />
-          </Route>
+          <Route index element={<HomePage />} />
+          <Route path="/history" element={<HistoryPage />} />
+        </Route>
+
+        <Route path="/:lang/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
+          <Route index element={<HomePage />} />
+          <Route path="history" element={<HistoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -8,7 +8,7 @@ export default function Header({ setLanguage }: HeaderProps) {
   const { t } = useTranslation()
   return (
     <header className="flex">
-      <button onClick={() => setLanguage('en-US')}>{t('home.text')}</button>
+      <button onClick={() => setLanguage('en')}>{t('home.text')}</button>
     </header>
   )
 }
