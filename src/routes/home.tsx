@@ -1,3 +1,3 @@
 export default function HomePage() {
-  return <div className="container"></div>
+  return <div className="flex justify-center items-center w-screen h-screen bg-black"></div>
 }

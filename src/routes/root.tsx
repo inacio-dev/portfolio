@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 
 interface RootPageProps {
@@ -9,12 +9,14 @@ interface RootPageProps {
 
 export default function RootPage({ setLanguage }: RootPageProps) {
   const { i18n } = useTranslation()
-  /*   const navigate = useNavigate()
-  const location = useLocation() */
+  const { lang } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const lang = window.location.pathname.split('/')[1]
-    if (lang !== i18n.language) {
+    if (lang && lang !== i18n.language) {
+      if (!['pt', 'en'].includes(lang)) {
+        navigate('/pt/', { replace: true })
+      }
       setLanguage(lang)
     }
   }, [])
