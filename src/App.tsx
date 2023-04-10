@@ -13,6 +13,7 @@ export default function App() {
           <Route path="/:lang/">
             <Route index element={<HomePage />} />
             <Route path="history" element={<HistoryPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Route>
       </Routes>
