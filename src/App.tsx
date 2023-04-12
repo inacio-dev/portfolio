@@ -10,9 +10,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
           <Route index element={<Navigate to="/pt/" />} />
+
           <Route path="/:lang/">
             <Route index element={<HomePage />} />
-            <Route path="history" element={<HistoryPage />} />
+            {['histórico', 'historic'].map((path, index) => (
+              <Route key={index} path={path} element={<HistoryPage />} />
+            ))}
+
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Route>

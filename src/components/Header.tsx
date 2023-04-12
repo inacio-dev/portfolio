@@ -1,21 +1,18 @@
-import { link } from 'fs'
 import { useTranslation } from 'react-i18next'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import IconChange from '../svg/icons/IconChange'
 import Logo from '../svg/Logo'
-import { Data, HeaderLink } from '../types'
+import { HeaderLink } from '../types'
+import IconMenu from '../svg/icons/IconMenu'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
 }
 
 export default function Header({ setLanguage }: HeaderProps) {
-  const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
-  const { i18n } = useTranslation()
-
-  const links = t('header') as unknown as HeaderLink[]
+  const { t, i18n, ready } = useTranslation()
 
   function changeLanguage() {
     if (i18n.language === 'pt') {
@@ -27,25 +24,51 @@ export default function Header({ setLanguage }: HeaderProps) {
     }
   }
 
+  function goHomePage() {
+    navigate(`/${i18n.language}/`, { replace: true })
+  }
+
+  if (!ready) return <>'loading translations...'</>
+
+  const links = t('header', { returnObjects: true }) as HeaderLink[]
+
   return (
-    <header className="absolute top-0 z-50 flex h-fit w-full items-center justify-center bg-slate-dark-1 py-5 lg:h-[96px]">
-      <div className="absolute left-60 flex items-center justify-center space-x-3">
+    <header className="sticky lg:absolute top-0 z-50 flex lg:flex-row flex-col h-fit w-full items-center justify-center bg-slate-dark-1 py-5 lg:h-[96px]">
+      <button
+        onClick={goHomePage}
+        className="lg:absolute lg:left-60 flex items-center justify-center space-x-3"
+      >
         <Logo />
         <span className="text-2xl font-bold uppercase text-slate-light-1">{t('logo-header')}</span>
-      </div>
-      <div className="absolute right-0 flex h-full w-fit items-center justify-center bg-brand-purple px-10">
-        <div>
-          {links.map((link) => {
-            return <p>{link.name}</p>
-          })}
+      </button>
+
+      <div className="lg:absolute lg:right-0 flex h-full w-full lg:w-fit items-center justify-center bg-brand-purple space-x-5 lg:pr-60 lg:pl-10">
+        <button className="visible lg:invisible lg:hidden flex">
+          <IconMenu />
+        </button>
+
+        <div className="group lg:visible invisible hidden lg:flex items-center justify-center rounded-md h-12 text-slate-light-1 transition-all hover:bg-brand-blue-columbia/20 group-hover:transition-all">
+          <IconMenu className="group-hover:hidden" />
+
+          {links.map((link, index) => (
+            <Link
+              to={`/${i18n.language}/${link.name.toLowerCase().normalize()}/`}
+              key={index}
+              className="hidden group-hover:flex hover:bg-brand-blue-columbia/70 rounded-md justify-center items-center space-x-10 h-full px-5"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
+
         <button
           onClick={changeLanguage}
-          className="group mr-60 flex items-center justify-center space-x-3 rounded-md bg-brand-blue-columbia/20 p-3 text-slate-light-1 transition-all hover:bg-brand-blue-columbia/70 group-hover:transition-all"
+          className="group flex items-center justify-center space-x-3 rounded-md bg-brand-blue-columbia/20 h-12 px-3 text-slate-light-1 transition-all hover:bg-brand-blue-columbia/70 group-hover:transition-all"
         >
-          <p className="group-hover:hidden">{t('country')}</p>
-          <p className="hidden group-hover:flex">{t('language')}</p>
-          <IconChange className="hidden group-hover:flex" />
+          <p className="lg:group-hover:hidden">{t('country')}</p>
+
+          <p className="hidden lg:group-hover:flex">{t('language')}</p>
+          <IconChange className="hidden lg:group-hover:flex" />
         </button>
       </div>
     </header>
