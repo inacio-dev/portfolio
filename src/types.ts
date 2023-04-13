@@ -2,6 +2,7 @@ export interface Data {
   language: string
   country: string
   'logo-header': string
+  loading: string
   header: HeaderLink[]
   home: Home
   about: About
