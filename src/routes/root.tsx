@@ -19,7 +19,7 @@ export default function RootPage({ setLanguage }: RootPageProps) {
       }
       setLanguage(lang)
     }
-  }, [])
+  }, [lang])
 
   return (
     <>

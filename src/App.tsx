@@ -13,12 +13,12 @@ export default function App() {
 
           <Route path="/:lang/">
             <Route index element={<HomePage />} />
-            {['histórico', 'historic'].map((path, index) => (
-              <Route key={index} path={path} element={<HistoryPage />} />
-            ))}
+            <Route path={'history'} element={<HistoryPage />} />
 
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </BrowserRouter>

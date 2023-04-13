@@ -12,6 +12,7 @@ export interface Data {
 export interface HeaderLink {
   id: number
   name: string
+  link: string
 }
 
 export interface Home {

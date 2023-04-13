@@ -5,23 +5,28 @@
   "header": [
     {
       "id": 1,
-      "name": "Inicial"
+      "name": "Inicial",
+      "link": "home"
     },
     {
       "id": 2,
-      "name": "Histórico"
+      "name": "Histórico",
+      "link": "history"
     },
     {
       "id": 3,
-      "name": "Sobre"
+      "name": "Sobre",
+      "link": "about"
     },
     {
       "id": 4,
-      "name": "Projetos"
+      "name": "Projetos",
+      "link": "projects"
     },
     {
       "id": 5,
-      "name": "Termos e Políticas"
+      "name": "Termos e Políticas",
+      "link": "terms-policies"
     }
   ],
   "home": {
