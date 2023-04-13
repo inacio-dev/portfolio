@@ -2,6 +2,7 @@
   "language": "PT-BR",
   "country": "BR",
   "logo-header": "portfólio",
+  "loading": "A página está carregando...",
   "header": [
     {
       "id": 1,

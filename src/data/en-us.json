@@ -2,6 +2,7 @@
   "language": "EN-US",
   "country": "US",
   "logo-header": "portfolio",
+  "loading": "The page is loading...",
   "header": [
     {
       "id": 1,

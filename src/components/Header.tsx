@@ -6,6 +6,7 @@ import { HeaderLink } from '../types'
 import IconMenu from '../svg/icons/IconMenu'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
+import Loading from './Loading'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
@@ -41,7 +42,7 @@ export default function Header({ setLanguage }: HeaderProps) {
     setShowMenu(false)
   }, [path])
 
-  if (!ready) return <>'loading translations...'</>
+  if (!ready) return <Loading />
 
   const links = t('header', { returnObjects: true }) as HeaderLink[]
 
