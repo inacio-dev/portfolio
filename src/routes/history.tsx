@@ -1,6 +1,7 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import HistoryFooter from '../components/HistoryFooter'
 import Loading from '../components/Loading'
 import { History } from '../types'
@@ -8,6 +9,12 @@ import { History } from '../types'
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
   const [showFull, setShowFull] = useState<boolean>(false)
+  const location = useLocation()
+  const path = location.pathname
+
+  useEffect(() => {
+    setShowFull(false)
+  }, [path])
 
   if (!ready) return <Loading />
 
@@ -17,12 +24,12 @@ export default function HistoryPage() {
     <>
       <div
         className={clsx(
-          `flex w-screen items-center justify-center bg-slate-dark-1`,
-          showFull ? 'h-fit' : 'h-screen'
+          `flex w-full flex-col items-center justify-center bg-slate-dark-1`,
+          showFull ? 'h-full' : 'h-screen'
         )}
       >
         123
-        <HistoryFooter />
+        <HistoryFooter showFull={showFull} setShowFull={setShowFull} history={history} />
       </div>
     </>
   )
