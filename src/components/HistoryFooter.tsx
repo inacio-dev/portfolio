@@ -17,8 +17,8 @@ export default function HistoryFooter({ showFull, setShowFull, history }: Histor
     const element = document.createElement('a')
     element.href = clsx(
       i18n.language
-        ? 'https://inacio-rodrigues.vercel.app/'
-        : 'https://inacio-rodrigues.vercel.app/'
+        ? `https://inacio-rodrigues.vercel.app/portifolio-${i18n.language}.pdf`
+        : 'https://inacio-rodrigues.vercel.app/portifolio-pt.pdf'
     )
     element.download = `portifolio-${i18n.language}.pdf`
     element.click()
