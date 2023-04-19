@@ -24,7 +24,7 @@ export default function HistoryPage() {
   return (
     <div
       className={clsx(
-        `flex w-full flex-col items-center justify-center bg-slate-dark-1`,
+        `flex w-full flex-col items-center justify-center bg-slate-dark-1 transition-all`,
         showFull
           ? 'h-full pt-5 pb-[250px] lg:pt-[150px]'
           : 'h-full pt-5 pb-[250px] lg:h-screen lg:pb-0 lg:pt-0'
@@ -43,7 +43,7 @@ export default function HistoryPage() {
                     <div className="flex items-center justify-center space-x-3">
                       <h2 className="text-xl font-semibold">{info.name}</h2>
                       {info.link && (
-                        <Link to={info.link} replace>
+                        <Link to={info.link} replace className="transition-all hover:scale-125">
                           <IconLink className="w-8" />
                         </Link>
                       )}
@@ -70,7 +70,7 @@ export default function HistoryPage() {
                     <div className="flex items-center justify-center space-x-3">
                       <h2 className="text-xl font-semibold">{info.name}</h2>
                       {info.link && (
-                        <Link to={info.link} replace>
+                        <Link to={info.link} replace className="transition-all hover:scale-125">
                           <IconLink className="w-8" />
                         </Link>
                       )}
@@ -97,7 +97,7 @@ export default function HistoryPage() {
                     <div className="flex items-center justify-center space-x-3">
                       <h2 className="text-xl font-semibold">{info.name}</h2>
                       {info.link && (
-                        <Link to={info.link} replace>
+                        <Link to={info.link} replace className="transition-all hover:scale-125">
                           <IconLink className="w-8" />
                         </Link>
                       )}
@@ -125,7 +125,7 @@ export default function HistoryPage() {
                     <div className="flex items-center justify-center space-x-3">
                       <h2 className="text-xl font-semibold">{info.name}</h2>
                       {info.link && (
-                        <Link to={info.link} replace>
+                        <Link to={info.link} replace className="transition-all hover:scale-125">
                           <IconLink className="w-8" />
                         </Link>
                       )}

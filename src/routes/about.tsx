@@ -18,7 +18,7 @@ export default function AboutPage() {
   const about = t('about', { returnObjects: true }) as About
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center space-y-5 bg-slate-dark-1 pt-5 text-slate-light-1 lg:h-screen lg:pt-0">
+    <div className="flex h-full min-h-screen w-full flex-col items-center justify-start space-y-5 bg-slate-dark-1 py-10 text-slate-light-1 transition-all lg:h-screen lg:justify-center lg:py-0">
       <h1 className="text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>
       <div className="flex flex-col items-center justify-center space-y-3">
         {about.texts.map((text, index) => (

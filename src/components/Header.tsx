@@ -47,7 +47,7 @@ export default function Header({ setLanguage }: HeaderProps) {
   const links = t('header', { returnObjects: true }) as HeaderLink[]
 
   return (
-    <header className="sticky top-0 z-50 flex h-fit w-full flex-col items-center justify-center bg-slate-dark-1 lg:absolute lg:h-[96px] lg:flex-row lg:py-5">
+    <header className="sticky top-0 z-50 flex h-fit w-full flex-col items-center justify-center bg-slate-dark-1 transition-all lg:absolute lg:h-[96px] lg:flex-row lg:py-5">
       <button
         onClick={goHomePage}
         className="my-5 flex items-center justify-center space-x-3 lg:absolute lg:left-[15%] lg:my-0"
