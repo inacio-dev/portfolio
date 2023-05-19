@@ -7,6 +7,7 @@ import IconMenu from '../svg/icons/IconMenu'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Loading from './Loading'
+import { motion } from 'framer-motion'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
@@ -56,7 +57,7 @@ export default function Header({ setLanguage }: HeaderProps) {
         <span className="text-2xl font-bold uppercase text-slate-light-1">{t('logo-header')}</span>
       </button>
 
-      <div className="flex h-fit w-full items-center justify-center space-x-5 bg-brand-purple py-2 pl-0 pr-[0%] lg:absolute lg:right-0 lg:h-full lg:w-fit lg:py-0 lg:pr-[15%] lg:pl-10">
+      <div className="flex h-fit w-full items-center justify-center space-x-5 bg-brand-purple py-2 pl-0 pr-[0%] transition-all lg:absolute lg:right-0 lg:h-full lg:w-fit lg:py-0 lg:pr-[15%] lg:pl-10">
         <button
           onClick={() => setShowMenu(!showMenu)}
           className={clsx(
@@ -67,7 +68,13 @@ export default function Header({ setLanguage }: HeaderProps) {
           <IconMenu />
         </button>
 
-        <div className="group invisible hidden h-12 items-center justify-center rounded-sm text-slate-light-1 transition-all hover:bg-brand-blue-columbia/20 group-hover:transition-all lg:visible lg:flex">
+        <motion.div
+          whileHover={{
+            width: 540,
+            transition: { duration: 0.2 }
+          }}
+          className="group invisible hidden h-12 w-10 items-center justify-center rounded-sm text-slate-light-1 transition-all hover:bg-brand-blue-columbia/20 group-hover:transition-all lg:visible lg:flex"
+        >
           <IconMenu className="group-hover:hidden" />
 
           {links.map((link, index) => (
@@ -75,7 +82,7 @@ export default function Header({ setLanguage }: HeaderProps) {
               to={setPage(link.link, index)}
               key={index}
               className={clsx(
-                'hidden h-full items-center justify-center space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex',
+                'hidden h-full items-center justify-center space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex group-hover:animate-tooltip_show',
                 path.includes(link.link) && 'bg-brand-blue-columbia/20',
                 path === `/${i18n.language}/` && index === 0 && 'bg-brand-blue-columbia/20'
               )}
@@ -83,16 +90,23 @@ export default function Header({ setLanguage }: HeaderProps) {
               {link.name}
             </Link>
           ))}
-        </div>
+        </motion.div>
 
-        <button
-          onClick={changeLanguage}
-          className="group flex h-12 items-center justify-center space-x-3 rounded-sm bg-brand-blue-columbia/20 px-3 text-slate-light-1 transition-all hover:bg-brand-blue-columbia/70 group-hover:transition-all"
-        >
-          <p className="lg:group-hover:hidden">{t('country')}</p>
+        <button onClick={changeLanguage}>
+          <motion.div
+            whileHover={{
+              width: 150,
+              transition: { duration: 0.2 }
+            }}
+            className="group flex h-12 w-14 items-center justify-center space-x-3 rounded-sm bg-brand-blue-columbia/20 px-3 text-slate-light-1 transition-all hover:bg-brand-blue-columbia/70 group-hover:transition-all"
+          >
+            <p className="lg:group-hover:hidden">{t('country')}</p>
 
-          <p className="hidden lg:group-hover:flex">{t('language')}</p>
-          <IconChange className="hidden lg:group-hover:flex" />
+            <p className="hidden group-hover:animate-tooltip_show lg:group-hover:flex">
+              {t('language')}
+            </p>
+            <IconChange className="hidden group-hover:animate-tooltip_show lg:group-hover:flex" />
+          </motion.div>
         </button>
       </div>
 

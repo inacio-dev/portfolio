@@ -6,10 +6,12 @@ import HistoryFooter from '../components/HistoryFooter'
 import Loading from '../components/Loading'
 import { History } from '../types'
 import IconLink from '../svg/icons/IconLink'
+import useWindowDimensions from '../hooks/get-windowDimensions'
 
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
   const [showFull, setShowFull] = useState<boolean>(false)
+  const { height } = useWindowDimensions()
   const location = useLocation()
   const path = location.pathname
 
@@ -27,7 +29,9 @@ export default function HistoryPage() {
         `flex w-full flex-col items-center justify-center bg-slate-dark-1 transition-all`,
         showFull
           ? 'h-full pt-5 pb-[250px] lg:pt-[150px]'
-          : 'h-full pt-5 pb-[250px] lg:h-screen lg:pb-0 lg:pt-0'
+          : height > 840
+          ? 'h-full pt-5 pb-[250px] lg:h-screen lg:pb-0 lg:pt-0'
+          : 'h-full pt-5 pb-[250px] lg:h-full lg:pt-[150px]'
       )}
     >
       {showFull ? (

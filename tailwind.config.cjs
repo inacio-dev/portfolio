@@ -50,7 +50,23 @@ module.exports = {
             12: '#ECEDEE'
           }
         }
+      },
+      keyframes: {
+        tooltip_show: {
+          '0%': { visibility: 'hidden', opacity: '0' },
+          '15%': { visibility: 'hidden', opacity: '0' },
+          '100%': { visibility: 'visible', opacity: '100' }
+        }
+      },
+      animation: {
+        tooltip_show: 'tooltip_show 2s ease forwards'
       }
+    }
+  },
+  variants: {
+    extend: {
+      width: ['hover'],
+      animation: ['group-hover']
     }
   },
   plugins: []
