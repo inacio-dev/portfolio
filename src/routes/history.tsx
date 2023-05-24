@@ -7,17 +7,25 @@ import Loading from '../components/Loading'
 import { History } from '../types'
 import IconLink from '../svg/icons/IconLink'
 import useWindowDimensions from '../hooks/get-windowDimensions'
+import useElementDimensions from '../hooks/get-elementSizeByRef'
+import useElementSize from '../hooks/get-elementSizeById'
 
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
   const [showFull, setShowFull] = useState<boolean>(false)
   const { height } = useWindowDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions] = useElementDimensions()
+  const headerHeight = useElementSize('header')
   const location = useLocation()
   const path = location.pathname
 
   useEffect(() => {
     setShowFull(false)
   }, [path])
+
+  useEffect(() => {
+    reloadElementDimensions()
+  }, [showFull])
 
   if (!ready) return <Loading />
 
@@ -26,16 +34,19 @@ export default function HistoryPage() {
   return (
     <div
       className={clsx(
-        `flex w-full flex-col items-center justify-center bg-slate-dark-1 transition-all`,
-        showFull
-          ? 'h-full pt-5 pb-[250px] lg:pt-[150px]'
-          : height > 840
-          ? 'h-full pt-5 pb-[250px] lg:h-screen lg:pb-0 lg:pt-0'
-          : 'h-full pt-5 pb-[250px] lg:h-full lg:pt-[150px]'
+        'flex w-full flex-col items-center justify-start space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all lg:justify-center',
+        height >= elementDimensions.height + 200 ? 'h-screen' : 'h-full'
       )}
+      style={{
+        paddingTop: `${headerHeight.height + 30}px`,
+        paddingBottom: `${headerHeight.height + 30}px`
+      }}
     >
       {showFull ? (
-        <div className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1">
+        <div
+          ref={elementRef}
+          className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1"
+        >
           <h1 className="text-center text-4xl font-bold lg:text-6xl">{history.titles[0].title}</h1>
           <div className="flex flex-col items-start justify-center space-y-5 py-5">
             {history.informations.map(
@@ -118,7 +129,10 @@ export default function HistoryPage() {
           </div>
         </div>
       ) : (
-        <div className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1">
+        <div
+          ref={elementRef}
+          className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1"
+        >
           <h1 className="text-center text-4xl font-bold lg:text-6xl">{history['short-title']}</h1>
 
           <div className="flex flex-col items-start justify-center space-y-3 py-5">

@@ -8,16 +8,33 @@ import GitHub from '../svg/GitHub'
 import Behance from '../svg/Behance'
 import LinkedIn from '../svg/LinkedIn'
 import Email from '../svg/Email'
+import useWindowDimensions from '../hooks/get-windowDimensions'
+import useElementDimensions from '../hooks/get-elementSizeByRef'
+import clsx from 'clsx'
+import useElementSize from '../hooks/get-elementSizeById'
 
 export default function AboutPage() {
   const { t, ready } = useTranslation()
+  const { height } = useWindowDimensions()
+  const [elementRef, elementDimensions] = useElementDimensions()
+  const headerHeight = useElementSize('header')
 
   if (!ready) return <Loading />
 
   const about = t('about', { returnObjects: true }) as About
 
   return (
-    <div className="flex h-full min-h-screen w-full flex-col items-center justify-start space-y-5 bg-slate-dark-1 py-10 text-slate-light-1 transition-all lg:h-screen lg:justify-center lg:py-0">
+    <div
+      ref={elementRef}
+      className={clsx(
+        'flex w-full flex-col items-center justify-start space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all lg:justify-center',
+        height >= elementDimensions.height ? 'h-screen' : 'h-full'
+      )}
+      style={{
+        paddingTop: `${headerHeight.height + 30}px`,
+        paddingBottom: `${headerHeight.height + 30}px`
+      }}
+    >
       <h1 className="text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>
       <div className="flex flex-col items-center justify-center space-y-3">
         {about.texts.map((text, index) => (

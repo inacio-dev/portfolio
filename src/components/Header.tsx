@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Loading from './Loading'
 import { motion } from 'framer-motion'
+import useElementSize from '../hooks/get-elementSizeById'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
@@ -16,6 +17,7 @@ interface HeaderProps {
 export default function Header({ setLanguage }: HeaderProps) {
   const navigate = useNavigate()
   const location = useLocation()
+  const headerHeight = useElementSize('header')
   const { t, i18n, ready } = useTranslation()
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const path = location.pathname
@@ -48,7 +50,10 @@ export default function Header({ setLanguage }: HeaderProps) {
   const links = t('header', { returnObjects: true }) as HeaderLink[]
 
   return (
-    <header className="sticky top-0 z-50 flex h-fit w-full flex-col items-center justify-center bg-slate-dark-1 transition-all lg:absolute lg:h-[96px] lg:flex-row lg:py-5">
+    <header
+      id="header"
+      className="fixed top-0 z-50 flex h-fit w-full flex-col items-center justify-center bg-slate-dark-1 transition-all lg:h-[96px] lg:flex-row lg:py-5"
+    >
       <button
         onClick={goHomePage}
         className="my-5 flex items-center justify-center space-x-3 lg:absolute lg:left-[15%] lg:my-0"
