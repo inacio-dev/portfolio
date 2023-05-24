@@ -13,9 +13,12 @@ import useElementSize from '../hooks/get-elementSizeById'
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
   const [showFull, setShowFull] = useState<boolean>(false)
+
   const { height } = useWindowDimensions()
   const [elementRef, elementDimensions, reloadElementDimensions] = useElementDimensions()
-  const headerHeight = useElementSize('header')
+  const headerSize = useElementSize('header')
+  const footerSize = useElementSize('history-footer')
+
   const location = useLocation()
   const path = location.pathname
 
@@ -35,11 +38,11 @@ export default function HistoryPage() {
     <div
       className={clsx(
         'flex w-full flex-col items-center justify-start space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all lg:justify-center',
-        height >= elementDimensions.height + 200 ? 'h-screen' : 'h-full'
+        height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
       )}
       style={{
-        paddingTop: `${headerHeight.height + 30}px`,
-        paddingBottom: `${headerHeight.height + 30}px`
+        paddingTop: `${headerSize.height + 30}px`,
+        paddingBottom: `${footerSize.height + 30}px`
       }}
     >
       {showFull ? (

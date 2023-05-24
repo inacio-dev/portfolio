@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Loading from './Loading'
 import { motion } from 'framer-motion'
-import useElementSize from '../hooks/get-elementSizeById'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
@@ -17,7 +16,6 @@ interface HeaderProps {
 export default function Header({ setLanguage }: HeaderProps) {
   const navigate = useNavigate()
   const location = useLocation()
-  const headerHeight = useElementSize('header')
   const { t, i18n, ready } = useTranslation()
   const [showMenu, setShowMenu] = useState<boolean>(false)
   const path = location.pathname
