@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import Loading from '../components/Loading'
 import { Terms } from '../types'
-import useWindowDimensions from '../hooks/get-windowDimensions'
-import useElementDimensions from '../hooks/get-elementSizeByRef'
-import useElementSize from '../hooks/get-elementSizeById'
+import useWindowDimensions from '../hooks/use-windowDimensions'
+import useElementDimensions from '../hooks/use-elementDimensions'
+import useElementSize from '../hooks/use-elementSize'
 import clsx from 'clsx'
 
 export default function PoliciesPage() {
@@ -12,9 +12,6 @@ export default function PoliciesPage() {
   const { height } = useWindowDimensions()
   const [elementRef, elementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
-
-  console.log(height)
-  console.log(elementDimensions.height)
 
   if (!ready) return <Loading />
 

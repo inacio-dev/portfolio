@@ -6,9 +6,9 @@ import HistoryFooter from '../components/HistoryFooter'
 import Loading from '../components/Loading'
 import { History } from '../types'
 import IconLink from '../svg/icons/IconLink'
-import useWindowDimensions from '../hooks/get-windowDimensions'
-import useElementDimensions from '../hooks/get-elementSizeByRef'
-import useElementSize from '../hooks/get-elementSizeById'
+import useWindowDimensions from '../hooks/use-windowDimensions'
+import useElementDimensions from '../hooks/use-elementDimensions'
+import useElementSize from '../hooks/use-elementSize'
 
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
@@ -28,6 +28,10 @@ export default function HistoryPage() {
 
   useEffect(() => {
     reloadElementDimensions()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }, [showFull])
 
   if (!ready) return <Loading />
