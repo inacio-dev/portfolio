@@ -16,7 +16,7 @@ import useElementSize from '../hooks/use-elementSize'
 export default function AboutPage() {
   const { t, ready } = useTranslation()
 
-  const { height } = useWindowDimensions()
+  const { width, height } = useWindowDimensions()
   const [elementRef, elementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
 
@@ -28,11 +28,11 @@ export default function AboutPage() {
     <div
       ref={elementRef}
       className={clsx(
-        'flex w-full flex-col items-center justify-start space-y-5 overflow-hidden bg-slate-dark-1 pb-8 text-slate-light-1 transition-all lg:justify-center',
+        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 pb-8 text-slate-light-1 transition-all',
         height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
       )}
       style={{
-        paddingTop: `${headerSize.height + 30}px`
+        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
       }}
     >
       <h1 className="text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>

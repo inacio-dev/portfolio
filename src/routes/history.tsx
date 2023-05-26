@@ -14,8 +14,8 @@ export default function HistoryPage() {
   const { t, ready } = useTranslation()
   const [showFull, setShowFull] = useState<boolean>(false)
 
-  const { height } = useWindowDimensions()
-  const [elementRef, elementDimensions, reloadElementDimensions] = useElementDimensions()
+  const { width, height } = useWindowDimensions()
+  const [elementRef, elementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
   const footerSize = useElementSize('history-footer')
 
@@ -27,7 +27,6 @@ export default function HistoryPage() {
   }, [path])
 
   useEffect(() => {
-    reloadElementDimensions()
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -41,12 +40,12 @@ export default function HistoryPage() {
   return (
     <div
       className={clsx(
-        'flex w-full flex-col items-center justify-start space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all lg:justify-center',
+        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
         height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
       )}
       style={{
-        paddingTop: `${headerSize.height + 30}px`,
-        paddingBottom: `${footerSize.height + 30}px`
+        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`,
+        paddingBottom: width > 1023 ? `${footerSize.height + 60}px` : `${headerSize.height + 30}px`
       }}
     >
       {showFull ? (

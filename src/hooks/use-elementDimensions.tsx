@@ -28,13 +28,21 @@ export default function useElementDimensions(): [
   }
 
   useEffect(() => {
-    getElementDimensions()
-  }, [elementRef.current])
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width, height } = entry.contentRect
+        setElementDimensions({ width, height })
+      }
+    })
 
-  useEffect(() => {
-    window.addEventListener('resize', getElementDimensions)
+    if (elementRef.current) {
+      resizeObserver.observe(elementRef.current)
+    }
+
     return () => {
-      window.removeEventListener('resize', getElementDimensions)
+      if (elementRef.current) {
+        resizeObserver.unobserve(elementRef.current)
+      }
     }
   }, [])
 
