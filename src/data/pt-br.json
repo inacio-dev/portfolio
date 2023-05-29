@@ -112,22 +112,21 @@
       {
         "title": 1,
         "presently": true,
-        "link": "https://www.digitalquatro.com.br/",
-        "time": "JULHO / 2022 / ATUALMENTE",
-        "name": "MARKETING DIGITAL, DIGITAL QUATRO",
+        "link": "https://www.workana.com/freelancer/d19115f803e41af80776e952d9e1bdd1",
+        "time": "MAIO / 2022 / ATUALMENTE",
+        "name": "DESENVOLVEDOR DE SOFTWARE, FREELANCER",
         "paragraphs": [
-          "Co-proprietário da empresa Digital Quatro que executa serviços de Marketing Digital, gestão de Mídia Social e Desenvolvimento Web para outras empresas. Executa o papel de administrador, designer geral, gestor de anúncios (Google ADS, Facebook ADS) e programador Full-Stack."
+          "Com 6 anos de experiência como programador, utilizando de habilidades avançadas em linguagens como Python, especialmente na análise e coleta de dados, além de conhecimento em C e Java para desenvolvimento de software e em Javascript para desenvolvimento web. Atualmente, mais focado em desenvolvimento web Full-Stack, utilizando as principais ferramentas disponíveis no mercado."
         ]
       },
       {
         "title": 1,
-        "presently": true,
-        "link": "/projects/dev/",
-        "time": "MAIO / 2022 / ATUALMENTE",
-        "name": "PROGRAMADOR FREELANCER",
+        "presently": false,
+        "link": "https://www.apeuloja.com.br/",
+        "time": "JANEIRO / 2023",
+        "name": "MARKETING DIGITAL, AUTO PEÇAS ESTADOS UNIDOS",
         "paragraphs": [
-          "Programação Front-End e integração com Back-End do site https://b2b.apeuloja.com.br/ da empresa Auto Peças Estados Unidos com objetivo de compra e venda (E-commerce) entre empresas do segmento de auto peças.",
-          "Programa com interfáce de usuário utilizando a linguagem Python visando a leitura e análise de PDF’s para inserção em Excel como banco de dados de forma automatizada em sistemas Windows."
+          "Atuou como gestor de anúncios durante 6 meses, utilizando plataformas como Google Ads e Facebook Ads. Sua função nessa área envolveu a implementação de estratégias, análise, criação e otimização de anúncios, além da vinculação de sites com o Google Tag Manager e o gerenciamento de dados de resposta por meio de tags de conversão, como o Facebook Pixel e o Google Analytics."
         ]
       },
       {
@@ -137,6 +136,7 @@
         "name": "BACHARELADO EM ENGENHARIA DE COMPUTAÇÃO, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
         "paragraphs": [
           "Atualmente no 7º semestre.",
+          "Participando como voluntário na elaboração de Software do Programa de Extensão Universitária da UFC no projeto de “Avaliação dos indicadores antropométricos e hematológicos em crianças entre 4 a 12 anos assistidas pelo Lions Clube de Acaraú Ceará, Escola Municipal de Ensino Infantil e Ensino Fundamental Comissário Francisco Barbosa em Maracanaú - Ceará e pelos adolescentes assistidos pela Coordenadoria de Desenvolvimento Familiar (CDFAM)”.",
           "Participação da maratona HackPI Ceará: Hackathon para a Primeira Infância Cearense no ano de 2021.",
           "Participação dos minicursos Autenticação em Redes e Redes Neurais convolucionais com Tensorflow oferecidos durante a Semana da Tecnologia da Informação e Comunicação (SETIC) no ano de 2020."
         ]

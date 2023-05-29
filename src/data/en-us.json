@@ -112,22 +112,21 @@
       {
         "title": 1,
         "presently": true,
-        "link": "https://www.digitalquatro.com.br/",
-        "time": "JULY / 2022 / CURRENTLY",
-        "name": "MARKETING DIGITAL, DIGITAL QUATRO",
+        "link": "https://www.workana.com/freelancer/d19115f803e41af80776e952d9e1bdd1",
+        "time": "MAY / 2022 / CURRENTLY",
+        "name": "SOFTWARE DEVELOPER, FREELANCER",
         "paragraphs": [
-          "Co-owner of the company Digital Quatro that performs Digital Marketing, Social Media Management and Web Development services for other companies. Performs the role of administrator, general designer, ads manager (Google ADS, Facebook ADS) and Full-Stack programmer."
+          "With 6 years of experience as a programmer, using advanced skills in languages such as Python, especially in data analysis and collection, in addition to knowledge in C and Java for software development and in Javascript for web development. Currently, more focused on Full-Stack web development, using the main tools available on the market."
         ]
       },
       {
         "title": 1,
-        "presently": true,
-        "link": "/projects/dev/",
-        "time": "MAY / 2022 / CURRENTLY",
-        "name": "FREELANCER PROGRAMMER",
+        "presently": false,
+        "link": "https://www.apeuloja.com.br/",
+        "time": "JANUARY / 2023",
+        "name": "DIGITAL MARKETING, AUTO PEÇAS ESTADOS UNIDOS",
         "paragraphs": [
-          "Front-End programming and Back-End integration of the website https://b2b.apeuloja.com.br/ of the company Auto Peças United States with the purpose of buying and selling (E-commerce) between companies in the auto parts segment. ",
-          "Program with user interface using the Python language to read and analyze PDFs for insertion into Excel as a database in an automated way on Windows systems."
+          "Worked as an ad manager for 6 months, using platforms such as Google Ads and Facebook Ads. His role in this area involved implementing strategies, analysis, ad creation and optimization, as well as linking websites with Google Tag Manager and managing response data through conversion tags such as Facebook Pixel and Google Analytics."
         ]
       },
       {
@@ -137,6 +136,7 @@
         "name": "BACHELOR'S DEGREE IN COMPUTER ENGINEERING, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
         "paragraphs": [
           "Currently in the 7th semester.",
+          "Participating as a volunteer in the development of Software for the UFC University Extension Program in the project “Assessment of anthropometric and hematological indicators in children between 4 and 12 years old assisted by the Lions Club of Acaraú Ceará, Municipal School of Early Childhood Education and Elementary Education Comissário Francisco Barbosa in Maracanaú - Ceará and by the adolescents assisted by the Family Development Coordination (CDFAM)”.",
           "Participation of the HackPI Ceará marathon: Hackathon for Ceará's First Childhood in the year 2021.",
           "Participation of the mini-courses Authentication in Networks and Convolutional Neural Networks with Tensorflow offered during the Information and Communication Technology Week (SETIC) in the year 2020."
         ]

@@ -12,6 +12,7 @@ import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementDimensions from '../hooks/use-elementDimensions'
 import clsx from 'clsx'
 import useElementSize from '../hooks/use-elementSize'
+import AboutImage from '../svg/images/ImageAbout'
 
 export default function AboutPage() {
   const { t, ready } = useTranslation()
@@ -28,20 +29,24 @@ export default function AboutPage() {
     <div
       ref={elementRef}
       className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 pb-8 text-slate-light-1 transition-all',
+        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
         height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
       )}
       style={{
         paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
       }}
     >
-      <h1 className="text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>
-      <div className="flex flex-col items-center justify-center space-y-3">
-        {about.texts.map((text, index) => (
-          <p key={index} className="max-w-[80%]">
-            {text}
-          </p>
-        ))}
+      <div className="flex max-w-[60%] flex-col items-center justify-center lg:flex-row">
+        <div className="flex flex-col items-center justify-center space-y-3">
+          <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>
+          {about.texts.map((text, index) => (
+            <p key={index} className="max-w-[100%] lg:max-w-[80%]">
+              {text}
+            </p>
+          ))}
+        </div>
+
+        <AboutImage className="w-full" />
       </div>
 
       <h2 className="text-xl font-bold">{about['contact-title']}</h2>
