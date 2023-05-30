@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Outlet, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
+import { AnimatePresence, motion } from 'framer-motion'
 
 interface RootPageProps {
   setLanguage: (lang: string) => void
@@ -11,6 +12,9 @@ export default function RootPage({ setLanguage }: RootPageProps) {
   const { i18n } = useTranslation()
   const { lang } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const [homePageKey, setHomePageKey] = useState(0)
 
   useEffect(() => {
     if (lang && lang !== i18n.language) {
@@ -21,10 +25,18 @@ export default function RootPage({ setLanguage }: RootPageProps) {
     }
   }, [lang])
 
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setHomePageKey((prevKey) => prevKey + 1)
+    }
+  }, [location])
+
   return (
     <>
       <Header setLanguage={setLanguage} />
-      <Outlet />
+      <AnimatePresence mode="wait">
+        <Outlet key={homePageKey} />
+      </AnimatePresence>
     </>
   )
 }

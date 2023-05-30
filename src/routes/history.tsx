@@ -9,6 +9,7 @@ import IconLink from '../svg/icons/IconLink'
 import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementDimensions from '../hooks/use-elementDimensions'
 import useElementSize from '../hooks/use-elementSize'
+import { motion } from 'framer-motion'
 
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
@@ -38,7 +39,10 @@ export default function HistoryPage() {
   const history = t('history', { returnObjects: true }) as History
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.8 } }}
+      exit={{ opacity: 0.5, y: 20, transition: { duration: 0.4 } }}
       className={clsx(
         'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
         height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
@@ -167,6 +171,6 @@ export default function HistoryPage() {
         </div>
       )}
       <HistoryFooter showFull={showFull} setShowFull={setShowFull} history={history} />
-    </div>
+    </motion.div>
   )
 }
