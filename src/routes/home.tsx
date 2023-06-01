@@ -75,10 +75,7 @@ export default function HomePage() {
               {t('home.contact')}
             </a>
 
-            <a
-              href=""
-              className="invisible hidden items-center justify-center space-x-2 lg:visible lg:flex"
-            >
+            <a href="" className="invisible hidden items-center justify-center space-x-2 lg:flex">
               <IconTour />
               <p className="text-xl text-slate-light-1">{t('home.tour')}</p>
             </a>
