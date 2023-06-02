@@ -8,6 +8,28 @@ export interface Data {
   about: About
   terms: Terms
   history: History
+  project: Project
+}
+
+export interface Project {
+  title: string
+  'link-button': string
+  'filter-button': string
+  categories: Category[]
+  projects: FullProject[]
+}
+
+export interface FullProject {
+  id: number
+  category: number
+  link?: string
+  name: string
+  description: string
+}
+
+export interface Category {
+  id: number
+  name: string
 }
 
 export interface HeaderLink {

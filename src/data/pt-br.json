@@ -89,6 +89,38 @@
     ],
     "footer": "O uso deste site implica na aceitação plena e irrestrita destes termos de uso e política de privacidade. Em caso de dúvidas, entre em contato com o titular através do formulário disponibilizado no site. Obrigado por visitar este site pessoal."
   },
+  "project": {
+    "title": "MEUS PROJETOS",
+    "link-button": "VER MAIS",
+    "filter-button": "FILTRAR",
+    "categories": [
+      {
+        "id": 1,
+        "name": "FULL STACK"
+      },
+      {
+        "id": 2,
+        "name": "ENGENHARIA"
+      },
+      {
+        "id": 3,
+        "name": "DESIGN"
+      },
+      {
+        "id": 4,
+        "name": "MARKETING DIGITAL"
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "category": 1,
+        "link": "/",
+        "name": "Site Portifólio",
+        "description": "Este site apresenta meus projetos, trabalhos anteriores e informações sobre minhas habilidades em cada área. Aqui, você pode encontrar mais detalhes sobre o design e o código fonte utilizados na sua criação."
+      }
+    ]
+  },
   "history": {
     "short-title": "ATUALMENTE",
     "button": "VER MAIS",
