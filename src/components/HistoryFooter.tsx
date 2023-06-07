@@ -1,7 +1,6 @@
-import clsx from 'clsx'
 import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
-import IconDownload from '../svg/icons/IconDownload'
+import IconDownload from '../svg/icons/Download'
 import { History } from '../types'
 
 interface HistoryProps {

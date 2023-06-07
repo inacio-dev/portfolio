@@ -5,12 +5,12 @@ import useElementSize from '../hooks/use-elementSize'
 import clsx from 'clsx'
 import HomeImage from '../svg/images/ImageHome'
 import Loading from '../components/Loading'
-import IconTour from '../svg/icons/IconTour'
 import { Info } from '../types'
 import { useEffect, useState } from 'react'
-import IconHomeChange from '../svg/icons/IconHomeChange'
+import IconHomeChange from '../svg/icons/HomeChange'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import IconTour from '../svg/icons/Tour'
 
 export default function HomePage() {
   const { t, ready, i18n } = useTranslation()

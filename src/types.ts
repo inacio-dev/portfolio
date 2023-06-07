@@ -15,14 +15,17 @@ export interface Project {
   title: string
   'link-button': string
   'filter-button': string
+  'clear-button': string
+  'external-button': string
   categories: Category[]
   projects: FullProject[]
 }
 
 export interface FullProject {
   id: number
-  category: number
+  category: number[]
   link?: string
+  'external-address'?: string
   name: string
   description: string
 }
@@ -30,6 +33,7 @@ export interface FullProject {
 export interface Category {
   id: number
   name: string
+  icon: string
 }
 
 export interface HeaderLink {

@@ -8,8 +8,12 @@ import clsx from 'clsx'
 import { Project } from '../types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import IconLink from '../svg/icons/IconLink'
-import IconFilter from '../svg/icons/IconFilter'
+import IconFilter from '../svg/icons/Filter'
+import IconClear from '../svg/icons/Clear'
+import IconDeveloper from '../svg/icons/Developer'
+import IconEngineer from '../svg/icons/Engineer'
+import IconDesign from '../svg/icons/Design'
+import IconMarketing from '../svg/icons/Marketing'
 
 export default function ProjectsPage() {
   const { t, ready } = useTranslation()
@@ -43,33 +47,95 @@ export default function ProjectsPage() {
         <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.title}</h1>
 
         <div className="grid grid-cols-1 items-center justify-center space-y-5">
-          <button className="group flex items-center justify-center justify-self-start pl-[10%]">
-            <IconFilter />
-            {project['filter-button']}
-          </button>
+          <div className="group flex items-center justify-center justify-self-start pl-[10%]">
+            <motion.div
+              whileHover={{
+                width: 820,
+                transition: { duration: 0.2 }
+              }}
+              className="group flex h-12 w-20 items-center justify-center rounded-sm text-slate-light-1 transition-all hover:bg-brand-blue-columbia/20"
+            >
+              <div className="flex items-center justify-center group-hover:hidden">
+                <IconFilter />
+                {project['filter-button']}
+              </div>
+
+              {category !== 0 && (
+                <button
+                  onClick={() => setCategory(0)}
+                  className="mr-10 hidden h-full items-center justify-center rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex group-hover:animate-tooltip_show"
+                >
+                  <IconClear className="mr-3" />
+                  {project['clear-button']}
+                </button>
+              )}
+
+              {project.categories.map((categ, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCategory(categ.id)}
+                  className={clsx(
+                    'hidden h-full items-center justify-center space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex group-hover:animate-tooltip_show',
+                    category === categ.id && 'bg-brand-blue-columbia/20'
+                  )}
+                >
+                  <div className="pr-3" dangerouslySetInnerHTML={{ __html: categ.icon }} />
+                  {categ.name}
+                </button>
+              ))}
+            </motion.div>
+          </div>
 
           <div className="flex max-w-[80%] flex-col items-center space-y-10 justify-self-center">
             {project.projects.map(
               (proj, index) =>
-                (category === 0 || proj.category === category) && (
+                (category === 0 || proj.category.includes(category)) && (
                   <div
                     key={index}
                     className="grid border-collapse grid-cols-3 items-center border-b border-t border-slate-light-1 p-3"
                   >
-                    <div className="flex items-center justify-center space-x-3">
+                    <div className="flex items-center justify-center space-x-5">
                       <h2 className="text-xl font-semibold">{proj.name}</h2>
+                      <div className="grid grid-cols-2 items-center justify-center gap-2">
+                        <IconDeveloper
+                          className={clsx(
+                            proj.category.includes(1) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
+                          )}
+                        />
+                        <IconEngineer
+                          className={clsx(
+                            proj.category.includes(2) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
+                          )}
+                        />
+                        <IconDesign
+                          className={clsx(
+                            proj.category.includes(3) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
+                          )}
+                        />
+                        <IconMarketing
+                          className={clsx(
+                            proj.category.includes(4) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
+                          )}
+                        />
+                      </div>
                     </div>
 
                     <p className="justify-self-center">{proj.description}</p>
                     <div className="flex items-center justify-center space-x-5 justify-self-center">
-                      {proj.link && (
-                        <Link to={proj.link} replace className="transition-all hover:scale-125">
-                          <IconLink className="w-8" />
+                      {proj['external-address'] && (
+                        <Link
+                          to={proj['external-address']}
+                          replace
+                          className="transition-all hover:scale-125"
+                        >
+                          {project['external-button']}
                         </Link>
                       )}
-                      <Link to="" replace className="transition-all hover:scale-125">
-                        {project['link-button']}
-                      </Link>
+                      {proj.link && (
+                        <Link to={proj.link} replace className="transition-all hover:scale-125">
+                          {project['link-button']}
+                        </Link>
+                      )}
                     </div>
                   </div>
                 )

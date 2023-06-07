@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import IconChange from '../svg/icons/IconChange'
 import Logo from '../svg/Logo'
 import { HeaderLink } from '../types'
-import IconMenu from '../svg/icons/IconMenu'
+import IconMenu from '../svg/icons/Menu'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Loading from './Loading'
 import { motion } from 'framer-motion'
+import IconChange from '../svg/icons/Change'
 
 interface HeaderProps {
   setLanguage: (lang: string) => void
