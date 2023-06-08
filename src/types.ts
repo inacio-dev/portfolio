@@ -24,7 +24,7 @@ export interface Project {
 export interface FullProject {
   id: number
   category: number[]
-  link?: string
+  link: boolean
   'external-address'?: string
   name: string
   description: string

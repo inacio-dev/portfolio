@@ -10,19 +10,20 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import IconFilter from '../svg/icons/Filter'
 import IconClear from '../svg/icons/Clear'
-import IconDeveloper from '../svg/icons/Developer'
-import IconEngineer from '../svg/icons/Engineer'
-import IconDesign from '../svg/icons/Design'
-import IconMarketing from '../svg/icons/Marketing'
+import CategoriesIcons from '../components/CategoriesIcons'
 
 export default function ProjectsPage() {
-  const { t, ready } = useTranslation()
+  const { t, ready, i18n } = useTranslation()
 
   const { width, height } = useWindowDimensions()
   const [elementRef, elementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
 
   const [category, setCategory] = useState(0)
+
+  function setPage(link: string) {
+    return `/${i18n.language}/projects/${link}`
+  }
 
   if (!ready) return <Loading />
 
@@ -38,7 +39,7 @@ export default function ProjectsPage() {
         ref={elementRef}
         className={clsx(
           'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-          height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
+          height >= elementDimensions.height + headerSize.height + 30 ? 'h-screen' : 'h-full'
         )}
         style={{
           paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
@@ -47,7 +48,7 @@ export default function ProjectsPage() {
         <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.title}</h1>
 
         <div className="grid grid-cols-1 items-center justify-center space-y-5">
-          <div className="group flex items-center justify-center justify-self-start pl-[10%]">
+          <div className="group invisible hidden items-center justify-center justify-self-start pl-[10%] lg:visible lg:flex">
             <motion.div
               whileHover={{
                 width: 820,
@@ -86,53 +87,78 @@ export default function ProjectsPage() {
             </motion.div>
           </div>
 
+          <div className="group visible flex w-[80%] flex-col items-center justify-center justify-self-center lg:invisible lg:hidden">
+            <div className="grid w-full grid-cols-2 items-center justify-center gap-3 bg-brand-blue-columbia/20">
+              <div className="flex items-center justify-center">
+                <IconFilter />
+                {project['filter-button']}
+              </div>
+
+              {category !== 0 && (
+                <button
+                  onClick={() => setCategory(0)}
+                  className="mr-10 flex h-full items-center justify-center rounded-sm px-5 hover:bg-brand-blue-columbia/70"
+                >
+                  <IconClear className="mr-3" />
+                  {project['clear-button']}
+                </button>
+              )}
+            </div>
+            <div className="grid w-full grid-cols-2 items-center justify-center gap-3 bg-brand-blue-columbia/20">
+              {project.categories.map((categ, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCategory(categ.id)}
+                  className={clsx(
+                    'flex h-full items-center justify-center gap-3 space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70',
+                    category === categ.id && 'bg-brand-blue-columbia/20'
+                  )}
+                >
+                  <div dangerouslySetInnerHTML={{ __html: categ.icon }} />
+                  {categ.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="flex max-w-[80%] flex-col items-center space-y-10 justify-self-center">
             {project.projects.map(
               (proj, index) =>
                 (category === 0 || proj.category.includes(category)) && (
                   <div
                     key={index}
-                    className="grid border-collapse grid-cols-3 items-center border-b border-t border-slate-light-1 p-3"
+                    className="grid border-collapse grid-cols-2 grid-rows-2 items-center border-b border-t border-slate-light-1 p-3 lg:grid-cols-3 lg:grid-rows-1"
                   >
                     <div className="flex items-center justify-center space-x-5">
                       <h2 className="text-xl font-semibold">{proj.name}</h2>
-                      <div className="grid grid-cols-2 items-center justify-center gap-2">
-                        <IconDeveloper
-                          className={clsx(
-                            proj.category.includes(1) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
-                          )}
-                        />
-                        <IconEngineer
-                          className={clsx(
-                            proj.category.includes(2) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
-                          )}
-                        />
-                        <IconDesign
-                          className={clsx(
-                            proj.category.includes(3) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
-                          )}
-                        />
-                        <IconMarketing
-                          className={clsx(
-                            proj.category.includes(4) ? 'fill-slate-light-1' : 'fill-slate-dark-5'
-                          )}
-                        />
-                      </div>
+                      <CategoriesIcons
+                        className="invisible hidden lg:visible lg:grid"
+                        categories={proj.category}
+                      />
                     </div>
 
-                    <p className="justify-self-center">{proj.description}</p>
-                    <div className="flex items-center justify-center space-x-5 justify-self-center">
+                    <CategoriesIcons
+                      className="visible grid justify-self-center lg:invisible lg:hidden"
+                      categories={proj.category}
+                    />
+                    <p className="justify-self-center text-sm lg:text-base">{proj.description}</p>
+
+                    <div className="flex flex-col items-center justify-center space-y-3 justify-self-center lg:flex-row lg:space-y-0 lg:space-x-5">
                       {proj['external-address'] && (
                         <Link
+                          className="flex h-12 items-center justify-center rounded-sm px-3 transition-all hover:bg-brand-blue-columbia/20"
                           to={proj['external-address']}
                           replace
-                          className="transition-all hover:scale-125"
                         >
                           {project['external-button']}
                         </Link>
                       )}
                       {proj.link && (
-                        <Link to={proj.link} replace className="transition-all hover:scale-125">
+                        <Link
+                          className="flex h-12 items-center justify-center rounded-sm px-3 transition-all hover:bg-brand-blue-columbia/20"
+                          to={setPage(String(proj.id))}
+                          replace
+                        >
                           {project['link-button']}
                         </Link>
                       )}

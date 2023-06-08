@@ -7,6 +7,7 @@ import Loading from './components/Loading'
 import AboutPage from './routes/about'
 import PoliciesPage from './routes/terms-policies'
 import ProjectsPage from './routes/projects'
+import ProjectPage from './routes/project'
 
 export default function App() {
   return (
@@ -20,7 +21,11 @@ export default function App() {
             <Route path="history" element={<HistoryPage />} />
             <Route path="about" element={<AboutPage />} />
             <Route path="terms-policies" element={<PoliciesPage />} />
-            <Route path="projects" element={<ProjectsPage />} />
+
+            <Route path="projects">
+              <Route index element={<ProjectsPage />} />
+              <Route path=":id/" element={<ProjectPage />} />
+            </Route>
 
             <Route path="loading" element={<Loading />} />
             <Route path="*" element={<Navigate to="/" />} />
