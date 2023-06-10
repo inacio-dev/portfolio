@@ -36,7 +36,7 @@ export default function AboutPage() {
         ref={elementRef}
         className={clsx(
           'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-          height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
+          height >= elementDimensions.height + headerSize.height ? 'h-screen' : 'h-full'
         )}
         style={{
           paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`

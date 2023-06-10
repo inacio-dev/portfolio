@@ -6,7 +6,7 @@ import useElementDimensions from '../hooks/use-elementDimensions'
 import useElementSize from '../hooks/use-elementSize'
 import clsx from 'clsx'
 import { Project } from '../types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import IconFilter from '../svg/icons/Filter'
 import IconClear from '../svg/icons/Clear'
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
         ref={elementRef}
         className={clsx(
           'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-          height >= elementDimensions.height + headerSize.height + 30 ? 'h-screen' : 'h-full'
+          height >= elementDimensions.height + headerSize.height ? 'h-screen' : 'h-full'
         )}
         style={{
           paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`

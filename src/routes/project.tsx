@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FullProject } from '../types'
+import IconAnnex from '../svg/icons/Annex'
 
 export default function ProjectPage() {
   const { t, ready, i18n } = useTranslation()
@@ -17,6 +18,8 @@ export default function ProjectPage() {
   const { width, height } = useWindowDimensions()
   const [elementRef, elementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
+
+  const [showMenu, setShowMenu] = useState<boolean>(false)
 
   const [project, setProject] = useState<FullProject | undefined>()
 
@@ -39,14 +42,20 @@ export default function ProjectPage() {
         ref={elementRef}
         className={clsx(
           'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-          height >= elementDimensions.height + headerSize.height + 30 ? 'h-screen' : 'h-full'
+          height >= elementDimensions.height + headerSize.height ? 'h-screen' : 'h-full'
         )}
         style={{
           paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
         }}
       >
         {project && (
-          <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.name}</h1>
+          <>
+            <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.name}</h1>
+
+            <div className="flex max-w-[80%] items-center justify-center">
+              <p>{project.description}</p>
+            </div>
+          </>
         )}
       </div>
     </motion.div>
