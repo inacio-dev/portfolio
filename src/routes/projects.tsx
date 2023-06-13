@@ -36,7 +36,7 @@ export default function ProjectsPage() {
     controls.start('hidden')
 
     setTimeout(() => {
-      setCategory(value)
+      setCategory(value !== category ? value : 0)
     }, 1200)
   }
 
