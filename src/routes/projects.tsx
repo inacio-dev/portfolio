@@ -112,7 +112,7 @@ export default function ProjectsPage() {
             </motion.div>
           </div>
 
-          <div className="group visible flex w-[80%] flex-col items-center justify-center justify-self-center lg:invisible lg:hidden">
+          {/* <div className="group visible flex w-[80%] flex-col items-center justify-center justify-self-center lg:invisible lg:hidden">
             <div className="grid w-full grid-cols-2 items-center justify-center gap-3 bg-brand-blue-columbia/20">
               <div className="flex items-center justify-center">
                 <IconFilter />
@@ -144,7 +144,7 @@ export default function ProjectsPage() {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <motion.div
             ref={ref}
