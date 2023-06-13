@@ -12,19 +12,25 @@ import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementDimensions from '../hooks/use-elementDimensions'
 import clsx from 'clsx'
 import useElementSize from '../hooks/use-elementSize'
-import AboutImage from '../svg/images/ImageAbout'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export default function AboutPage() {
   const { t, ready } = useTranslation()
 
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions] = useElementDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
+
+  const [imagesLoad, setImagesLoad] = useState<number>(0)
 
   if (!ready) return <Loading />
 
   const about = t('about', { returnObjects: true }) as About
+
+  useEffect(() => {
+    reloadElementDimensions()
+  }, [imagesLoad])
 
   return (
     <motion.div
@@ -52,7 +58,12 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <AboutImage className="w-full" />
+          <img
+            src="/about-image.svg"
+            onLoad={() => setImagesLoad(imagesLoad + 1)}
+            className="w-full"
+            alt="home-image"
+          />
         </div>
 
         <h2 className="text-xl font-bold">{about['contact-title']}</h2>

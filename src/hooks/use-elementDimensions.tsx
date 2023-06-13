@@ -5,22 +5,30 @@ type ElementDimensions = {
   height: number
 }
 
-export default function useElementDimensions(): [
+type ElementDimensionsHookResult = [
   LegacyRef<HTMLDivElement>,
   ElementDimensions,
-  () => void
-] {
+  () => void,
+  (pause: boolean) => void
+]
+
+export default function useElementDimensions(): ElementDimensionsHookResult {
   const [elementDimensions, setElementDimensions] = useState<ElementDimensions>({
     width: 0,
     height: 0
   })
+  const [isPaused, setIsPaused] = useState(false)
   const elementRef = useRef<HTMLDivElement>(null)
 
   const getElementDimensions = () => {
-    if (elementRef.current) {
+    if (!isPaused && elementRef.current) {
       const { clientWidth: width, clientHeight: height } = elementRef.current
       setElementDimensions({ width, height })
     }
+  }
+
+  const handleDimensionsCapture = (pause: boolean) => {
+    setIsPaused(pause)
   }
 
   const reloadElementDimensions = () => {
@@ -46,5 +54,5 @@ export default function useElementDimensions(): [
     }
   }, [])
 
-  return [elementRef, elementDimensions, reloadElementDimensions]
+  return [elementRef, elementDimensions, reloadElementDimensions, handleDimensionsCapture]
 }

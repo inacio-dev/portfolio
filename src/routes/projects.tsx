@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import Loading from '../components/Loading'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementDimensions from '../hooks/use-elementDimensions'
 import useElementSize from '../hooks/use-elementSize'
@@ -11,15 +11,34 @@ import { Link } from 'react-router-dom'
 import IconFilter from '../svg/icons/Filter'
 import IconClear from '../svg/icons/Clear'
 import CategoriesIcons from '../components/CategoriesIcons'
+import { useInView } from 'react-intersection-observer'
 
 export default function ProjectsPage() {
   const { t, ready, i18n } = useTranslation()
 
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions] = useElementDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions, handleDimensionsCapture] =
+    useElementDimensions()
   const headerSize = useElementSize('header')
 
   const [category, setCategory] = useState(0)
+
+  const controls = useAnimation()
+  const [ref, inView] = useInView()
+
+  const variants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } },
+    hidden: { opacity: 0, y: 30, transition: { duration: 1, delay: 0.2 } }
+  }
+
+  function setInfo(value: number) {
+    handleDimensionsCapture(true)
+    controls.start('hidden')
+
+    setTimeout(() => {
+      setCategory(value)
+    }, 1200)
+  }
 
   function setPage(link: string) {
     return `/${i18n.language}/projects/${link}`
@@ -28,6 +47,12 @@ export default function ProjectsPage() {
   if (!ready) return <Loading />
 
   const project = t('project', { returnObjects: true }) as Project
+
+  useEffect(() => {
+    inView ? controls.start('visible') : controls.start('hidden')
+    handleDimensionsCapture(false)
+    reloadElementDimensions()
+  }, [controls, inView, category])
 
   return (
     <motion.div
@@ -63,7 +88,7 @@ export default function ProjectsPage() {
 
               {category !== 0 && (
                 <button
-                  onClick={() => setCategory(0)}
+                  onClick={() => setInfo(0)}
                   className="mr-10 hidden h-full items-center justify-center rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex group-hover:animate-tooltip_show"
                 >
                   <IconClear className="mr-3" />
@@ -74,7 +99,7 @@ export default function ProjectsPage() {
               {project.categories.map((categ, index) => (
                 <button
                   key={index}
-                  onClick={() => setCategory(categ.id)}
+                  onClick={() => setInfo(categ.id)}
                   className={clsx(
                     'hidden h-full items-center justify-center space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70 group-hover:flex group-hover:animate-tooltip_show',
                     category === categ.id && 'bg-brand-blue-columbia/20'
@@ -96,7 +121,7 @@ export default function ProjectsPage() {
 
               {category !== 0 && (
                 <button
-                  onClick={() => setCategory(0)}
+                  onClick={() => setInfo(0)}
                   className="mr-10 flex h-full items-center justify-center rounded-sm px-5 hover:bg-brand-blue-columbia/70"
                 >
                   <IconClear className="mr-3" />
@@ -108,7 +133,7 @@ export default function ProjectsPage() {
               {project.categories.map((categ, index) => (
                 <button
                   key={index}
-                  onClick={() => setCategory(categ.id)}
+                  onClick={() => setInfo(categ.id)}
                   className={clsx(
                     'flex h-full items-center justify-center gap-3 space-x-10 rounded-sm px-5 hover:bg-brand-blue-columbia/70',
                     category === categ.id && 'bg-brand-blue-columbia/20'
@@ -121,7 +146,13 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <div className="flex max-w-[80%] flex-col items-center space-y-10 justify-self-center">
+          <motion.div
+            ref={ref}
+            animate={controls}
+            variants={variants}
+            initial="hidden"
+            className="flex max-w-[80%] flex-col items-center space-y-10 justify-self-center"
+          >
             {project.projects.map(
               (proj, index) =>
                 (category === 0 || proj.category.includes(category)) && (
@@ -166,7 +197,7 @@ export default function ProjectsPage() {
                   </div>
                 )
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>

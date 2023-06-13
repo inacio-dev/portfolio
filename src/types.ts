@@ -24,10 +24,33 @@ export interface Project {
 export interface FullProject {
   id: number
   category: number[]
+  'back-button': string
   link: boolean
   'external-address'?: string
   name: string
   description: string
+  content: Content
+}
+
+export interface Content {
+  informations: ProjectInfo[]
+  gifs: Gifs[]
+  links: Links[]
+}
+
+export interface Links {
+  text: number
+  value: string
+}
+
+export interface Gifs {
+  text: number
+  link: string
+}
+
+export interface ProjectInfo {
+  id: number
+  text: string
 }
 
 export interface Category {

@@ -17,7 +17,8 @@ export default function HistoryPage() {
   const [showFull, setShowFull] = useState<boolean>(false)
 
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions] = useElementDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions, handleDimensionsCapture] =
+    useElementDimensions()
   const headerSize = useElementSize('header')
   const footerSize = useElementSize('history-footer')
 
@@ -33,6 +34,7 @@ export default function HistoryPage() {
   }
 
   function setInfo() {
+    handleDimensionsCapture(true)
     controls.start('hidden')
 
     setTimeout(() => {
@@ -40,8 +42,13 @@ export default function HistoryPage() {
     }, 1200)
   }
 
+  if (!ready) return <Loading />
+
+  const history = t('history', { returnObjects: true }) as History
+
   useEffect(() => {
     inView ? controls.start('visible') : controls.start('hidden')
+    handleDimensionsCapture(false)
   }, [controls, inView, showFull])
 
   useEffect(() => {
@@ -49,15 +56,12 @@ export default function HistoryPage() {
   }, [path])
 
   useEffect(() => {
+    reloadElementDimensions()
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   }, [showFull])
-
-  if (!ready) return <Loading />
-
-  const history = t('history', { returnObjects: true }) as History
 
   return (
     <motion.div

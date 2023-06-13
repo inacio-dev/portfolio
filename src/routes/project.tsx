@@ -8,7 +8,6 @@ import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FullProject } from '../types'
-import IconAnnex from '../svg/icons/Annex'
 
 export default function ProjectPage() {
   const { t, ready, i18n } = useTranslation()
@@ -16,12 +15,15 @@ export default function ProjectPage() {
   const navigate = useNavigate()
 
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions] = useElementDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions] = useElementDimensions()
   const headerSize = useElementSize('header')
 
-  const [showMenu, setShowMenu] = useState<boolean>(false)
-
   const [project, setProject] = useState<FullProject | undefined>()
+  const [imagesLoad, setImagesLoad] = useState<number>(0)
+
+  function goBackNavigate() {
+    navigate(`/${i18n.language}/projects`)
+  }
 
   if (!ready) return <Loading />
 
@@ -31,6 +33,10 @@ export default function ProjectPage() {
     const foundProject = projects.find((p) => p.id === Number(id))
     foundProject ? setProject(foundProject) : navigate(`/${i18n.language}/`, { replace: true })
   }, [id])
+
+  useEffect(() => {
+    reloadElementDimensions()
+  }, [imagesLoad])
 
   return (
     <motion.div
@@ -50,10 +56,36 @@ export default function ProjectPage() {
       >
         {project && (
           <>
+            <button onClick={goBackNavigate}>{project['back-button']}</button>
+
             <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.name}</h1>
 
             <div className="flex max-w-[80%] items-center justify-center">
               <p>{project.description}</p>
+            </div>
+
+            <div className="flex max-w-[80%] flex-col items-center justify-center space-y-10">
+              {project.content.informations.map((info, index) => (
+                <div key={index} className="flex flex-col items-center justify-center space-y-5">
+                  <p>{info.text}</p>
+
+                  <div className="grid grid-cols-3 items-center justify-center">
+                    {project.content.gifs.map((gif, gifIndex) => {
+                      if (gif.text === info.id) {
+                        return (
+                          <img
+                            key={gifIndex}
+                            src={gif.link}
+                            onLoad={() => setImagesLoad(imagesLoad + 1)}
+                            alt="GIF"
+                          />
+                        )
+                      }
+                      return null
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </>
         )}

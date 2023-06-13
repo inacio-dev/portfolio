@@ -15,7 +15,7 @@ export default function HistoryFooter({ showFull, setShowFull, history }: Histor
   return (
     <div
       id="history-footer"
-      className="fixed bottom-0 z-50 flex h-fit w-full flex-col items-center justify-center space-x-[5%] space-y-5 bg-brand-purple p-[5%] transition-all lg:flex-row lg:space-y-0 lg:p-[2%]"
+      className="fixed bottom-0 z-50 flex h-fit w-full items-center justify-center space-x-[5%] bg-brand-purple p-[5%] transition-all lg:p-[2%]"
     >
       <button
         onClick={() => setShowFull(!showFull)}
@@ -29,8 +29,8 @@ export default function HistoryFooter({ showFull, setShowFull, history }: Histor
         className="flex items-center justify-center space-x-2"
         download
       >
-        <IconDownload />
-        <p className="text-xl text-slate-light-1">{history['download-button']}</p>
+        <IconDownload className="w-[32px] lg:w-max" />
+        <p className="text-sm text-slate-light-1 lg:text-xl">{history['download-button']}</p>
       </a>
     </div>
   )

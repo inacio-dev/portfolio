@@ -3,22 +3,24 @@ import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementDimensions from '../hooks/use-elementDimensions'
 import useElementSize from '../hooks/use-elementSize'
 import clsx from 'clsx'
-import HomeImage from '../svg/images/ImageHome'
 import Loading from '../components/Loading'
 import { Info } from '../types'
 import { useEffect, useState } from 'react'
-import IconHomeChange from '../svg/icons/HomeChange'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import IconTour from '../svg/icons/Tour'
+import IconHomeChange from '../svg/icons/HomeChange'
 
 export default function HomePage() {
   const { t, ready, i18n } = useTranslation()
 
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions] = useElementDimensions()
+  const [elementRef, elementDimensions, reloadElementDimensions, handleDimensionsCapture] =
+    useElementDimensions()
   const headerSize = useElementSize('header')
   const infoSize = useElementSize('info')
+
+  const [imagesLoad, setImagesLoad] = useState<number>(0)
 
   const [changeInfo, setChangeInfo] = useState(1)
   const controls = useAnimation()
@@ -30,6 +32,7 @@ export default function HomePage() {
   }
 
   function setInfo() {
+    handleDimensionsCapture(true)
     controls.start('hidden')
 
     setTimeout(() => {
@@ -39,11 +42,16 @@ export default function HomePage() {
 
   if (!ready) return <Loading />
 
+  const info = t('home.informations', { returnObjects: true }) as Info[]
+
   useEffect(() => {
     inView ? controls.start('visible') : controls.start('hidden')
+    handleDimensionsCapture(false)
   }, [controls, inView, changeInfo])
 
-  const info = t('home.informations', { returnObjects: true }) as Info[]
+  useEffect(() => {
+    reloadElementDimensions()
+  }, [imagesLoad])
 
   return (
     <motion.div
@@ -52,7 +60,7 @@ export default function HomePage() {
       exit={{ opacity: 0.5, y: 20, transition: { duration: 0.4 } }}
       className={clsx(
         'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-        height >= elementDimensions.height + headerSize.height ? 'h-screen' : 'h-full'
+        height >= elementDimensions.height + headerSize.height + 60 ? 'h-screen' : 'h-full'
       )}
       style={{
         paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
@@ -83,7 +91,12 @@ export default function HomePage() {
         </div>
 
         <div className="flex flex-col items-center justify-center space-y-4">
-          <HomeImage className={clsx(infoSize.height > 200 && 'w-[80%]')} />
+          <img
+            src="/home-image.svg"
+            onLoad={() => setImagesLoad(imagesLoad + 1)}
+            className={clsx('flex items-center justify-center', infoSize.height > 200 && 'w-[80%]')}
+            alt="home-image"
+          />
 
           <div id="info" className="flex flex-col items-end justify-center space-y-4">
             <button onClick={setInfo} className="flex items-center justify-center">
