@@ -60,7 +60,7 @@ export default function ProjectsPage() {
       <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.title}</h1>
 
       <div className="grid grid-cols-1 items-center justify-center space-y-5">
-        <div className="group invisible hidden items-center justify-center justify-self-start pl-[10%] lg:visible lg:flex">
+        <div className="group invisible hidden items-center justify-center justify-self-start lg:visible lg:flex">
           <motion.div
             whileHover={{
               width: 820,
@@ -133,7 +133,7 @@ export default function ProjectsPage() {
             </div>
           </div> */}
 
-        <motion.div
+        {/* <motion.div
           ref={ref}
           animate={controls}
           variants={{
@@ -141,7 +141,7 @@ export default function ProjectsPage() {
             hidden: { opacity: 0, y: 30, transition: { duration: 1, delay: 0.2 } }
           }}
           initial="hidden"
-          className="flex max-w-[80%] flex-col items-center space-y-10 justify-self-center"
+          className="flex flex-col items-center space-y-10 justify-self-center"
         >
           {project.projects.map(
             (proj, index) =>
@@ -187,7 +187,7 @@ export default function ProjectsPage() {
                 </div>
               )
           )}
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   )
