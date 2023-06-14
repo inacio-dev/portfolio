@@ -15,14 +15,7 @@ export default function useElementSize(elementId: string): [ElementSize, ReloadE
       const element = document.getElementById(elementId)
       if (element) {
         const { width, height } = element.getBoundingClientRect()
-        const computedStyle = getComputedStyle(element)
-        const paddingTop = parseFloat(computedStyle.paddingTop) || 0
-        const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0
-        const paddingLeft = parseFloat(computedStyle.paddingLeft) || 0
-        const paddingRight = parseFloat(computedStyle.paddingRight) || 0
-        const contentWidth = width - paddingLeft - paddingRight
-        const contentHeight = height - paddingTop - paddingBottom
-        setElementSize({ width: contentWidth, height: contentHeight })
+        setElementSize({ width, height })
       }
     }
 
@@ -50,14 +43,7 @@ export default function useElementSize(elementId: string): [ElementSize, ReloadE
     const element = document.getElementById(elementId)
     if (element) {
       const { width, height } = element.getBoundingClientRect()
-      const computedStyle = getComputedStyle(element)
-      const paddingTop = parseFloat(computedStyle.paddingTop) || 0
-      const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0
-      const paddingLeft = parseFloat(computedStyle.paddingLeft) || 0
-      const paddingRight = parseFloat(computedStyle.paddingRight) || 0
-      const contentWidth = width - paddingLeft - paddingRight
-      const contentHeight = height - paddingTop - paddingBottom
-      setElementSize({ width: contentWidth, height: contentHeight })
+      setElementSize({ width, height })
     }
   }
 

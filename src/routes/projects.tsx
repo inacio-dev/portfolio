@@ -52,7 +52,7 @@ export default function ProjectsPage() {
   return (
     <div
       className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
+        'flex w-full items-center justify-center overflow-hidden bg-slate-dark-1',
         height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
           ? 'h-screen'
           : 'h-full'
@@ -61,7 +61,10 @@ export default function ProjectsPage() {
         paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
       }}
     >
-      <div id="content" className="flex flex-col items-center justify-center">
+      <div
+        id="content"
+        className="flex flex-col items-center justify-center space-y-5 px-[10%] text-slate-light-1 transition-all"
+      >
         <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.title}</h1>
 
         <div className="flex flex-col items-center justify-center space-y-5">
