@@ -49,9 +49,7 @@ export default function ProjectsPage() {
       id="content"
       className={clsx(
         'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
-        height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'h-screen'
-          : 'h-full'
+        height > contentSize.height + headerSize.height ? 'h-screen' : 'h-full'
       )}
       style={{
         paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
