@@ -8,32 +8,35 @@ import AboutPage from './routes/about'
 import PoliciesPage from './routes/terms-policies'
 import ProjectsPage from './routes/projects'
 import ProjectPage from './routes/project'
+import { AnimatePresence } from 'framer-motion'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
-          <Route index element={<Navigate to="/pt/" />} />
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<RootPage setLanguage={i18n.changeLanguage} />}>
+            <Route index element={<Navigate to="/pt/" />} />
 
-          <Route path="/:lang/">
-            <Route index element={<HomePage />} />
-            <Route path="history" element={<HistoryPage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="terms-policies" element={<PoliciesPage />} />
+            <Route path="/:lang/">
+              <Route index element={<HomePage />} />
+              <Route path="history" element={<HistoryPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="terms-policies" element={<PoliciesPage />} />
 
-            <Route path="projects">
-              <Route index element={<ProjectsPage />} />
-              <Route path=":id/" element={<ProjectPage />} />
+              <Route path="projects">
+                <Route index element={<ProjectsPage />} />
+                <Route path=":id/" element={<ProjectPage />} />
+              </Route>
+
+              <Route path="loading" element={<Loading />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Route>
 
-            <Route path="loading" element={<Loading />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Route>
-
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </AnimatePresence>
     </BrowserRouter>
   )
 }

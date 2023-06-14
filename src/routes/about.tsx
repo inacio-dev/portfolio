@@ -11,7 +11,6 @@ import Email from '../svg/Email'
 import useWindowDimensions from '../hooks/use-windowDimensions'
 import clsx from 'clsx'
 import useElementSize from '../hooks/use-elementSize'
-import { useState } from 'react'
 
 export default function AboutPage() {
   const { t, ready } = useTranslation()
@@ -19,8 +18,6 @@ export default function AboutPage() {
 
   const [contentSize] = useElementSize('content')
   const [headerSize] = useElementSize('header')
-
-  const [imagesLoad, setImagesLoad] = useState<number>(0)
 
   if (!ready) return <Loading />
 
@@ -49,12 +46,7 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <img
-          src="/about-image.svg"
-          onLoad={() => setImagesLoad(imagesLoad + 1)}
-          className="w-[60%] lg:w-[40%]"
-          alt="home-image"
-        />
+        <img src="/about-image.svg" className="w-[60%] lg:w-[40%]" alt="home-image" />
       </div>
 
       <h2 className="text-xl font-bold">{about['contact-title']}</h2>

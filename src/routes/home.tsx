@@ -9,6 +9,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import IconTour from '../svg/icons/Tour'
 import IconHomeChange from '../svg/icons/HomeChange'
+import AnimatedPage from '../components/AnimatedPage'
 
 export default function HomePage() {
   const { t, ready, i18n } = useTranslation()
@@ -21,7 +22,6 @@ export default function HomePage() {
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
-  const [imagesLoad, setImagesLoad] = useState<number>(0)
   const [changeInfo, setChangeInfo] = useState<number>(1)
 
   function setInfo() {
@@ -84,7 +84,6 @@ export default function HomePage() {
       <div className="flex flex-col items-center justify-center space-y-4">
         <img
           src="/home-image.svg"
-          onLoad={() => setImagesLoad(imagesLoad + 1)}
           className={clsx('flex items-center justify-center', infoSize.height > 200 && 'w-[80%]')}
           alt="home-image"
         />
