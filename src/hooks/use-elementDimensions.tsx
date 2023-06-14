@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, LegacyRef } from 'react'
+import { useState, useEffect, useRef, MutableRefObject } from 'react'
 
 type ElementDimensions = {
   width: number
@@ -6,7 +6,7 @@ type ElementDimensions = {
 }
 
 type ElementDimensionsHookResult = [
-  LegacyRef<HTMLDivElement>,
+  MutableRefObject<HTMLDivElement | null>,
   ElementDimensions,
   () => void,
   (pause: boolean) => void
@@ -18,7 +18,7 @@ export default function useElementDimensions(): ElementDimensionsHookResult {
     height: 0
   })
   const [isPaused, setIsPaused] = useState(false)
-  const elementRef = useRef<HTMLDivElement>(null)
+  const elementRef = useRef<HTMLDivElement | null>(null)
 
   const getElementDimensions = () => {
     if (!isPaused && elementRef.current) {

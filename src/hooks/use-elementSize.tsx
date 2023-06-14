@@ -1,11 +1,23 @@
 import { useEffect, useState } from 'react'
 
-export default function useElementSize(elementId: string) {
-  const [elementSize, setElementSize] = useState({ width: 0, height: 0 })
+type ElementSize = {
+  width: number
+  height: number
+}
+
+type ReloadElementSize = () => void
+
+export default function useElementSize(elementId: string): [ElementSize, ReloadElementSize] {
+  const [elementSize, setElementSize] = useState<ElementSize>({ width: 0, height: 0 })
 
   useEffect(() => {
-    const element = document.getElementById(elementId)
-    if (!element) return
+    const updateElementSize = () => {
+      const element = document.getElementById(elementId)
+      if (element) {
+        const { width, height } = element.getBoundingClientRect()
+        setElementSize({ width, height })
+      }
+    }
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
@@ -14,12 +26,26 @@ export default function useElementSize(elementId: string) {
       }
     })
 
-    resizeObserver.observe(element)
+    const element = document.getElementById(elementId)
+    if (element) {
+      resizeObserver.observe(element)
+      updateElementSize()
+    }
 
     return () => {
-      resizeObserver.unobserve(element)
+      if (element) {
+        resizeObserver.unobserve(element)
+      }
     }
   }, [elementId])
 
-  return elementSize
+  const reloadElementSize: ReloadElementSize = () => {
+    const element = document.getElementById(elementId)
+    if (element) {
+      const { width, height } = element.getBoundingClientRect()
+      setElementSize({ width, height })
+    }
+  }
+
+  return [elementSize, reloadElementSize]
 }

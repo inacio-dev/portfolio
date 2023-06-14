@@ -7,34 +7,27 @@ import Loading from '../components/Loading'
 import { History } from '../types'
 import IconLink from '../svg/icons/Link'
 import useWindowDimensions from '../hooks/use-windowDimensions'
-import useElementDimensions from '../hooks/use-elementDimensions'
 import useElementSize from '../hooks/use-elementSize'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 export default function HistoryPage() {
   const { t, ready } = useTranslation()
-  const [showFull, setShowFull] = useState<boolean>(false)
-
   const { width, height } = useWindowDimensions()
-  const [elementRef, elementDimensions, reloadElementDimensions, handleDimensionsCapture] =
-    useElementDimensions()
-  const headerSize = useElementSize('header')
-  const footerSize = useElementSize('history-footer')
 
-  const location = useLocation()
-  const path = location.pathname
+  const [contentSize, reloadContentSize] = useElementSize('content')
+  const [headerSize] = useElementSize('header')
+  const [footerSize] = useElementSize('history-footer')
 
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
-  const variants = {
-    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } },
-    hidden: { opacity: 0, y: 30, transition: { duration: 1, delay: 0.2 } }
-  }
+  const location = useLocation()
+  const path = location.pathname
+
+  const [showFull, setShowFull] = useState<boolean>(false)
 
   function setInfo() {
-    handleDimensionsCapture(true)
     controls.start('hidden')
 
     setTimeout(() => {
@@ -42,13 +35,8 @@ export default function HistoryPage() {
     }, 1200)
   }
 
-  if (!ready) return <Loading />
-
-  const history = t('history', { returnObjects: true }) as History
-
   useEffect(() => {
     inView ? controls.start('visible') : controls.start('hidden')
-    handleDimensionsCapture(false)
   }, [controls, inView, showFull])
 
   useEffect(() => {
@@ -56,39 +44,43 @@ export default function HistoryPage() {
   }, [path])
 
   useEffect(() => {
-    reloadElementDimensions()
+    reloadContentSize()
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
   }, [showFull])
 
+  if (!ready) return <Loading />
+
+  const history = t('history', { returnObjects: true }) as History
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.8 } }}
-      exit={{ opacity: 0.5, y: 20, transition: { duration: 0.4 } }}
-      className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 text-slate-light-1 transition-all',
-        height >= elementDimensions.height + headerSize.height ? 'h-screen' : 'h-full'
-      )}
-      style={{
-        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`,
-        paddingBottom: width > 1023 ? `${footerSize.height + 60}px` : `${headerSize.height + 30}px`
-      }}
-    >
-      {showFull ? (
-        <div
-          ref={elementRef}
-          className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1"
-        >
-          <motion.div
-            ref={ref}
-            animate={controls}
-            variants={variants}
-            initial="hidden"
-            className="flex flex-col items-center justify-center"
-          >
+    <div className="bg-slate-dark-1">
+      <motion.div
+        id="content"
+        ref={ref}
+        className={clsx(
+          'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden px-[10%] text-slate-light-1 transition-all',
+          height >=
+            contentSize.height + headerSize.height + footerSize.height + (width > 1023 ? 120 : 60)
+            ? 'h-screen'
+            : 'h-full'
+        )}
+        style={{
+          paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`,
+          paddingBottom:
+            width > 1023 ? `${footerSize.height + 60}px` : `${headerSize.height + 30}px`
+        }}
+        animate={controls}
+        variants={{
+          visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.2 } },
+          hidden: { opacity: 0, y: 30, transition: { duration: 1, delay: 0.2 } }
+        }}
+        initial="hidden"
+      >
+        {showFull ? (
+          <>
             <h1 className="text-center text-4xl font-bold lg:text-6xl">
               {history.titles[0].title}
             </h1>
@@ -175,20 +167,9 @@ export default function HistoryPage() {
                   )
               )}
             </div>
-          </motion.div>
-        </div>
-      ) : (
-        <div
-          ref={elementRef}
-          className="flex max-w-[80%] flex-col items-center justify-center text-slate-light-1"
-        >
-          <motion.div
-            ref={ref}
-            animate={controls}
-            variants={variants}
-            initial="hidden"
-            className="flex flex-col items-center justify-center"
-          >
+          </>
+        ) : (
+          <>
             <h1 className="text-center text-4xl font-bold lg:text-6xl">{history['short-title']}</h1>
 
             <div className="flex flex-col items-start justify-center space-y-3 py-5">
@@ -214,10 +195,10 @@ export default function HistoryPage() {
                   )
               )}
             </div>
-          </motion.div>
-        </div>
-      )}
+          </>
+        )}
+      </motion.div>
       <HistoryFooter showFull={showFull} setShowFull={setInfo} history={history} />
-    </motion.div>
+    </div>
   )
 }

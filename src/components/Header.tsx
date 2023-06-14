@@ -14,10 +14,13 @@ interface HeaderProps {
 }
 
 export default function Header({ setLanguage }: HeaderProps) {
+  const { t, i18n, ready } = useTranslation()
+
   const navigate = useNavigate()
   const location = useLocation()
-  const { t, i18n, ready } = useTranslation()
+
   const [showMenu, setShowMenu] = useState<boolean>(false)
+
   const path = location.pathname
 
   function changeLanguage() {
@@ -28,10 +31,6 @@ export default function Header({ setLanguage }: HeaderProps) {
       navigate(location.pathname.replace('en', 'pt'), { replace: true })
       setLanguage('pt')
     }
-  }
-
-  function goHomePage() {
-    navigate(`/${i18n.language}/`, { replace: true })
   }
 
   function setPage(link: string, index: number) {
@@ -53,7 +52,7 @@ export default function Header({ setLanguage }: HeaderProps) {
       className="fixed top-0 z-50 flex h-fit w-full flex-col items-center justify-center bg-slate-dark-1 transition-all lg:h-[96px] lg:flex-row lg:py-5"
     >
       <button
-        onClick={goHomePage}
+        onClick={() => navigate(`/${i18n.language}/`, { replace: true })}
         className="my-5 flex items-center justify-center space-x-3 lg:absolute lg:left-[15%] lg:my-0"
       >
         <Logo />

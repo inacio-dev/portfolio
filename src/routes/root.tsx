@@ -14,7 +14,7 @@ export default function RootPage({ setLanguage }: RootPageProps) {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [homePageKey, setHomePageKey] = useState(0)
+  const [homePageKey, setHomePageKey] = useState<number>(0)
 
   useEffect(() => {
     if (lang && lang !== i18n.language) {
