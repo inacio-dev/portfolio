@@ -50,8 +50,8 @@ export default function ProjectsPage() {
       className={clsx(
         'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
         height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'lg:h-screen'
-          : 'lg:h-full'
+          ? 'h-screen'
+          : 'h-full'
       )}
       style={{
         paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
     >
       <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{project.title}</h1>
 
-      <div className="grid grid-cols-1 items-center justify-center space-y-5">
+      <div className="flex flex-col items-center justify-center space-y-5">
         <div className="group invisible hidden items-center justify-center justify-self-start lg:visible lg:flex">
           <motion.div
             whileHover={{
@@ -133,7 +133,7 @@ export default function ProjectsPage() {
             </div>
           </div> */}
 
-        {/* <motion.div
+        <motion.div
           ref={ref}
           animate={controls}
           variants={{
@@ -187,7 +187,7 @@ export default function ProjectsPage() {
                 </div>
               )
           )}
-        </motion.div> */}
+        </motion.div>
       </div>
     </div>
   )
