@@ -1,8 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import Loading from '../components/Loading'
-import useWindowDimensions from '../hooks/use-windowDimensions'
-import useElementSize from '../hooks/use-elementSize'
-import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FullProject } from '../types'

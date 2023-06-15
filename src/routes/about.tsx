@@ -8,34 +8,17 @@ import GitHub from '../svg/GitHub'
 import Behance from '../svg/Behance'
 import LinkedIn from '../svg/LinkedIn'
 import Email from '../svg/Email'
-import useWindowDimensions from '../hooks/use-windowDimensions'
-import clsx from 'clsx'
-import useElementSize from '../hooks/use-elementSize'
+import ContentPage from '../components/ContentPage'
 
 export default function AboutPage() {
   const { t, ready } = useTranslation()
-  const { width, height } = useWindowDimensions()
-
-  const [contentSize] = useElementSize('content')
-  const [headerSize] = useElementSize('header')
 
   if (!ready) return <Loading />
 
   const about = t('about', { returnObjects: true }) as About
 
   return (
-    <div
-      id="content"
-      className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
-        height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'h-screen'
-          : 'h-full'
-      )}
-      style={{
-        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
-      }}
-    >
+    <ContentPage>
       <div className="flex flex-col items-center justify-center lg:flex-row">
         <div className="flex flex-col items-center justify-center space-y-3">
           <h1 className="pb-10 text-center text-4xl font-bold lg:text-6xl">{about.title}</h1>
@@ -88,6 +71,6 @@ export default function AboutPage() {
           <Email className="w-10" /> <span>Email</span>
         </Link>
       </div>
-    </div>
+    </ContentPage>
   )
 }

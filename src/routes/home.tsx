@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import useWindowDimensions from '../hooks/use-windowDimensions'
 import useElementSize from '../hooks/use-elementSize'
 import clsx from 'clsx'
 import Loading from '../components/Loading'
@@ -9,13 +8,11 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import IconTour from '../svg/icons/Tour'
 import IconHomeChange from '../svg/icons/HomeChange'
+import ContentPage from '../components/ContentPage'
 
 export default function HomePage() {
   const { t, ready, i18n } = useTranslation()
-  const { width, height } = useWindowDimensions()
 
-  const [contentSize, reloadContentSize] = useElementSize('content')
-  const [headerSize] = useElementSize('header')
   const [infoSize] = useElementSize('info')
 
   const controls = useAnimation()
@@ -35,28 +32,12 @@ export default function HomePage() {
     inView ? controls.start('visible') : controls.start('hidden')
   }, [controls, inView, changeInfo])
 
-  useEffect(() => {
-    reloadContentSize()
-  }, [changeInfo])
-
   if (!ready) return <Loading />
 
   const info = t('home.informations', { returnObjects: true }) as Info[]
 
   return (
-    <div
-      id="content"
-      className={clsx(
-        'w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
-        'grid lg:grid-cols-2',
-        height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'h-screen'
-          : 'h-full'
-      )}
-      style={{
-        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
-      }}
-    >
+    <ContentPage reloadVariableSize={[changeInfo]} className="lg:grid lg:grid-cols-2">
       <div className="flex flex-col space-y-10">
         <div>
           <h1 className="text-6xl font-extrabold lg:text-8xl">INÁCIO</h1>
@@ -115,6 +96,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </div>
+    </ContentPage>
   )
 }

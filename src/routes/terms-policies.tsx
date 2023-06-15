@@ -1,34 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import Loading from '../components/Loading'
 import { Terms } from '../types'
-import useWindowDimensions from '../hooks/use-windowDimensions'
-import useElementSize from '../hooks/use-elementSize'
-import clsx from 'clsx'
+import ContentPage from '../components/ContentPage'
 
 export default function PoliciesPage() {
   const { t, ready } = useTranslation()
-  const { width, height } = useWindowDimensions()
-
-  const [contentSize] = useElementSize('content')
-  const [headerSize] = useElementSize('header')
 
   if (!ready) return <Loading />
 
   const terms = t('terms', { returnObjects: true }) as Terms
 
   return (
-    <div
-      id="content"
-      className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
-        height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'h-screen'
-          : 'h-full'
-      )}
-      style={{
-        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
-      }}
-    >
+    <ContentPage>
       <h1 className="text-left text-2xl font-bold lg:text-4xl">{terms.title}</h1>
       <p className="text-left text-lg font-medium lg:text-lg">{terms.header}</p>
 
@@ -47,6 +30,6 @@ export default function PoliciesPage() {
       </ul>
 
       <span className="pt-10 pb-14">*** {terms.footer}</span>
-    </div>
+    </ContentPage>
   )
 }

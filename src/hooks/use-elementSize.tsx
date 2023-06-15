@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type ElementSize = {
+export type ElementSize = {
   width: number
   height: number
 }
