@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
 import Header from '../components/Header'
-import AnimatedPage from '../components/AnimatedPage'
 
 interface RootPageProps {
   setLanguage: (lang: string) => void
@@ -34,9 +33,7 @@ export default function RootPage({ setLanguage }: RootPageProps) {
   return (
     <>
       <Header setLanguage={setLanguage} />
-      <AnimatedPage>
-        <Outlet key={homePageKey} />
-      </AnimatedPage>
+      <Outlet key={homePageKey} />
     </>
   )
 }

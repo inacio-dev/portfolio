@@ -9,7 +9,6 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import IconTour from '../svg/icons/Tour'
 import IconHomeChange from '../svg/icons/HomeChange'
-import AnimatedPage from '../components/AnimatedPage'
 
 export default function HomePage() {
   const { t, ready, i18n } = useTranslation()

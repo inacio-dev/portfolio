@@ -6,15 +6,12 @@ import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FullProject } from '../types'
+import ContentPage from '../components/ContentPage'
 
 export default function ProjectPage() {
   const { t, ready, i18n } = useTranslation()
   const { id } = useParams()
   const navigate = useNavigate()
-
-  const { width, height } = useWindowDimensions()
-  const [contentSize] = useElementSize('content')
-  const [headerSize] = useElementSize('header')
 
   const [project, setProject] = useState<FullProject | undefined>()
 
@@ -28,18 +25,7 @@ export default function ProjectPage() {
   const projects = t('project.projects', { returnObjects: true }) as FullProject[]
 
   return (
-    <div
-      id="content"
-      className={clsx(
-        'flex w-full flex-col items-center justify-center space-y-5 overflow-hidden bg-slate-dark-1 px-[10%] text-slate-light-1 transition-all',
-        height >= contentSize.height + headerSize.height + (width > 1023 ? 60 : 30)
-          ? 'h-screen'
-          : 'h-full'
-      )}
-      style={{
-        paddingTop: width > 1023 ? `${headerSize.height + 60}px` : `${headerSize.height + 30}px`
-      }}
-    >
+    <ContentPage>
       {project && (
         <>
           <button onClick={() => navigate(`/${i18n.language}/projects`)}>
@@ -70,6 +56,6 @@ export default function ProjectPage() {
           </div>
         </>
       )}
-    </div>
+    </ContentPage>
   )
 }
