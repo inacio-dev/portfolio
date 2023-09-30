@@ -1,0 +1,248 @@
+name: Pull Request
+
+on: [pull_request]
+
+jobs:
+  install:
+    name: Installing Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+  unusedexports:
+    name: Find unused exports (dead code)
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run ts-unused-exports
+        run: pnpm run prune
+
+  codelint:
+    name: Find ESLint warnings or errors
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run lint
+        run: pnpm run lint
+
+  codeformat:
+    name: Find Prettier format
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run Prettier check
+        run: pnpm run format
+
+  typecheck:
+    name: Checking types
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run tsc
+        run: pnpm run type
+
+  test:
+    name: Running tests
+    runs-on: ubuntu-latest
+    needs: [codelint, unusedexports, codeformat, typecheck]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run vitest
+        run: pnpm run test
+
+  build:
+    name: Generate build
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run build
+        run: pnpm run build
