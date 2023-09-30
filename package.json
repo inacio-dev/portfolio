@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest --passWithNoTests",
-    "prune": "ts-prune --project tsconfig.json -e -i 'src/app' -s '.config.ts'",
+    "prune": "ts-prune --project tsconfig.json -e -i 'src/app|src/i18n.ts|src/middleware.ts' -s '.config.ts'",
     "format": "prettier ./src --check --config './prettier.config.js'",
     "type": "tsc --noEmit"
   },
@@ -22,6 +22,8 @@
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "next": "13.5.3",
+    "next-intl": "3.0.0-rc.2",
+    "next-themes": "^0.2.1",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -31,13 +33,13 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
-    "@typescript-eslint/parser": "^6.5.0",
+    "@typescript-eslint/parser": "^6.7.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "jsdom": "^22.1.0",
     "prettier": "^3.0.3",
     "ts-prune": "^0.10.3",
-    "vitest": "^0.34.5"
+    "vitest": "^0.34.6"
   }
 }
