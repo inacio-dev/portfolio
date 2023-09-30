@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest --passWithNoTests",
-    "prune": "ts-prune --project tsconfig.json -e -i 'src/app' -s '.config.ts'",
+    "prune": "ts-prune --project tsconfig.json -e -i 'src/app|src/i18n.ts|src/middleware.ts' -s '.config.ts'",
     "format": "prettier ./src --check --config './prettier.config.js'",
     "type": "tsc --noEmit"
   },
