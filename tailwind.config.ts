@@ -9,7 +9,10 @@ const config: Config = {
         sans: ['var(--font-roboto)'],
       },
       colors: {
-        brand: {},
+        brand: {
+          indigo: '#4B0082',
+          mindaro: '#FFFFAA',
+        },
         slate: {
           light: {
             1: '#fcfcfd',

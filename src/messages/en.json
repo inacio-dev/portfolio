@@ -1,5 +1,16 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "Header": {
+    "title": "Portfolio",
+    "menu": {
+      "home": "Home",
+      "records": "Records",
+      "about": "About",
+      "projects": "Projects",
+      "terms": "Terms"
+    }
+  },
+  "Home": {
+    "title": "Home",
+    "description": "Welcome to my portfolio, a showcase of diverse projects and skills."
   }
 }
