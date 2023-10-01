@@ -6,25 +6,20 @@ export async function generateMetadata({
 }: {
   params: { language: Languages }
 }) {
-  const t = await getTranslator(language, 'Index')
+  const t = await getTranslator(language, 'Home')
+  const creator = 'Inácio Rodrigues'
 
   try {
-    return {
-      title: `Inácio Rodrigues | ${t('title')}`,
-      description: `${t('description')}`,
-      creator: 'Inácio Rodrigues',
-    }
+    const title = `${creator} | ${t('title')}`
+    const description = t('description')
+    return { title, description, creator }
   } catch (error) {
-    return {
-      title: 'Inácio Rodrigues',
-      description: '',
-      creator: 'Inácio Rodrigues',
-    }
+    return { title: creator, description: '', creator }
   }
 }
 
 export default async function Home({ params: { language } }: { params: { language: Languages } }) {
-  const t = await getTranslator(language, 'Index')
+  const t = await getTranslator(language, 'Home')
 
   return (
     <main className="flex min-h-screen w-full items-center justify-center text-3xl text-slate-dark-1">

@@ -1,5 +1,16 @@
 {
-  "Index": {
-    "title": "Olá mundo!"
+  "Header": {
+    "title": "Portifólio",
+    "menu": {
+      "home": "Início",
+      "records": "Histórico",
+      "about": "Sobre",
+      "projects": "Projetos",
+      "terms": "Termos"
+    }
+  },
+  "Home": {
+    "title": "Início",
+    "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados."
   }
 }
