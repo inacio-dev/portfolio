@@ -1,20 +1,18 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import clsx from 'clsx'
 import { motion, useAnimation } from 'framer-motion'
-import { useTranslations } from 'next-intl'
 
 import Spinner from '../assets/icons/Spinner'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { usePathname } from '../navigation'
+import NavLinks from './NavLinks'
 
-export default function HeaderLinks() {
-  const t = useTranslations('Header.menu')
+export default function Navigation() {
   const controlsIcon = useAnimation()
   const controlsLinks = useAnimation()
   const { width, loaded } = useWindowDimensions()
@@ -25,8 +23,6 @@ export default function HeaderLinks() {
   const [isHovered, setIsHovered] = useState(false)
   const [isHiddenIcon, setIsHiddenIcon] = useState(false)
   const [isHiddenLinks, setIsHiddenLinks] = useState(true)
-
-  const keys = ['home', 'records', 'about', 'projects', 'terms'] as const
 
   useEffect(() => {
     if (!mounted || !loaded) return
@@ -113,52 +109,14 @@ export default function HeaderLinks() {
         )}
       </motion.div>
 
-      <nav
+      <NavLinks
+        isHiddenLinks={isHiddenLinks}
+        controlsLinks={controlsLinks}
         className={clsx(
           'hidden h-full w-full flex-row items-center justify-center md:block',
           isHiddenLinks ? 'md:hidden' : 'md:block',
         )}
-      >
-        <motion.ul
-          animate={controlsLinks}
-          variants={{
-            visible: {
-              opacity: 1,
-              transition: { duration: 0.2, delay: 0.2 },
-            },
-            hidden: {
-              opacity: 0,
-              transition: { duration: 0.2 },
-            },
-          }}
-          initial="hidden"
-          className={clsx(
-            'flex h-full w-full flex-row items-center justify-center',
-            isHiddenLinks ? 'hidden' : 'block',
-          )}
-        >
-          {keys.map((key, index) => (
-            <li key={index} className="h-full">
-              <Link
-                href={
-                  key !== 'home'
-                    ? '/' +
-                      t(key)
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .replace(' e ', '-')
-                        .replace(' and ', '-')
-                        .toLowerCase()
-                    : '/'
-                }
-                className="flex h-full items-center justify-center px-5 transition-all duration-300 hover:bg-slate-light-6 dark:hover:bg-slate-light-3/20"
-              >
-                {t(key)}
-              </Link>
-            </li>
-          ))}
-        </motion.ul>
-      </nav>
+      />
     </motion.div>
   )
 }
