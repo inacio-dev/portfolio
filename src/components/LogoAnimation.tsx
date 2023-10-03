@@ -11,7 +11,7 @@ type LogoHeaderAnimationProps = {
   title: string
 }
 
-export default function LogoHeaderAnimation({ title }: LogoHeaderAnimationProps) {
+export default function LogoAnimation({ title }: LogoHeaderAnimationProps) {
   const [animate] = useHeaderAnimation()
   const controlsTitle = useAnimation()
 
@@ -40,7 +40,7 @@ export default function LogoHeaderAnimation({ title }: LogoHeaderAnimationProps)
         }}
         initial="hidden"
       >
-        <h1 className="text-xl font-extrabold uppercase text-slate-dark-6 transition-all duration-100 dark:text-slate-light-3">
+        <h1 className="text-base font-extrabold uppercase text-slate-dark-6 transition-all duration-100 dark:text-slate-light-3 md:text-xl">
           {title}
         </h1>
       </motion.div>
