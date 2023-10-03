@@ -2,11 +2,11 @@
   "Header": {
     "title": "Portifólio",
     "menu": {
-      "home": "Início",
-      "records": "Histórico",
-      "about": "Sobre",
-      "projects": "Projetos",
-      "terms": "Termos"
+      "/": "Início",
+      "/records": "Histórico",
+      "/about": "Sobre",
+      "/projects": "Projetos",
+      "/terms": "Termos"
     }
   },
   "Home": {
