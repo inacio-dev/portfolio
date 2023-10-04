@@ -5,7 +5,12 @@ type LinkToUrlLabelProps = DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HT
 
 export default function LinkToUrlLabel(props: LinkToUrlLabelProps) {
   return (
-    <span className={twMerge('transition-all duration-500', props.className)}>
+    <span
+      className={twMerge(
+        'transition-all duration-500 text-xl font-bold uppercase',
+        props.className,
+      )}
+    >
       {props.children}
     </span>
   )

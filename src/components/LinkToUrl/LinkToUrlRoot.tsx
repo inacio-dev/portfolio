@@ -14,11 +14,11 @@ export default function LinkToUrlRoot(props: LinkToUrlRootProps) {
     <Link
       {...props}
       className={twMerge(
-        'flex items-center justify-center rounded-sm text-2xl uppercase transition-all duration-500',
+        'flex items-center justify-center rounded-sm transition-all duration-500',
         props.background === 'transparent' &&
           'bg-transparent text-slate-dark-6 dark:text-slate-light-3',
         props.background === 'brand' &&
-          'dark:text-slate-light-3 text-slate-dark-6 bg-brand-mindaro bg-opacity-100 hover:bg-opacity-80 dark:bg-opacity-100 dark:bg-brand-indigo hover:dark:bg-opacity-80',
+          'dark:text-slate-light-3 text-slate-dark-6 bg-brand-mindaro bg-opacity-100 hover:bg-opacity-40 dark:bg-opacity-100 dark:bg-brand-indigo hover:dark:bg-opacity-40',
         props.background === 'color' && '',
         props.className,
       )}

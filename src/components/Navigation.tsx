@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import clsx from 'clsx'
 import { motion, useAnimation } from 'framer-motion'
 
-import Spinner from '../assets/icons/Spinner'
+import Spinner from '../assets/Spinner'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { usePathname } from '../navigation'
@@ -73,7 +73,7 @@ export default function Navigation() {
       whileHover={
         width > 768
           ? {
-              width: 450,
+              width: 550,
               transition: { duration: 0.3 },
             }
           : {}

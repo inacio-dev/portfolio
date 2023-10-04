@@ -1,4 +1,4 @@
-import Spinner from '@/src/assets/icons/Spinner'
+import Spinner from '@/src/assets/Spinner'
 
 export default function Loading() {
   return (

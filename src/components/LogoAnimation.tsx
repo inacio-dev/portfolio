@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, useAnimation } from 'framer-motion'
 
-import Logo from '../assets/icons/Logo'
+import Logo from '../assets/Logo'
 import useHeaderAnimation from '../hooks/useHeaderAnimation'
 
 type LogoHeaderAnimationProps = {
