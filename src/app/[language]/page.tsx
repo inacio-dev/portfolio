@@ -1,3 +1,6 @@
+import HeroIndex from '@/src/components/HeroIndex'
+import { LinkToUrl } from '@/src/components/LinkToUrl'
+import MainSection from '@/src/components/MainSection'
 import { Languages } from '@/src/utils/types'
 import { getTranslator } from 'next-intl/server'
 
@@ -22,8 +25,23 @@ export default async function Home({ params: { language } }: { params: { languag
   const t = await getTranslator(language, 'Home')
 
   return (
-    <main className="flex min-h-screen w-full items-center justify-center text-3xl text-slate-dark-1">
-      <h1>{t('title')}</h1>
-    </main>
+    <MainSection className="items-start">
+      <HeroIndex />
+
+      <div className="z-10 space-y-14">
+        <div className="max-w-none space-y-6 text-slate-dark-6 transition-colors duration-100 dark:text-slate-light-3 lg:max-w-xl">
+          <h1 className="text-5xl font-bold uppercase sm:text-8xl">Inácio Rodrigues</h1>
+          <p className="text-sm uppercase sm:text-base">{t('about')}</p>
+        </div>
+
+        <LinkToUrl.Root
+          href={{ pathname: '/about' }}
+          background="brand"
+          className="h-14 w-full sm:w-56"
+        >
+          <LinkToUrl.Label>{t('button')}</LinkToUrl.Label>
+        </LinkToUrl.Root>
+      </div>
+    </MainSection>
   )
 }

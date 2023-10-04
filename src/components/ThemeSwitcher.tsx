@@ -5,7 +5,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import { useTheme } from 'next-themes'
 
-import Spinner from '../assets/icons/Spinner'
+import Spinner from '../assets/Spinner'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
 export default function ThemeSwitcher() {

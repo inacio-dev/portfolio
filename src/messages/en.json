@@ -1,7 +1,7 @@
 {
   "Header": {
     "title": "Portfolio",
-    "menu": {
+    "navigation": {
       "/": "Home",
       "/records": "Records",
       "/about": "About",
@@ -11,6 +11,8 @@
   },
   "Home": {
     "title": "Home",
-    "description": "Welcome to my portfolio, a showcase of diverse projects and skills."
+    "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
+    "about": "Hello, I am an experienced Full-Stack Developer, Graphic Designer, Digital Marketing Specialist, and a Computer Engineering student. This website showcases my projects, previous work, and provides comprehensive details about my skills in each domain.",
+    "button": "About Me"
   }
 }
