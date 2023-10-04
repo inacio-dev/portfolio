@@ -1,7 +1,7 @@
 {
   "Header": {
     "title": "Portfolio",
-    "menu": {
+    "navigation": {
       "/": "Home",
       "/records": "Records",
       "/about": "About",

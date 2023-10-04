@@ -10,7 +10,7 @@ import Spinner from '../assets/icons/Spinner'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { usePathname } from '../navigation'
-import NavLinks from './NavLinks'
+import NavigationLinks from './NavigationLinks'
 
 export default function Navigation() {
   const controlsIcon = useAnimation()
@@ -73,7 +73,7 @@ export default function Navigation() {
       whileHover={
         width > 768
           ? {
-              width: 440,
+              width: 450,
               transition: { duration: 0.3 },
             }
           : {}
@@ -109,7 +109,7 @@ export default function Navigation() {
         )}
       </motion.div>
 
-      <NavLinks
+      <NavigationLinks
         isHiddenLinks={isHiddenLinks}
         controlsLinks={controlsLinks}
         className={clsx(

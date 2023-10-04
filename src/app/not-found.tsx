@@ -3,13 +3,17 @@
 import './globals.css'
 
 import Error from 'next/error'
-import { Inter } from 'next/font/google'
+import { Roboto_Flex } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+const roboto = Roboto_Flex({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto',
+})
 
 export default function NotFound() {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={roboto.variable}>
       <body>
         <Error statusCode={404} />
       </body>

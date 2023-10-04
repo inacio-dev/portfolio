@@ -13,13 +13,13 @@ type NavLinksProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   mobile?: boolean
 }
 
-export default function NavLinks({
+export default function NavigationLinks({
   isHiddenLinks,
   controlsLinks,
   mobile,
   ...props
 }: NavLinksProps) {
-  const t = useTranslations('Header.menu')
+  const t = useTranslations('Header.navigation')
 
   const keys = ['/', '/records', '/about', '/projects', '/terms'] as const
 
@@ -55,7 +55,7 @@ export default function NavLinks({
               href={{
                 pathname: key,
               }}
-              className="flex h-full items-center justify-center px-5 text-slate-dark-6 transition-all duration-300 hover:bg-slate-light-6 dark:text-slate-light-3 dark:hover:bg-slate-light-3/20"
+              className="flex h-full items-center justify-center px-5 font-bold text-slate-dark-6 transition-all duration-300 hover:bg-slate-light-6 dark:text-slate-light-3 dark:hover:bg-slate-light-3/20 md:font-semibold"
             >
               {t(key)}
             </Link>

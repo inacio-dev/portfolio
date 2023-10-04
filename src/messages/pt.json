@@ -1,7 +1,7 @@
 {
   "Header": {
     "title": "Portifólio",
-    "menu": {
+    "navigation": {
       "/": "Início",
       "/records": "Histórico",
       "/about": "Sobre",

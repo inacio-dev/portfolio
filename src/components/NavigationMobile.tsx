@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 
 import useLocalStorage from '../hooks/useLocalStorage'
-import NavLinks from './NavLinks'
+import NavigationLinks from './NavigationLinks'
 
 export default function NavigationMobile() {
   const [visibleHeaderMobile] = useLocalStorage('header-mobile', false)
@@ -41,7 +41,7 @@ export default function NavigationMobile() {
       initial="hidden"
       className="flex w-full items-center justify-center overflow-hidden bg-brand-mindaro text-slate-light-3 shadow-md transition-all duration-500 dark:bg-brand-indigo md:hidden"
     >
-      <NavLinks isHiddenLinks={isHiddenLinks} controlsLinks={controlsLinks} mobile={true} />
+      <NavigationLinks isHiddenLinks={isHiddenLinks} controlsLinks={controlsLinks} mobile />
     </motion.div>
   )
 }
