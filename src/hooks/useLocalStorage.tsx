@@ -30,11 +30,9 @@ export default function useLocalStorage<T>(key: string, fallbackValue: T) {
         }
       }
 
-      // Adicionar ouvinte de evento de mudança de armazenamento
       window.addEventListener('storage', handleStorageChange)
 
       return () => {
-        // Remover o ouvinte de evento ao desmontar o componente
         window.removeEventListener('storage', handleStorageChange)
       }
     }
@@ -45,7 +43,7 @@ export default function useLocalStorage<T>(key: string, fallbackValue: T) {
       try {
         localStorage.setItem(key, JSON.stringify(newValue))
         setValue(newValue)
-        // Notificar outros componentes quando o valor for atualizado
+
         window.dispatchEvent(
           new StorageEvent('storage', { key, newValue: JSON.stringify(newValue) }),
         )

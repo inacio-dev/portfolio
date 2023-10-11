@@ -14,5 +14,9 @@
     "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados.",
     "about": "Olá, sou um Desenvolvedor Full-Stack experiente, Designer Gráfico, Especialista em Marketing Digital e estudante de Engenharia da Computação. Este site apresenta meus projetos, trabalhos anteriores e fornece detalhes abrangentes sobre minhas habilidades em cada área.",
     "button": "Sobre Mim"
+  },
+  "About": {
+    "title": "Início",
+    "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados."
   }
 }
