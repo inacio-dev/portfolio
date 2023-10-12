@@ -9,14 +9,12 @@ import { motion, useAnimation } from 'framer-motion'
 import Spinner from '../assets/Spinner'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useWindowDimensions from '../hooks/useWindowDimensions'
-import { usePathname } from '../navigation'
 import NavigationLinks from './NavigationLinks'
 
 export default function Navigation() {
   const controlsIcon = useAnimation()
   const controlsLinks = useAnimation()
   const { width, loaded } = useWindowDimensions()
-  const pathname = usePathname()
   const [visibleHeaderMobile, setVisibleHeaderMobile] = useLocalStorage('header-mobile', false)
 
   const [mounted, setMounted] = useState(false)
@@ -44,11 +42,6 @@ export default function Navigation() {
     controlsIcon.start(isHovered ? 'hidden' : 'visible')
     controlsLinks.start(isHovered ? 'visible' : 'hidden')
   }, [controlsIcon, isHovered, controlsLinks, isHiddenIcon, mounted, isHiddenLinks, loaded])
-
-  useEffect(() => {
-    setVisibleHeaderMobile(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname])
 
   useEffect(() => {
     if (!mounted || !loaded) return

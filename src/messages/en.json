@@ -14,5 +14,16 @@
     "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
     "about": "Hello, I am an experienced Full-Stack Developer, Graphic Designer, Digital Marketing Specialist, and a Computer Engineering student. This website showcases my projects, previous work, and provides comprehensive details about my skills in each domain.",
     "button": "About Me"
+  },
+  "About": {
+    "title": "About",
+    "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
+    "page-title": "About Me",
+    "text": {
+      "p1": "I possess extensive experience in software development and prototyping projects, with proficiency in multiple programming languages, including C, Java, Python, along with a strong grasp of web-oriented technologies. Concurrently, I have operated independently as a graphic designer and have secured technical certification from the esteemed Adobe Inc.",
+      "p2": "I am currently pursuing a degree in Computer Engineering at the Federal University of Ceará, an ongoing journey that compels me to continuously seek excellence and enhance my skill set. I stay well-informed about the latest trends and updates in the ever-evolving digital landscape because my dedication lies in delivering innovative, highly customized, and top-quality solutions to my clients.",
+      "p3": "With the capability to engage in all project phases, from conceptualization to software and hardware development, I prioritize code quality and front-end design to ensure optimal performance and an exceptional user experience, with a strong emphasis on accessibility. I take pride in applying my diverse knowledge to craft outstanding solutions that yield client satisfaction, all while upholding my commitment to elevate standards and drive innovation in each project I undertake."
+    },
+    "contact-title": "LINKS & CONTACT"
   }
 }

@@ -29,7 +29,7 @@ export default async function Home({ params: { language } }: { params: { languag
       <HeroIndex />
 
       <div className="z-10 space-y-14">
-        <div className="max-w-none space-y-6 text-slate-dark-6 transition-colors duration-100 dark:text-slate-light-3 lg:max-w-xl">
+        <div className="max-w-none space-y-6 rounded-none bg-transparent text-slate-dark-6 transition-colors duration-100 dark:text-slate-light-3 sm:max-w-xl sm:rounded-2xl sm:bg-slate-light-3/60 dark:sm:bg-slate-dark-2/60">
           <h1 className="text-5xl font-bold uppercase sm:text-8xl">Inácio Rodrigues</h1>
           <p className="text-sm uppercase sm:text-base">{t('about')}</p>
         </div>

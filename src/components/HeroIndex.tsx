@@ -25,8 +25,8 @@ export default function HeroIndex() {
   return (
     <div className="bottom-0 grid w-full translate-x-0 items-center justify-center opacity-100 transition-opacity duration-500 dark:opacity-70 sm:absolute sm:w-auto sm:translate-x-[35%] xl:translate-x-[75%]">
       <picture>
-        <source media="(max-width: 368px)" srcSet={mobile} />
-        <source media="(max-width: 533px)" srcSet={tablet} />
+        <source media="(max-width: 345px)" srcSet={mobile} />
+        <source media="(max-width: 510px)" srcSet={tablet} />
         <source media="(max-width: 1536px)" srcSet={desktop} />
         <source media="(min-width: 1535px)" srcSet={plus} />
         <img
