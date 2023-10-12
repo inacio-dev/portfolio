@@ -16,7 +16,14 @@
     "button": "Sobre Mim"
   },
   "About": {
-    "title": "Início",
-    "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados."
+    "title": "Sobre",
+    "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados.",
+    "page-title": "Sobre Mim",
+    "text": {
+      "p1": "Possuo vasta experiência em desenvolvimento de software e projetos de prototipagem, com proficiência em diversas linguagens de programação, incluindo C, Java e Python, além de um sólido entendimento de tecnologias orientadas para a web. Paralelamente, atuo de forma independente como designer gráfico e obtive certificação técnica da renomada Adobe Inc.",
+      "p2": "Atualmente, estou cursando Engenharia da Computação na Universidade Federal do Ceará, uma jornada contínua que me impulsiona a buscar a excelência e aprimorar meu conjunto de habilidades. Mantenho-me bem informado sobre as últimas tendências e atualizações no cenário digital em constante evolução, pois minha dedicação reside em fornecer soluções inovadoras, altamente personalizadas e de alta qualidade aos meus clientes.",
+      "p3": "Com a capacidade de envolver-me em todas as fases do projeto, desde a conceitualização até o desenvolvimento de software e hardware, priorizo a qualidade do código e o design de front-end para garantir um desempenho ideal e uma experiência do usuário excepcional, com forte ênfase na acessibilidade. Orgulho-me de aplicar meu conhecimento diversificado para criar soluções excepcionais que resultam na satisfação do cliente, ao mesmo tempo em que mantenho meu compromisso de elevar os padrões e impulsionar a inovação em cada projeto que empreendo."
+    },
+    "contact-title": "LINKS & CONTATO"
   }
 }

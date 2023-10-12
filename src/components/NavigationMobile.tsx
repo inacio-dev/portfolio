@@ -1,15 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, useAnimation } from 'framer-motion'
 
 import useLocalStorage from '../hooks/useLocalStorage'
 import NavigationLinks from './NavigationLinks'
 
 export default function NavigationMobile() {
-  const [visibleHeaderMobile] = useLocalStorage('header-mobile', false)
+  const [visibleHeaderMobile, setVisibleHeaderMobile] = useLocalStorage('header-mobile', false)
   const controlsMenu = useAnimation()
   const controlsLinks = useAnimation()
+  const pathname = usePathname()
 
   const [isHiddenLinks, setIsHiddenLinks] = useState(true)
 
@@ -24,6 +26,11 @@ export default function NavigationMobile() {
     controlsLinks.start(visibleHeaderMobile ? 'visible' : 'hidden')
     controlsMenu.start(visibleHeaderMobile ? 'visible' : 'hidden')
   }, [controlsLinks, controlsMenu, visibleHeaderMobile])
+
+  useEffect(() => {
+    setVisibleHeaderMobile(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname])
 
   return (
     <motion.div
