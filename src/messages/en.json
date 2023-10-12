@@ -17,7 +17,7 @@
   },
   "About": {
     "title": "About",
-    "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
+    "description": "Professional summary showcasing expertise in software development, graphic design, and a commitment to continuous innovation, along with contact information.",
     "page-title": "About Me",
     "text": {
       "p1": "I possess extensive experience in software development and prototyping projects, with proficiency in multiple programming languages, including C, Java, Python, along with a strong grasp of web-oriented technologies. Concurrently, I have operated independently as a graphic designer and have secured technical certification from the esteemed Adobe Inc.",
@@ -25,5 +25,29 @@
       "p3": "With the capability to engage in all project phases, from conceptualization to software and hardware development, I prioritize code quality and front-end design to ensure optimal performance and an exceptional user experience, with a strong emphasis on accessibility. I take pride in applying my diverse knowledge to craft outstanding solutions that yield client satisfaction, all while upholding my commitment to elevate standards and drive innovation in each project I undertake."
     },
     "contact-title": "LINKS & CONTACT"
+  },
+  "Terms": {
+    "title": "Terms",
+    "description": "This document comprises the Terms of Use and Privacy Policy of Inácio Rodrigues' personal website.",
+    "page-title": "Terms",
+    "page-description": "This document comprises the Terms of Use and Privacy Policy of Inácio Rodrigues' personal website, which showcases professional information about the website owner and the projects that constitute his professional career. By accessing and utilizing this website, you agree to the terms delineated below:",
+    "terms": {
+      "title": "Terms and Conditions:",
+      "list": {
+        "l1": "All content on this site is safeguarded by copyright and intellectual property laws, encompassing images, texts, and design. Any reproduction or distribution without prior and explicit authorization from the owner is prohibited, subjecting the infringing party to legal repercussions as stipulated by the law.",
+        "l2": "The information presented on this website is provided solely for informational purposes, with no guarantee of accuracy, currency, or suitability for specific purposes. The owner bears no responsibility for any damages resulting from the use or inability to use this website.",
+        "l3": "The owner retains the right to update or amend these terms of use at any time, without prior notification. It is advisable for users to routinely review this page to stay informed about any alterations."
+      }
+    },
+    "policies": {
+      "title": "Privacy Policy:",
+      "list": {
+        "l1": "The website owner assures the privacy and security of the personal data furnished by users, pledging not to share information without prior consent, except when legally required.",
+        "l2": "This site utilizes cookies to optimize the user's browsing experience by storing technical information such as IP address, browser type, and operating system. This data is solely collected for statistical purposes and to enhance the site's performance.",
+        "l3": "The website may include links to other external websites. The owner is not accountable for the privacy policies or content of these sites, and users are advised to peruse the respective policies before providing any personal information.",
+        "l4": "The data collected will be held in strict confidence, with access granted only to professionals responsible for managing the site."
+      }
+    },
+    "footer": "The utilization of this website signifies complete and unconditional acceptance of these terms of use and privacy policy. Should you have any inquiries, please do not hesitate to reach out to the owner through the form accessible on the website. We appreciate your visit to this personal website."
   }
 }

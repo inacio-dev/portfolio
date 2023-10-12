@@ -17,7 +17,7 @@
   },
   "About": {
     "title": "Sobre",
-    "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados.",
+    "description": "Resumo profissional destacando habilidades em desenvolvimento de software, design gráfico e busca constante por inovação, além de informações de contato.",
     "page-title": "Sobre Mim",
     "text": {
       "p1": "Possuo vasta experiência em desenvolvimento de software e projetos de prototipagem, com proficiência em diversas linguagens de programação, incluindo C, Java e Python, além de um sólido entendimento de tecnologias orientadas para a web. Paralelamente, atuo de forma independente como designer gráfico e obtive certificação técnica da renomada Adobe Inc.",
@@ -25,5 +25,29 @@
       "p3": "Com a capacidade de envolver-me em todas as fases do projeto, desde a conceitualização até o desenvolvimento de software e hardware, priorizo a qualidade do código e o design de front-end para garantir um desempenho ideal e uma experiência do usuário excepcional, com forte ênfase na acessibilidade. Orgulho-me de aplicar meu conhecimento diversificado para criar soluções excepcionais que resultam na satisfação do cliente, ao mesmo tempo em que mantenho meu compromisso de elevar os padrões e impulsionar a inovação em cada projeto que empreendo."
     },
     "contact-title": "LINKS & CONTATO"
+  },
+  "Terms": {
+    "title": "Termos",
+    "description": "Este documento compreende os Termos de Uso e a Política de Privacidade do site pessoal de Inácio Rodrigues.",
+    "page-title": "Termos",
+    "page-description": "Este documento compreende os Termos de Uso e a Política de Privacidade do site pessoal de Inácio Rodrigues, que apresenta informações profissionais sobre o proprietário do site e os projetos que compõem sua carreira profissional. Ao acessar e utilizar este site, você concorda com os termos delineados abaixo:",
+    "terms": {
+      "title": "Termos e Condições:",
+      "list": {
+        "l1": "Todo o conteúdo deste site é protegido por leis de direitos autorais e propriedade intelectual, abrangendo imagens, textos e design. Qualquer reprodução ou distribuição sem autorização prévia e explícita do proprietário é proibida, sujeitando a parte infratora a repercussões legais, conforme estipulado pela lei.",
+        "l2": "As informações apresentadas neste site são fornecidas exclusivamente para fins informativos, sem garantia de precisão, atualidade ou adequação para fins específicos. O proprietário não se responsabiliza por quaisquer danos decorrentes do uso ou da impossibilidade de usar este site.",
+        "l3": "O proprietário reserva o direito de atualizar ou modificar estes termos de uso a qualquer momento, sem aviso prévio. É aconselhável que os usuários revejam regularmente esta página para se manterem informados sobre quaisquer alterações."
+      }
+    },
+    "policies": {
+      "title": "Política de Privacidade:",
+      "list": {
+        "l1": "O proprietário do site garante a privacidade e segurança dos dados pessoais fornecidos pelos usuários, comprometendo-se a não compartilhar informações sem consentimento prévio, exceto quando exigido por lei.",
+        "l2": "Este site utiliza cookies para otimizar a experiência de navegação do usuário, armazenando informações técnicas, como endereço IP, tipo de navegador e sistema operacional. Esses dados são coletados exclusivamente para fins estatísticos e para aprimorar o desempenho do site.",
+        "l3": "O site pode conter links para outros sites externos. O proprietário não se responsabiliza pelas políticas de privacidade ou pelo conteúdo desses sites, e os usuários são aconselhados a ler as respectivas políticas antes de fornecer qualquer informação pessoal.",
+        "l4": "Os dados coletados serão mantidos em estrita confidencialidade, com acesso concedido apenas a profissionais responsáveis pela gestão do site."
+      }
+    },
+    "footer": "A utilização deste website implica na aceitação completa e incondicional destes termos de uso e política de privacidade. Em caso de dúvidas, não hesite em entrar em contato com o proprietário por meio do formulário disponível no site. Agradecemos a sua visita a este site pessoal."
   }
 }
