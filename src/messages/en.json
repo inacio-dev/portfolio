@@ -49,5 +49,18 @@
       }
     },
     "footer": "The utilization of this website signifies complete and unconditional acceptance of these terms of use and privacy policy. Should you have any inquiries, please do not hesitate to reach out to the owner through the form accessible on the website. We appreciate your visit to this personal website."
+  },
+  "Records": {
+    "title": "Records",
+    "ongoing": {
+      "title": "Ongoing",
+      "description": "",
+      "page-title": "Ongoing Pursuits"
+    },
+    "resume": {
+      "title": "Resume",
+      "description": "",
+      "page-title": "Resume"
+    }
   }
 }
