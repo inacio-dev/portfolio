@@ -1,3 +1,4 @@
+import Footer from '@/src/components/Footer'
 import Header from '@/src/components/Header'
 
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -6,6 +7,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
       <Header />
 
       {children}
+
+      <Footer />
     </>
   )
 }
