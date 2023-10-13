@@ -9,6 +9,10 @@
       "/terms": "Termos"
     }
   },
+  "Footer": {
+    "resume": "Atualmente",
+    "ongoing": "Resumo"
+  },
   "Home": {
     "title": "Início",
     "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados.",

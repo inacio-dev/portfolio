@@ -9,6 +9,10 @@
       "/terms": "Terms"
     }
   },
+  "Footer": {
+    "resume": "Ongoing",
+    "ongoing": "Resume"
+  },
   "Home": {
     "title": "Home",
     "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
@@ -55,12 +59,33 @@
     "ongoing": {
       "title": "Ongoing",
       "description": "",
-      "page-title": "Ongoing Pursuits"
+      "page-title": "Ongoing Pursuits",
+      "pursuits": {
+        "freelancer": {
+          "date": "MAY / 2022",
+          "title": "SOFTWARE DEVELOPER, FREELANCER",
+          "description": "With 6 years of programming experience, I possess advanced skills in languages such as Python, with a special focus on data analysis and collection. I also have proficiency in C, Java, and JavaScript. Currently, my main focus is Full-Stack web development, using industry-leading tools. I am actively engaged on platforms like Workana, Upwork, and Freelancer, where I deliver high-quality projects."
+        },
+        "ufc": {
+          "date": "JANUARY / 2020",
+          "title": "BACHELOR OF COMPUTER ENGINEERING, FEDERAL UNIVERSITY OF CEARÁ - UFC",
+          "description": "Currently in the 8th semester.",
+          "list": {
+            "l1": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
+            "l2": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
+            "l3": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
+          }
+        },
+        "cs50": {
+          "date": "MARCH / 2022",
+          "title": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
+          "description": "Web Programming course using Python and JavaScript from Harvard University for intellectual computer science and programming art for undergraduate students."
+        }
+      }
     },
     "resume": {
       "title": "Resume",
-      "description": "",
-      "page-title": "Resume"
+      "description": ""
     }
   }
 }

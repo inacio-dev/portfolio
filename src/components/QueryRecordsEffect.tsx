@@ -15,8 +15,8 @@ export default function QueryRecordsEffect({ view }: QueryRecordsEffectProps) {
   useEffect(() => {
     if (!mounted) return
 
-    if (!view) {
-      router.replace({ pathname: '/records', query: { view: 'ongoing' } })
+    if (!view || !['resume', 'ongoing'].includes(view)) {
+      return router.replace({ pathname: '/records', query: { view: 'ongoing' } })
     }
   }, [mounted, view, router])
 
