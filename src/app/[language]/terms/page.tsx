@@ -35,11 +35,11 @@ export default async function Terms({ params: { language } }: { params: { langua
       <ul className="space-y-10">
         {topics.map((topic, index) => (
           <li key={index} className="space-y-2">
-            <h2 className="font-bold">{t(topic + '.title')}</h2>
+            <h2 className="font-bold">{t(`${topic}.title`)}</h2>
 
             <ol className="ml-6 list-decimal md:ml-10">
               {(index === 0 ? termsParagraphs : policiesParagraphs).map((paragraph, index) => (
-                <li key={index}>{t(topic + '.list.' + paragraph)}</li>
+                <li key={index}>{t(`${topic}.list.${paragraph}`)}</li>
               ))}
             </ol>
           </li>

@@ -94,7 +94,7 @@ export default async function About({
 
       <div className="grid space-y-5 text-start text-xs md:text-base">
         {keys.map((paragraph, index) => (
-          <p key={index}>{t('text.' + paragraph)}</p>
+          <p key={index}>{t(`text.${paragraph}`)}</p>
         ))}
       </div>
 

@@ -58,7 +58,7 @@
     "title": "Records",
     "ongoing": {
       "title": "Ongoing",
-      "description": "",
+      "description": "The page showcases my recent activities and achievements.",
       "page-title": "Ongoing Pursuits",
       "pursuits": {
         "freelancer": {
@@ -85,7 +85,89 @@
     },
     "resume": {
       "title": "Resume",
-      "description": ""
+      "description": "The page encompasses my professional experience, academic background, additional education, and certifications, highlighting my journey in software development, digital marketing, and supplementary education.",
+      "page-title": "Resume",
+      "contents": {
+        "professionals": {
+          "title": "Professional Experience",
+          "freelancer": {
+            "date": "MAY / 2022 / PRESENT",
+            "title": "SOFTWARE DEVELOPER, FREELANCER",
+            "description": "With 6 years of programming experience, I possess advanced skills in languages such as Python, with a special focus on data analysis and collection. I also have proficiency in C, Java, and JavaScript. Currently, my main focus is Full-Stack web development, using industry-leading tools. I am actively engaged on platforms like Workana, Upwork, and Freelancer, where I deliver high-quality projects."
+          },
+          "apeu": {
+            "date": "JANUARY / 2023",
+            "title": "DIGITAL MARKETING, AUTO PEÇAS ESTADOS UNIDOS",
+            "description": "I worked as an ads manager for a period of 6 months, where I used platforms like Google Ads and Facebook Ads. My role in this field involved the implementation of strategies, analysis, ad creation, and optimization. I was also responsible for site linking with Google Tag Manager and managing response data through conversion tags like Facebook Pixel and Google Analytics."
+          }
+        },
+        "academics": {
+          "title": "Academic Background",
+          "ufc": {
+            "date": "JANUARY / 2020 / PRESENT",
+            "title": "BACHELOR OF COMPUTER ENGINEERING, FEDERAL UNIVERSITY OF CEARÁ - UFC",
+            "description": "Currently in the 8th semester.",
+            "list": {
+              "l1": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
+              "l2": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
+              "l3": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
+            }
+          },
+          "school": {
+            "date": "DECEMBER / 2018",
+            "title": "HIGH SCHOOL, LOURENÇO FILHO SCHOOL",
+            "description": "Completion of high school."
+          }
+        },
+        "additionals": {
+          "title": "Additional Education",
+          "certiprof": {
+            "date": "JULY / 2022",
+            "title": "DIGITAL MARKETING PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+            "description": "Certificate of passing the examination based on a detailed understanding of Digital Marketing concepts, strategies, and implementation, including email campaigns and Search Engine Optimization (SEO), Pay Per Click (PPC) campaigns, social marketing, retargeting, and integrating digital marketing with traditional marketing equivalent to DMPC."
+          },
+          "ebmd": {
+            "date": "JULY / 2022",
+            "title": "IMMERSION IN GOOGLE ADS, BRAZILIAN SCHOOL OF DIGITAL MARKETING - EBMD",
+            "description": "Completion of the Google Ads Immersion course - Search, Display, and Video, with a focus on developing techniques to work with Google’s resources and tools."
+          },
+          "cs50": {
+            "date": "MARCH / 2022 / PRESENT",
+            "title": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
+            "description": "Web Programming course using Python and JavaScript from Harvard University for intellectual computer science and programming art for undergraduate students."
+          },
+          "scrum": {
+            "date": "MARCH / 2022",
+            "title": "SCRUM FOUNDATION PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+            "description": "Certificate of passing the exam based on “The Scrum Guide™, The Definitive Guide to Scrum: The Rules of the Game, developed and sustained by the founders of Scrum – Ken Schwaber and Jeff Sutherland,” equivalent to SFPC."
+          },
+          "adv-english": {
+            "date": "DECEMBER / 2020",
+            "title": "ADVANCED ENGLISH, CULTURA INGLESA",
+            "description": "Completion of the Cultura Express Plus B1 English course, with international certification equivalent to CEFR B1 level of the Common European Framework of Reference for Languages."
+          },
+          "inter-english": {
+            "date": "DECEMBER / 2019",
+            "title": "INTERMEDIATE ENGLISH, CULTURA INGLESA",
+            "description": "Completion of the Cultura Express A2 English course, with international certification equivalent to CEFR A2 level of the Common European Framework of Reference for Languages."
+          },
+          "iot": {
+            "date": "JUNE / 2019",
+            "title": "CLOUD SERVICES PRACTICES USING SWIFT WITH EMPHASIS ON IOT, HACKATRUCK - PROFESSIONAL QUALIFICATION PROGRAM IN PROGRAMMING",
+            "description": "Completion of the Cloud Services Practices course using Swift with an emphasis on IoT, with certification from the Eldorado Research Institute sponsored by IBM Brazil and Flex in collaboration with Apple."
+          },
+          "logic": {
+            "date": "APRIL / 2019",
+            "title": "PROGRAMMING LOGIC, SWIFT, JAVASCRIPT, AND RESTFUL API, HACKATRUCK - PROFESSIONAL QUALIFICATION PROGRAM IN PROGRAMMING",
+            "description": "Completion of the Concepts and Fundamentals course: Programming Logic, Object-Oriented Programming, Swift, JavaScript, and RESTful API, with certification from the Eldorado Research Institute sponsored by IBM Brazil and Flex in collaboration with Apple."
+          },
+          "adobe": {
+            "date": "AUGUST / 2018",
+            "title": "COMPUTER GRAPHICS, GRACOM - SCHOOL OF VISUAL EFFECTS",
+            "description": "Completion of the Open CG course, with certification from Adobe Inc."
+          }
+        }
+      }
     }
   }
 }
