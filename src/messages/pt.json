@@ -53,5 +53,121 @@
       }
     },
     "footer": "A utilização deste website implica na aceitação completa e incondicional destes termos de uso e política de privacidade. Em caso de dúvidas, não hesite em entrar em contato com o proprietário por meio do formulário disponível no site. Agradecemos a sua visita a este site pessoal."
+  },
+  "Records": {
+    "title": "Histórico",
+    "ongoing": {
+      "title": "Atualmente",
+      "description": "A página apresenta minhas atividades e conquistas recentes.",
+      "page-title": "Atualmente",
+      "pursuits": {
+        "freelancer": {
+          "date": "MAIO / 2022",
+          "title": "DESENVOLVEDOR DE SOFTWARE, FREELANCER",
+          "description": "Com 6 anos de experiência em programação, possuo habilidades avançadas em linguagens como Python, com foco especial na análise e coleta de dados, além de proficiência em C, Java e JavaScript. Atualmente, meu enfoque principal é o desenvolvimento web Full-Stack, utilizando ferramentas líderes no mercado. Também utilizo ativamente as plataformas Workana, Upwork e Freelancer, onde entrego projetos de alta qualidade."
+        },
+        "ufc": {
+          "date": "JANEIRO / 2020",
+          "title": "BACHARELADO EM ENGENHARIA DE COMPUTAÇÃO, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
+          "description": "Atualmente no 8º semestre.",
+          "list": {
+            "l1": "Participando como voluntário na elaboração de software do Programa de Extensão Universitária da UFC no projeto de “Avaliação dos indicadores antropométricos e hematológicos em crianças entre 4 a 12 anos assistidas pelo Lions Clube de Acaraú Ceará, Escola Municipal de Ensino Infantil e Ensino Fundamental Comissário Francisco Barbosa em Maracanaú - Ceará e pelos adolescentes assistidos pela Coordenadoria de Desenvolvimento Familiar (CDFAM)”.",
+            "l2": "Participação da maratona HackPI Ceará: Hackathon para a Primeira Infância Cearense no ano de 2021.",
+            "l3": "Participação dos minicursos Autenticação em Redes e Redes Neurais convolucionais com Tensorflow oferecidos durante a Semana da Tecnologia da Informação e Comunicação (SETIC) no ano de 2020."
+          }
+        },
+        "cs50": {
+          "date": "MARÇO / 2022",
+          "title": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
+          "description": "Curso de Programação Web utilizando Python e JavaScript da Universidade de Harvard às empresas intelectuais da ciência da computação e à arte da programação para alunos de graduação."
+        }
+      }
+    },
+    "resume": {
+      "title": "Resumo",
+      "description": "A página engloba minha experiência profissional, formação acadêmica, educação adicional e certificações, destacando minha trajetória no desenvolvimento de software, marketing digital e educação complementar.",
+      "page-title": "Resumo",
+      "contents": {
+        "professionals": {
+          "title": "Experiências",
+          "freelancer": {
+            "date": "MAIO / 2022 / ATUALMENTE",
+            "title": "DESENVOLVEDOR DE SOFTWARE, FREELANCER",
+            "description": "Com 6 anos de experiência em programação, possuo habilidades avançadas em linguagens como Python, com foco especial na análise e coleta de dados, além de proficiência em C, Java e JavaScript. Atualmente, meu enfoque principal é o desenvolvimento web Full-Stack, utilizando ferramentas líderes no mercado. Também utilizo ativamente as plataformas Workana, Upwork e Freelancer, onde entrego projetos de alta qualidade."
+          },
+          "apeu": {
+            "date": "JANEIRO / 2023",
+            "title": "MARKETING DIGITAL, AUTO PEÇAS ESTADOS UNIDOS",
+            "description": "Atuei como gestor de anúncios por um período de 6 meses, onde utilizei plataformas como Google Ads e Facebook Ads. Minha função nessa área envolveu a implementação de estratégias, análise, criação e otimização de anúncios. Também fui responsável pela vinculação de sites com o Google Tag Manager e pelo gerenciamento de dados de resposta por meio de tags de conversão, como o Facebook Pixel e o Google Analytics."
+          }
+        },
+        "academics": {
+          "title": "Formação Acadêmica",
+          "ufc": {
+            "date": "JANEIRO / 2020 / ATUALMENTE",
+            "title": "BACHARELADO EM ENGENHARIA DE COMPUTAÇÃO, UNIVERSIDADE FEDERAL DO CEARÁ - UFC",
+            "description": "Atualmente no 8º semestre.",
+            "list": {
+              "l1": "Participando como voluntário na elaboração de software do Programa de Extensão Universitária da UFC no projeto de “Avaliação dos indicadores antropométricos e hematológicos em crianças entre 4 a 12 anos assistidas pelo Lions Clube de Acaraú Ceará, Escola Municipal de Ensino Infantil e Ensino Fundamental Comissário Francisco Barbosa em Maracanaú - Ceará e pelos adolescentes assistidos pela Coordenadoria de Desenvolvimento Familiar (CDFAM)”.",
+              "l2": "Participação da maratona HackPI Ceará: Hackathon para a Primeira Infância Cearense no ano de 2021.",
+              "l3": "Participação dos minicursos Autenticação em Redes e Redes Neurais convolucionais com Tensorflow oferecidos durante a Semana da Tecnologia da Informação e Comunicação (SETIC) no ano de 2020."
+            }
+          },
+          "school": {
+            "date": "DEZEMBRO / 2018",
+            "title": "ENSINO MÉDIO, COLÉGIO LOURENÇO FILHO",
+            "description": "Conclusão do ensino médio completo."
+          }
+        },
+        "additionals": {
+          "title": "Formação Complementar",
+          "certiprof": {
+            "date": "JULHO / 2022",
+            "title": "DIGITAL MARKETING PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+            "description": "Certificado de aprovação do exame baseado em compreensão detalhada sobre os conceitos, estratégias e implementação de Marketing Digital, incluindo campanhas de e-mail e Search Engine Optimization (SEO), campanhas Pay Per Click (PPC), marketing social, retargeting e integração de marketing digital com marketing tradicional equivalente à DMPC."
+          },
+          "ebmd": {
+            "date": "JULHO / 2022",
+            "title": "IMERSÃO GOOGLE ADS, ESCOLA BRASILEIRA DE MARKETING DIGITAL - EBMD",
+            "description": "Conclusão do curso de Imersão Google Ads - Search, Display e Vídeo, com foco em desenvolver técnicas para trabalhar com os recursos e ferramentas do Google."
+          },
+          "cs50": {
+            "date": "MARÇO / 2022 / ATUALMENTE",
+            "title": "CS50’S WEB PROGRAMMING WITH PYTHON AND JAVASCRIPT, HARVARDX - HARVARD UNIVERSITY",
+            "description": "Curso de Programação Web utilizando Python e JavaScript da Universidade de Harvard às empresas intelectuais da ciência da computação e à arte da programação para alunos de graduação."
+          },
+          "scrum": {
+            "date": "MARÇO / 2022",
+            "title": "SCRUM FOUNDATION PROFESSIONAL CERTIFICATE, CERTIPROF - PROFESSIONAL KNOWLEDGE",
+            "description": "Certificado de aprovação do exame baseado no “The Scrum Guide™, The Definitive Guide to Scrum: The Rules of the Game, developed and sustained by the founders of Scrum – Ken Schwaber and Jeff Sutherland” equivalente à SFPC."
+          },
+          "adv-english": {
+            "date": "DEZEMBRO / 2020",
+            "title": "INGLÊS AVANÇADO, CULTURA INGLESA",
+            "description": "Conclusão do curso de inglês Cultura Express Plus B1, com certificação internacional equivalente ao nível B1 do Quadro Comum Europeu de Referência para Línguas (CEFR B1)."
+          },
+          "inter-english": {
+            "date": "DEZEMBRO / 2019",
+            "title": "INGLÊS INTERMEDIÁRIO, CULTURA INGLESA",
+            "description": "Conclusão do curso de inglês Cultura Express A2, com certificação internacional equivalente ao nível A2 do Quadro Comum Europeu de Referência para Línguas (CEFR A2)."
+          },
+          "iot": {
+            "date": "JUNHO / 2019",
+            "title": "PRÁTICAS DE CLOUD SERVICES USANDO SWIFT COM ÊNFASE EM IOT, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
+            "description": "Conclusão do curso Práticas de Cloud Services usando Swift com ênfase em IoT, com certificação do Instituto de Pesquisas Eldorado patrocinado pela IBM Brasil e Flex em colaboração com a Apple."
+          },
+          "logic": {
+            "date": "ABRIL / 2019",
+            "title": "LÓGICA DE PROGRAMAÇÃO, SWIFT, JAVASCRIPT E RESTFUL API, HACKATRUCK - PROGRAMA DE QUALIFICAÇÃO PROFISSIONAL EM PROGRAMAÇÃO",
+            "description": "Conclusão do curso Conceitos e Fundamentos: Lógica de Programação, Orientação a Objetos, Swift, JavaScript e RESTful API, com certificação do Instituto de Pesquisas Eldorado patrocinado pela IBM Brasil e Flex em colaboração com a Apple."
+          },
+          "adobe": {
+            "date": "AGOSTO / 2018",
+            "title": "COMPUTAÇÃO GRÁFICA, GRACOM - ESCOLA DE EFEITOS VISUAIS",
+            "description": "Conclusão do curso Open CG, com certificação da Adobe Inc."
+          }
+        }
+      }
+    }
   }
 }
