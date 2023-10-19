@@ -13,6 +13,12 @@
     "resume": "Ongoing",
     "ongoing": "Resume"
   },
+  "Aside": {
+    "menu-mobile": "Close Menu",
+    "website": "This Website",
+    "frontend": "Frontend Mentor",
+    "sites": "Site Projects"
+  },
   "Home": {
     "title": "Home",
     "description": "Welcome to my portfolio, a showcase of diverse projects and skills.",
@@ -169,5 +175,9 @@
         }
       }
     }
+  },
+  "Projects": {
+    "title": "Projects",
+    "description": ""
   }
 }

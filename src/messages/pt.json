@@ -13,6 +13,12 @@
     "resume": "Atualmente",
     "ongoing": "Resumo"
   },
+  "Aside": {
+    "menu-mobile": "Fechar Menu",
+    "website": "Este Website",
+    "frontend": "Frontend Mentor",
+    "sites": "Sites"
+  },
   "Home": {
     "title": "Início",
     "description": "Seja bem-vindo ao meu portfólio, uma vitrine de projetos e habilidades diversificados.",
@@ -169,5 +175,9 @@
         }
       }
     }
+  },
+  "Projects": {
+    "title": "Projetos",
+    "description": ""
   }
 }
