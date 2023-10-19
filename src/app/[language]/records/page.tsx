@@ -65,7 +65,7 @@ export default async function Records({
   ] as const
 
   return (
-    <MainSection className="pb-16 text-start text-xs md:pb-28 md:text-base">
+    <MainSection className="pb-16 text-start md:pb-28 ">
       <QueryRecordsEffect view={view} />
 
       {view === 'ongoing' || view === 'atualmente' ? (

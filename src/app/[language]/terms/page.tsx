@@ -27,7 +27,7 @@ export default async function Terms({ params: { language } }: { params: { langua
   const policiesParagraphs = ['l1', 'l2', 'l3', 'l4'] as const
 
   return (
-    <MainSection className="text-start text-xs md:text-base">
+    <MainSection className="text-start">
       <h1 className="text-center text-4xl font-bold uppercase md:text-5xl">{t('page-title')}</h1>
 
       <p>{t('page-description')}</p>
