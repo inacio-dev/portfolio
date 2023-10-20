@@ -29,10 +29,10 @@
     "title": "About",
     "description": "Professional summary showcasing expertise in software development, graphic design, and a commitment to continuous innovation, along with contact information.",
     "page-title": "About Me",
-    "text": {
-      "p1": "I possess extensive experience in software development and prototyping projects, with proficiency in multiple programming languages, including C, Java, Python, along with a strong grasp of web-oriented technologies. Concurrently, I have operated independently as a graphic designer and have secured technical certification from the esteemed Adobe Inc.",
-      "p2": "I am currently pursuing a degree in Computer Engineering at the Federal University of Ceará, an ongoing journey that compels me to continuously seek excellence and enhance my skill set. I stay well-informed about the latest trends and updates in the ever-evolving digital landscape because my dedication lies in delivering innovative, highly customized, and top-quality solutions to my clients.",
-      "p3": "With the capability to engage in all project phases, from conceptualization to software and hardware development, I prioritize code quality and front-end design to ensure optimal performance and an exceptional user experience, with a strong emphasis on accessibility. I take pride in applying my diverse knowledge to craft outstanding solutions that yield client satisfaction, all while upholding my commitment to elevate standards and drive innovation in each project I undertake."
+    "paragraphs": {
+      "p0": "I possess extensive experience in software development and prototyping projects, with proficiency in multiple programming languages, including C, Java, Python, along with a strong grasp of web-oriented technologies. Concurrently, I have operated independently as a graphic designer and have secured technical certification from the esteemed Adobe Inc.",
+      "p1": "I am currently pursuing a degree in Computer Engineering at the Federal University of Ceará, an ongoing journey that compels me to continuously seek excellence and enhance my skill set. I stay well-informed about the latest trends and updates in the ever-evolving digital landscape because my dedication lies in delivering innovative, highly customized, and top-quality solutions to my clients.",
+      "p2": "With the capability to engage in all project phases, from conceptualization to software and hardware development, I prioritize code quality and front-end design to ensure optimal performance and an exceptional user experience, with a strong emphasis on accessibility. I take pride in applying my diverse knowledge to craft outstanding solutions that yield client satisfaction, all while upholding my commitment to elevate standards and drive innovation in each project I undertake."
     },
     "contact-title": "LINKS & CONTACT"
   },
@@ -44,24 +44,25 @@
     "terms": {
       "title": "Terms and Conditions:",
       "list": {
-        "l1": "All content on this site is safeguarded by copyright and intellectual property laws, encompassing images, texts, and design. Any reproduction or distribution without prior and explicit authorization from the owner is prohibited, subjecting the infringing party to legal repercussions as stipulated by the law.",
-        "l2": "The information presented on this website is provided solely for informational purposes, with no guarantee of accuracy, currency, or suitability for specific purposes. The owner bears no responsibility for any damages resulting from the use or inability to use this website.",
-        "l3": "The owner retains the right to update or amend these terms of use at any time, without prior notification. It is advisable for users to routinely review this page to stay informed about any alterations."
+        "l0": "All content on this site is safeguarded by copyright and intellectual property laws, encompassing images, texts, and design. Any reproduction or distribution without prior and explicit authorization from the owner is prohibited, subjecting the infringing party to legal repercussions as stipulated by the law.",
+        "l1": "The information presented on this website is provided solely for informational purposes, with no guarantee of accuracy, currency, or suitability for specific purposes. The owner bears no responsibility for any damages resulting from the use or inability to use this website.",
+        "l2": "The owner retains the right to update or amend these terms of use at any time, without prior notification. It is advisable for users to routinely review this page to stay informed about any alterations."
       }
     },
     "policies": {
       "title": "Privacy Policy:",
       "list": {
-        "l1": "The website owner assures the privacy and security of the personal data furnished by users, pledging not to share information without prior consent, except when legally required.",
-        "l2": "This site utilizes cookies to optimize the user's browsing experience by storing technical information such as IP address, browser type, and operating system. This data is solely collected for statistical purposes and to enhance the site's performance.",
-        "l3": "The website may include links to other external websites. The owner is not accountable for the privacy policies or content of these sites, and users are advised to peruse the respective policies before providing any personal information.",
-        "l4": "The data collected will be held in strict confidence, with access granted only to professionals responsible for managing the site."
+        "l0": "The website owner assures the privacy and security of the personal data furnished by users, pledging not to share information without prior consent, except when legally required.",
+        "l1": "This site utilizes cookies to optimize the user's browsing experience by storing technical information such as IP address, browser type, and operating system. This data is solely collected for statistical purposes and to enhance the site's performance.",
+        "l2": "The website may include links to other external websites. The owner is not accountable for the privacy policies or content of these sites, and users are advised to peruse the respective policies before providing any personal information.",
+        "l3": "The data collected will be held in strict confidence, with access granted only to professionals responsible for managing the site."
       }
     },
     "footer": "The utilization of this website signifies complete and unconditional acceptance of these terms of use and privacy policy. Should you have any inquiries, please do not hesitate to reach out to the owner through the form accessible on the website. We appreciate your visit to this personal website."
   },
   "Records": {
     "title": "Records",
+    "description": "",
     "ongoing": {
       "title": "Ongoing",
       "description": "The page showcases my recent activities and achievements.",
@@ -77,9 +78,9 @@
           "title": "BACHELOR OF COMPUTER ENGINEERING, FEDERAL UNIVERSITY OF CEARÁ - UFC",
           "description": "Currently in the 8th semester.",
           "list": {
-            "l1": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
-            "l2": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
-            "l3": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
+            "l0": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
+            "l1": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
+            "l2": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
           }
         },
         "cs50": {
@@ -114,9 +115,9 @@
             "title": "BACHELOR OF COMPUTER ENGINEERING, FEDERAL UNIVERSITY OF CEARÁ - UFC",
             "description": "Currently in the 8th semester.",
             "list": {
-              "l1": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
-              "l2": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
-              "l3": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
+              "l0": "Volunteering in the development of software for the UFC University Extension Program in the project “Evaluation of anthropometric and hematological indicators in children aged 4 to 12 assisted by the Lions Club of Acaraú Ceará, Comissário Francisco Barbosa Municipal School of Early Childhood and Elementary Education in Maracanaú - Ceará, and adolescents assisted by the Family Development Coordinatorship (CDFAM).”",
+              "l1": "Participation in the HackPI Ceará marathon: Hackathon for the Cearense Early Childhood in 2021.",
+              "l2": "Participation in the mini-courses “Authentication in Networks” and “Convolutional Neural Networks with Tensorflow” offered during the Information and Communication Technology Week (SETIC) in 2020."
             }
           },
           "school": {
@@ -178,6 +179,32 @@
   },
   "Projects": {
     "title": "Projects",
-    "description": ""
+    "description": "",
+    "website": {
+      "title": "This Website",
+      "paragraphs": {
+        "p0": "Below, I will provide some information on how this website you are currently viewing was built. The website was developed using Next.js, which is a React framework for server-rendered applications. Next.js offers various benefits, including server-side rendering, automatic code splitting, and an efficient development experience.",
+        "p1": "In addition to Next.js, TypeScript was utilized for development. TypeScript is a JavaScript extension with static typing, which helps identify errors at compile time, enhancing code quality and maintainability.",
+        "p2": "For styling, Tailwind CSS was employed. Tailwind CSS is a utility-first CSS framework that enables rapid style creation and simplified maintenance. By combining these tools, the website benefits from improved performance, scalability, and developer productivity.",
+        "p3": "This combination of Next.js, TypeScript, and Tailwind CSS provides a robust and efficient platform for building modern web applications, ensuring a smooth and pleasant user experience.",
+        "p4": "In the development process, one of the tools I utilized was Figma. Figma is a highly versatile collaborative interface design tool. It offers numerous benefits:",
+        "p5": "Figma enables seamless collaboration among team members, allowing multiple users to work together on design projects in real-time, eliminating the need for file transfers, maintaining version history, and offering interactive prototyping capabilities, all while being compatible with both macOS and Windows.",
+        "p6": "By clicking the link below, you will be redirected to the Figma page, where you can access the design file I used for the website.",
+        "p7": "Feel free to explore the design and provide any feedback or comments as needed.",
+        "p8": "Returning to the programming phase, it's important to mention that the website is fully integrated with Google Tag Manager, including some basic tags like Page View and Selected Content. These tags enable us to track clicks and any interactions that take place within the website itself. It's worth noting that I was responsible for creating all the tags within the website.",
+        "p9": "This website is fully responsive, meaning it adapts seamlessly to any screen size. This responsiveness offers several benefits, such as an improved user experience regardless of the device they are using to access the site. Additionally, responsiveness enhances the site's SEO (Search Engine Optimization) because search engines tend to favor sites that provide a user-friendly experience on mobile devices.",
+        "p10": "To achieve this responsiveness, I used the Tailwind CSS tool. Tailwind CSS is a style framework that simplifies the creation and optimization of styles for different screen sizes. It accomplishes this by providing a set of pre-defined CSS classes that can be applied directly to HTML elements. This means that there's no need to write custom CSS for each part of the site for different screen sizes, saving time and making the code cleaner and more organized.",
+        "p11": "Furthermore, Tailwind CSS allows for effective optimization for mobile devices by enabling the application of specific classes to adjust the layout and style according to each screen's requirements. This greatly simplifies the development and maintenance of a responsive site.",
+        "p12": "The combination of site responsiveness and the use of Tailwind CSS delivers a consistent and pleasant user experience on any device, while also streamlining the website's development and maintenance processes.",
+        "p13": "The website was hosted using Vercel, a choice that offers several advantages. Vercel is a hosting platform known for its user-friendly interface and seamless integration with projects based on frameworks like Next.js. Its benefits include fast and automated deployments, ensuring that site updates are applied without complications. Additionally, Vercel provides efficient scalability, allowing the site to handle any amount of traffic, regardless of the audience size.",
+        "p14": "The entire source code of the website is available on GitHub, which provides various advantages. GitHub is a version control platform that simplifies project management, tracking code changes, and team collaboration. It also offers a clear view of the project's development history, enabling developers to work more effectively and organizedly. Moreover, GitHub offers code review tools, making it easier to spot errors and make code improvements.",
+        "p15": "Feel free to explore the website's source code by clicking the link below. This provides transparency and the opportunity to learn from the code, which is valuable for developers and enthusiasts interested in understanding how the website functions.",
+        "p16": "My website utilizes GitHub Actions with CI/CD, which stands for Continuous Integration and Continuous Delivery. This approach offers several significant advantages.",
+        "p17": "Continuous Integration (CI) involves automating the process of building and testing code whenever changes are made to the GitHub repository. This helps quickly identify errors and issues, ensuring that the code remains functional and stable with each new update.",
+        "p18": "Continuous Delivery (CD) is an extension of CI, where code is automatically deployed to production or pre-production environments after passing tests. This streamlines the deployment of new features and fixes, reducing site downtime.",
+        "p19": "I've added multiple steps to our workflow, including package installation to ensure the integrity of dependencies, code formatting, and verification for consistency and readability, searching for unused functions to eliminate unnecessary code, type checking to catch typographical errors, test verification to ensure functionality, and finally, the generation of the final version ready for site deployment. These added steps enhance the quality, efficiency, and reliability of our code.",
+        "p20": "These CI/CD workflow enhancements offer benefits such as improved code quality, early issue detection, increased development efficiency, and faster deployment of updates. This results in a more reliable and high-performance website."
+      }
+    }
   }
 }

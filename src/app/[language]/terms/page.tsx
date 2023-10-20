@@ -23,8 +23,6 @@ export default async function Terms({ params: { language } }: { params: { langua
   const t = await getTranslator(language, 'Terms')
 
   const topics = ['terms', 'policies'] as const
-  const termsParagraphs = ['l1', 'l2', 'l3'] as const
-  const policiesParagraphs = ['l1', 'l2', 'l3', 'l4'] as const
 
   return (
     <MainSection className="text-start">
@@ -38,8 +36,8 @@ export default async function Terms({ params: { language } }: { params: { langua
             <h2 className="font-bold">{t(`${topic}.title`)}</h2>
 
             <ol className="ml-6 list-decimal md:ml-10">
-              {(index === 0 ? termsParagraphs : policiesParagraphs).map((paragraph, index) => (
-                <li key={index}>{t(`${topic}.list.${paragraph}`)}</li>
+              {[...Array(index === 0 ? 3 : 4)].map((_paragraph, index) => (
+                <li key={index}>{t(`${topic}.list.l${index}`)}</li>
               ))}
             </ol>
           </li>
