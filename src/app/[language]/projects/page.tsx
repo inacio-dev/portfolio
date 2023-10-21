@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import FigmaLogo from '@/src/assets/Figma'
 import NextLogo from '@/src/assets/Next'
 import TailwindLogo from '@/src/assets/Tailwind'
 import MainSection from '@/src/components/MainSection'
+import ProjectLink from '@/src/components/ProjectLink'
 import ProjectSection from '@/src/components/ProjectSection'
 import { Languages } from '@/src/utils/types'
 import { getTranslator } from 'next-intl/server'
@@ -62,6 +64,23 @@ export default async function Projects({
           {[...Array(3)].map((_paragraph, index) => (
             <p key={index}>{t(`website.paragraphs.p${index + 4}`)}</p>
           ))}
+
+          <ProjectLink href="https://www.figma.com/file/9uD7fJW0ywgmwxfmJAbmBN/Portfolio?type=design&node-id=56%3A139&mode=design&t=8Y7kq6Xxiomv08kR-1">
+            <FigmaLogo className="mr-3 h-8 w-auto" />
+            Figma Link
+          </ProjectLink>
+
+          {[...Array(2)].map((_paragraph, index) => (
+            <p key={index}>{t(`website.paragraphs.p${index + 7}`)}</p>
+          ))}
+
+          <div className="relative flex h-48 w-full items-center justify-center overflow-hidden">
+            <Image
+              src={homePageImg}
+              alt="home-page"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
         </div>
       </ProjectSection>
     </MainSection>
