@@ -9,7 +9,7 @@ import clsx from 'clsx'
 import { motion, useAnimation } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
-import FrontendMentorLogo from '../assets/FrontendMentorLogo'
+import FrontendMentorLogo from '../assets/FrontendMentor'
 import useLocalStorage from '../hooks/useLocalStorage'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import { usePathname } from '../navigation'

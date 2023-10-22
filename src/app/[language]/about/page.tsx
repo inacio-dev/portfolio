@@ -1,5 +1,5 @@
-import FrontendMentorLogo from '@/src/assets/FrontendMentorLogo'
-import WorkanaLogo from '@/src/assets/WorkanaLogo'
+import FrontendMentorLogo from '@/src/assets/FrontendMentor'
+import WorkanaLogo from '@/src/assets/Workana'
 import MainSection from '@/src/components/MainSection'
 import ScrollToContact from '@/src/components/ScrollToContact'
 import { Languages } from '@/src/utils/types'
@@ -84,8 +84,6 @@ export default async function About({
 }) {
   const t = await getTranslator(language, 'About')
 
-  const keys = ['p1', 'p2', 'p3'] as const
-
   return (
     <MainSection>
       <ScrollToContact value={searchParams.contact} />
@@ -93,8 +91,8 @@ export default async function About({
       <h1 className="text-center text-4xl font-bold uppercase md:text-5xl">{t('page-title')}</h1>
 
       <div className="grid space-y-5 text-start text-xs md:text-base">
-        {keys.map((paragraph, index) => (
-          <p key={index}>{t(`text.${paragraph}`)}</p>
+        {[...Array(3)].map((_paragraph, index) => (
+          <p key={index}>{t(`paragraphs.p${index}`)}</p>
         ))}
       </div>
 

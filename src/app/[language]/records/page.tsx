@@ -47,7 +47,6 @@ export default async function Records({
   }
 
   const pursuits = ['freelancer', 'ufc', 'cs50'] as const
-  const listUfc = ['l1', 'l2', 'l3'] as const
 
   const contents = ['professionals', 'academics', 'additionals'] as const
   const professionals = ['freelancer', 'apeu'] as const
@@ -83,8 +82,8 @@ export default async function Records({
 
                 {index === 1 && (
                   <ul className="ml-8 list-disc md:ml-12">
-                    {listUfc.map((item, index) => (
-                      <li key={index}>{t(`pursuits.${pursuit}.list.${item}`)}</li>
+                    {[...Array(3)].map((_item, index) => (
+                      <li key={index}>{t(`pursuits.${pursuit}.list.l${index}`)}</li>
                     ))}
                   </ul>
                 )}
@@ -133,9 +132,9 @@ export default async function Records({
 
                         {index === 0 && (
                           <ul className="ml-8 list-disc md:ml-12">
-                            {listUfc.map((item, index) => (
+                            {[...Array(3)].map((_item, index) => (
                               <li key={index}>
-                                {t(`contents.academics.${academic}.list.${item}`)}
+                                {t(`contents.academics.${academic}.list.l${index}`)}
                               </li>
                             ))}
                           </ul>
