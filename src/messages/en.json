@@ -205,6 +205,25 @@
         "p19": "I've added multiple steps to our workflow, including package installation to ensure the integrity of dependencies, code formatting, and verification for consistency and readability, searching for unused functions to eliminate unnecessary code, type checking to catch typographical errors, test verification to ensure functionality, and finally, the generation of the final version ready for site deployment. These added steps enhance the quality, efficiency, and reliability of our code.",
         "p20": "These CI/CD workflow enhancements offer benefits such as improved code quality, early issue detection, increased development efficiency, and faster deployment of updates. This results in a more reliable and high-performance website."
       }
+    },
+    "frontend": {
+      "title": "Frontend Mentor",
+      "paragraphs": {
+        "p0": "Frontend Mentor is a platform dedicated to assisting developers in enhancing their front-end coding skills through real-world projects. It presents challenges with designs for both mobile and desktop devices, providing initial files for developers to download and build upon. Upon project completion, developers can submit their solutions and receive feedback from the community.",
+        "p1": "Frontend Mentor offers several advantages for developers. Firstly, it provides a hands-on learning experience, enabling developers to hone their skills through real projects. Secondly, it supports portfolio development, allowing developers to showcase their completed Frontend Mentor projects in their portfolios, highlighting their abilities.",
+        "p2": "Moreover, Frontend Mentor fosters a sense of community through its Discord platform. Developers can join this community, interact with peers, seek assistance, receive valuable feedback, and learn from one another. This collaborative environment promotes skill improvement and knowledge exchange.",
+        "p3": "Additionally, Frontend Mentor facilitates professional growth with its PRO subscription, providing access to premium challenges and original design files. This is especially beneficial for developers committed to advancing their careers and staying up-to-date with industry-standard tools like Git, Github, Figma, and Netlify.",
+        "p4": "In summary, Frontend Mentor is a valuable platform that offers skill development, portfolio enhancement, and a supportive community for developers, making it an excellent choice for those looking to grow in their careers."
+      },
+      "coffee": {
+        "title": "Coffeeroasters Subscription Site",
+        "paragraphs": {
+          "p0": "This project marked my debut on Frontend Mentor, classified by the platform itself as intermediate level. I decided to explore a new framework to assess its capabilities in crafting landing pages. The chosen framework was Astro, a choice that comes with several benefits.",
+          "p1": "Astro is a development framework known for its remarkable efficiency and performance. It prioritizes the creation of highly optimized web pages, resulting in swift loading times and an enhanced user experience. Furthermore, Astro employs a modular approach that facilitates the development of reusable components, streamlining the process of building pages and making it more efficient and scalable.",
+          "p2": "For this project, I also incorporated TypeScript and Tailwind CSS, complementing Astro's approach. TypeScript offers static type checking, aiding in the prevention of coding errors and improving code quality. Tailwind CSS simplifies styling, enabling swift and consistent style creation for the page.",
+          "p3": "This blend of technologies resulted in a successful and performance-optimized landing page, highlighting Astro's effectiveness and showcasing my dedication to exploring new tools to enhance my frontend development skills."
+        }
+      }
     }
   }
 }
