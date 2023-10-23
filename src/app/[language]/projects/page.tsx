@@ -41,6 +41,7 @@ export default async function Projects({
   let respWebsiteImg = (await import('@/public/responsive-website.png')).default
   let ciWebsiteImg = (await import('@/public/website-cd-ci.png')).default
   let coffeeSiteImg = (await import('@/public/coffee-site.png')).default
+  let curcualmImg = (await import('@/public/curcucalm.png')).default
 
   return (
     <MainSection className="px-0 sm:px-0 md:px-0 xl:px-0">
@@ -65,7 +66,10 @@ export default async function Projects({
             <p key={index}>{t(`website.paragraphs.p${index + 4}`)}</p>
           ))}
 
-          <ProjectLink href="https://www.figma.com/file/9uD7fJW0ywgmwxfmJAbmBN/Portfolio?type=design&node-id=56%3A139&mode=design&t=8Y7kq6Xxiomv08kR-1">
+          <ProjectLink
+            content_id="F_Website"
+            href="https://www.figma.com/file/9uD7fJW0ywgmwxfmJAbmBN/Portfolio?type=design&node-id=56%3A139&mode=design&t=8Y7kq6Xxiomv08kR-1"
+          >
             <FigmaLogo className="mr-3 h-8 w-auto" />
             Figma Link
           </ProjectLink>
@@ -86,7 +90,7 @@ export default async function Projects({
             <p key={index}>{t(`website.paragraphs.p${index + 13}`)}</p>
           ))}
 
-          <ProjectLink href="https://github.com/inacio-dev/portfolio">
+          <ProjectLink content_id="G_Website" href="https://github.com/inacio-dev/portfolio">
             <GitHubIcon className="mr-3 h-8 w-auto" />
             Github Link
           </ProjectLink>
@@ -107,7 +111,7 @@ export default async function Projects({
             <p key={index}>{t(`frontend.paragraphs.p${index}`)}</p>
           ))}
 
-          <ProjectLink href="https://github.com/inacio-dev/portfolio">
+          <ProjectLink content_id="Frontend_Mentor" href="https://github.com/inacio-dev/portfolio">
             <FrontendMentorLogo className="mr-3 h-8 w-auto" />
             Frontend Mentor Link
           </ProjectLink>
@@ -131,17 +135,67 @@ export default async function Projects({
 
           <ProjectImage src={coffeeSiteImg} alt="coffee-site" />
 
-          <div className="flex w-full flex-row items-center justify-center space-x-10">
-            <ProjectLink href="https://github.com/inacio-dev/coffeeroasters-subscription-site">
+          <div className="flex w-full flex-col items-center justify-center space-x-0 md:flex-row md:space-x-10">
+            <ProjectLink
+              content_id="G_Coffee"
+              href="https://github.com/inacio-dev/coffeeroasters-subscription-site"
+            >
               <GitHubIcon className="mr-3 h-8 w-auto" />
               Github Link
             </ProjectLink>
 
-            <ProjectLink href="https://in-dev-coffeeroasters-subscription-site.vercel.app/">
+            <ProjectLink
+              content_id="S_Coffee"
+              href="https://in-dev-coffeeroasters-subscription-site.vercel.app/"
+            >
               <PreviewIcon className="mr-3 h-8 w-auto" />
               Site Link
             </ProjectLink>
           </div>
+        </div>
+      </ProjectSection>
+
+      <ProjectSection id="sites">
+        <h2 className="pb-10 text-xl font-bold uppercase">{t('sites.title')}</h2>
+
+        <div className="space-y-4">
+          {[...Array(3)].map((_paragraph, index) => (
+            <p key={index}>{t(`sites.paragraphs.p${index}`)}</p>
+          ))}
+        </div>
+
+        <h2 className="py-10 text-xl font-bold">{t('sites.curcucalm.title')}</h2>
+
+        <div className="space-y-4">
+          {[...Array(1)].map((_paragraph, index) => (
+            <p key={index}>{t(`sites.curcucalm.paragraphs.p${index}`)}</p>
+          ))}
+
+          <div className="flex w-full flex-col items-center justify-center space-x-0 md:flex-row md:space-x-10">
+            <ProjectLink content_id="G_Curcucalm" href="https://github.com/inacio-dev/curcucalm">
+              <GitHubIcon className="mr-3 h-8 w-auto" />
+              Github Link
+            </ProjectLink>
+
+            <ProjectLink
+              content_id="F_Curcucalm"
+              href="https://www.figma.com/file/4VxinYdn50OLSO7hG8oJxF/Curcucalm?type=design&node-id=0%3A1&mode=design&t=TMAFd8D3Jeyg2BXj-1"
+            >
+              <FigmaLogo className="mr-3 h-8 w-auto" />
+              Figma Link
+            </ProjectLink>
+
+            <ProjectLink content_id="S_Curcucalm" href="https://in-dev-curcucalm.vercel.app/">
+              <PreviewIcon className="mr-3 h-8 w-auto" />
+              Site Link
+            </ProjectLink>
+          </div>
+
+          {[...Array(3)].map((_paragraph, index) => (
+            <p key={index}>{t(`sites.curcucalm.paragraphs.p${index + 1}`)}</p>
+          ))}
+
+          <ProjectImage src={curcualmImg} alt="coffee-site" />
         </div>
       </ProjectSection>
     </MainSection>

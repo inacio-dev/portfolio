@@ -179,7 +179,7 @@
   },
   "Projects": {
     "title": "Projects",
-    "description": "",
+    "description": "Explore my diverse collection of exemplary projects.",
     "website": {
       "title": "This Website",
       "paragraphs": {
@@ -222,6 +222,23 @@
           "p1": "Astro is a development framework known for its remarkable efficiency and performance. It prioritizes the creation of highly optimized web pages, resulting in swift loading times and an enhanced user experience. Furthermore, Astro employs a modular approach that facilitates the development of reusable components, streamlining the process of building pages and making it more efficient and scalable.",
           "p2": "For this project, I also incorporated TypeScript and Tailwind CSS, complementing Astro's approach. TypeScript offers static type checking, aiding in the prevention of coding errors and improving code quality. Tailwind CSS simplifies styling, enabling swift and consistent style creation for the page.",
           "p3": "This blend of technologies resulted in a successful and performance-optimized landing page, highlighting Astro's effectiveness and showcasing my dedication to exploring new tools to enhance my frontend development skills."
+        }
+      }
+    },
+    "sites": {
+      "title": "Other Sites",
+      "paragraphs": {
+        "p0": "Below, you will find a selection of websites I've worked on, not only to showcase my skills but also as examples of projects I've been involved with. I employed the latest market tools such as Next.js, Vite, Vue.js, and React to build these projects.",
+        "p1": "Furthermore, it's crucial to emphasize the benefits of programming in website development. Programming enables the creation of highly customized websites tailored to users' needs. With the right tools, as mentioned earlier, you can optimize performance, deliver a high-quality user experience, and ensure the site is scalable and efficient.",
+        "p2": "Hence, by using modern technologies and effective programming, it's possible to create websites that not only meet user expectations but also stand out in today's competitive digital market. This underscores my dedication to delivering high-quality and innovative solutions in all the projects I've been a part of."
+      },
+      "curcucalm": {
+        "title": "Curcucalm",
+        "paragraphs": {
+          "p0": "This repository houses the implementation of a fully functional Curcucalm website, dedicated to promoting a turmeric-based product for sale. The site was meticulously crafted following unique design guidelines, aiming to provide an engaging and responsive experience for its visitors.",
+          "p1": "The Curcucalm website represents an e-commerce project focused on showcasing a turmeric-based product. Its development transcended mere aesthetics, with a strong emphasis on user experience. The site was engineered to offer an effective shopping environment, allowing visitors to explore and purchase the product with utmost ease.",
+          "p2": "Harnessing the latest web technologies, including Next.js, which enables server-side rendering and automatic code splitting, the site ensures swift performance and seamless navigation across various devices. Furthermore, its responsive design guarantees a flawless adaptation to different screen sizes, delivering a consistent and pleasurable user experience.",
+          "p3": "One of the primary benefits of this approach is the ability to present product information in a clear and accessible manner, empowering visitors to shop with confidence. The synergy of appealing design and robust technological foundations makes the Curcucalm website an excellent testament to how the harmony of aesthetics and functionality can result in a captivating shopping experience."
         }
       }
     }

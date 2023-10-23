@@ -89,7 +89,7 @@ export default function AsideMenu() {
         visibleMenu &&
         width > 1279 && {
           width: 400,
-          transition: { duration: 0.2 },
+          transition: { duration: 0.2, delay: 1 },
         }
       }
       variants={{

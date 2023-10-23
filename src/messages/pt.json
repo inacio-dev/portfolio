@@ -178,7 +178,7 @@
   },
   "Projects": {
     "title": "Projetos",
-    "description": "",
+    "description": "Explore minha coleção diversificada de projetos exemplares.",
     "website": {
       "title": "Este Website",
       "paragraphs": {
@@ -221,6 +221,23 @@
           "p1": "O Astro é um framework de desenvolvimento conhecido por sua eficiência e desempenho notáveis. Ele prioriza a criação de páginas da web altamente otimizadas, resultando em tempos de carregamento rápidos e uma experiência do usuário aprimorada. Além disso, o Astro adota uma abordagem modular que facilita o desenvolvimento de componentes reutilizáveis, tornando o processo de construção de páginas mais eficiente e escalável.",
           "p2": "Para este projeto, também incorporei o TypeScript e o Tailwind CSS, complementando a abordagem do Astro. O TypeScript oferece verificação de tipos estáticos, auxiliando na prevenção de erros de codificação e melhorando a qualidade do código. O Tailwind CSS simplifica a estilização, permitindo a criação rápida e consistente de estilos para a página.",
           "p3": "Essa combinação de tecnologias resultou em uma página de destino bem-sucedida e otimizada em desempenho, destacando a eficácia do Astro e demonstrando meu compromisso em explorar novas ferramentas para aprimorar minhas habilidades de desenvolvimento de front-end."
+        }
+      }
+    },
+    "sites": {
+      "title": "Outros Sites",
+      "paragraphs": {
+        "p0": "Abaixo, você encontrará uma seleção de sites em que trabalhei, não apenas para destacar minhas habilidades, mas também como exemplos de projetos em que estive envolvido. Utilizei as mais recentes ferramentas do mercado, como Next.js, Vite, Vue.js e React, para criar esses projetos.",
+        "p1": "Além disso, é fundamental ressaltar os benefícios da programação na criação de sites. A programação permite a criação de sites altamente personalizados e adaptados às necessidades dos usuários. Com as ferramentas certas, como as mencionadas anteriormente, é possível otimizar o desempenho, oferecer uma experiência do usuário de alta qualidade e garantir que o site seja escalável e eficiente.",
+        "p2": "Portanto, ao utilizar tecnologias modernas e programação eficaz, é possível criar sites que não apenas atendam às expectativas dos usuários, mas também se destaquem no mercado digital competitivo de hoje. Isso demonstra meu comprometimento em fornecer soluções de alta qualidade e inovadoras em todos os projetos em que estive envolvido."
+      },
+      "curcucalm": {
+        "title": "Curcucalm",
+        "paragraphs": {
+          "p0": "Este repositório abriga a implementação de um site totalmente funcional do Curcucalm, dedicado à promoção de um produto à base de cúrcuma para venda. O site foi meticulosamente elaborado seguindo diretrizes de design únicas, com o objetivo de proporcionar uma experiência envolvente e responsiva para seus visitantes.",
+          "p1": "O site do Curcucalm representa um projeto de comércio eletrônico focado em apresentar um produto à base de cúrcuma. Seu desenvolvimento transcendeu a mera estética, com forte ênfase na experiência do usuário. O site foi projetado para oferecer um ambiente de compras eficaz, permitindo que os visitantes explorem e adquiram o produto com a maior facilidade.",
+          "p2": "Aproveitando as mais recentes tecnologias web, incluindo o Next.js, que permite a renderização no lado do servidor e a divisão automática de código, o site garante um desempenho ágil e navegação perfeita em vários dispositivos. Além disso, seu design responsivo garante uma adaptação impecável a diferentes tamanhos de tela, proporcionando uma experiência do usuário consistente e agradável.",
+          "p3": "Um dos principais benefícios dessa abordagem é a capacidade de apresentar informações do produto de forma clara e acessível, capacitando os visitantes a fazer compras com confiança. A sinergia entre o design atraente e as sólidas bases tecnológicas torna o site do Curcucalm um excelente testemunho de como a harmonia entre estética e funcionalidade pode resultar em uma experiência de compra cativante."
         }
       }
     }
