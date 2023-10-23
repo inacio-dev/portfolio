@@ -37,7 +37,7 @@ Follow the steps below to set up and run the project on your local environment:
 2. Navigate to the project directory:
 
    ```bash
-   cd curcucalm
+   cd portfolio
    ```
 
 3. Install dependencies using one of the following package managers (choose one):
