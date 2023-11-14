@@ -8,14 +8,10 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params: { language },
-}: {
-  params: { language: Languages }
-}) {
-  const t = await getTranslator(language, 'About')
+export async function generateMetadata() {
+  const t = await getTranslations('About')
   const creator = 'Inácio Rodrigues'
 
   try {
@@ -82,7 +78,7 @@ export default async function About({
   params: { language: Languages }
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const t = await getTranslator(language, 'About')
+  const t = await getTranslations('About')
 
   return (
     <MainSection>

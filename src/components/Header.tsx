@@ -1,5 +1,4 @@
-import { useLocale } from 'next-intl'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 import LanguageSwitcher from './LanguageSwitcher'
 import LogoAnimation from './LogoAnimation'
@@ -8,9 +7,7 @@ import NavigationMobile from './NavigationMobile'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default async function Header() {
-  const language = useLocale()
-
-  const t = await getTranslator(language, 'Header')
+  const t = await getTranslations('Header')
 
   return (
     <header className="fixed z-50 grid w-full">

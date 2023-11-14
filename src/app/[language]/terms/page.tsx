@@ -1,13 +1,8 @@
 import MainSection from '@/src/components/MainSection'
-import { Languages } from '@/src/utils/types'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params: { language },
-}: {
-  params: { language: Languages }
-}) {
-  const t = await getTranslator(language, 'Terms')
+export async function generateMetadata() {
+  const t = await getTranslations('Terms')
   const creator = 'Inácio Rodrigues'
 
   try {
@@ -19,8 +14,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function Terms({ params: { language } }: { params: { language: Languages } }) {
-  const t = await getTranslator(language, 'Terms')
+export default async function Terms() {
+  const t = await getTranslations('Terms')
 
   const topics = ['terms', 'policies'] as const
 

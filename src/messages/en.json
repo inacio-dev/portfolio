@@ -223,6 +223,12 @@
           "p2": "For this project, I also incorporated TypeScript and Tailwind CSS, complementing Astro's approach. TypeScript offers static type checking, aiding in the prevention of coding errors and improving code quality. Tailwind CSS simplifies styling, enabling swift and consistent style creation for the page.",
           "p3": "This blend of technologies resulted in a successful and performance-optimized landing page, highlighting Astro's effectiveness and showcasing my dedication to exploring new tools to enhance my frontend development skills."
         }
+      },
+      "designo": {
+        "title": "Designo multi-page Website",
+        "paragraphs": {
+          "p0": "It significantly enhanced my expertise with Astro. Additionally, achieving a Guru classification by Frontend Mentor, representing the highest and most challenging tier, validated my proficiency in crafting landing pages. The website I developed further reinforced the benefits and capabilities of Astro in creating exceptional web experiences."
+        }
       }
     },
     "sites": {

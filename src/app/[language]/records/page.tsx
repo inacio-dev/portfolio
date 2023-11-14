@@ -1,20 +1,17 @@
 import Spinner from '@/src/assets/Spinner'
 import MainSection from '@/src/components/MainSection'
 import QueryRecordsEffect from '@/src/components/QueryRecordsEffect'
-import { Languages } from '@/src/utils/types'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
-  params: { language },
   searchParams,
 }: {
-  params: { language: Languages }
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const creator = 'Inácio Rodrigues'
   const view = searchParams.view as string
 
-  const t = await getTranslator(language, `Records`)
+  const t = await getTranslations(`Records`)
 
   try {
     const title = `${creator} | ${t('title')} | ${t(view + '.title')}`
@@ -26,15 +23,13 @@ export async function generateMetadata({
 }
 
 export default async function Records({
-  params: { language },
   searchParams,
 }: {
-  params: { language: Languages }
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
   const view = searchParams.view as string | undefined
 
-  const t = await getTranslator(language, `Records.${view}`)
+  const t = await getTranslations(`Records.${view}`)
 
   if (!view || !['resume', 'ongoing'].includes(view)) {
     return (

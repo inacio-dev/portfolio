@@ -222,6 +222,12 @@
           "p2": "Para este projeto, também incorporei o TypeScript e o Tailwind CSS, complementando a abordagem do Astro. O TypeScript oferece verificação de tipos estáticos, auxiliando na prevenção de erros de codificação e melhorando a qualidade do código. O Tailwind CSS simplifica a estilização, permitindo a criação rápida e consistente de estilos para a página.",
           "p3": "Essa combinação de tecnologias resultou em uma página de destino bem-sucedida e otimizada em desempenho, destacando a eficácia do Astro e demonstrando meu compromisso em explorar novas ferramentas para aprimorar minhas habilidades de desenvolvimento de front-end."
         }
+      },
+      "designo": {
+        "title": "Designo multi-page Website",
+        "paragraphs": {
+          "p0": "Elevar minha expertise com o Astro foi significativo. Além disso, alcançar a classificação Guru pelo Frontend Mentor, que representa o nível mais alto e desafiador, validou minha proficiência na criação de páginas. O site que desenvolvi reforçou ainda mais os benefícios e capacidades do Astro na criação de experiências web excepcionais."
+        }
       }
     },
     "sites": {

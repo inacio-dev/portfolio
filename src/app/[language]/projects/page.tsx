@@ -7,17 +7,12 @@ import MainSection from '@/src/components/MainSection'
 import ProjectImage from '@/src/components/ProjectImage'
 import ProjectLink from '@/src/components/ProjectLink'
 import ProjectSection from '@/src/components/ProjectSection'
-import { Languages } from '@/src/utils/types'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PreviewIcon from '@mui/icons-material/Preview'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params: { language },
-}: {
-  params: { language: Languages }
-}) {
-  const t = await getTranslator(language, 'Projects')
+export async function generateMetadata() {
+  const t = await getTranslations('Projects')
   const creator = 'Inácio Rodrigues'
 
   try {
@@ -29,18 +24,15 @@ export async function generateMetadata({
   }
 }
 
-export default async function Projects({
-  params: { language },
-}: {
-  params: { language: Languages }
-}) {
-  const t = await getTranslator(language, 'Projects')
+export default async function Projects() {
+  const t = await getTranslations('Projects')
 
   let homePageImg = (await import('@/public/home-page.png')).default
   let googleTagImg = (await import('@/public/google-tag-manager.png')).default
   let respWebsiteImg = (await import('@/public/responsive-website.png')).default
   let ciWebsiteImg = (await import('@/public/website-cd-ci.png')).default
   let coffeeSiteImg = (await import('@/public/coffee-site.png')).default
+  let designoSiteImg = (await import('@/public/designo-site.png')).default
   let curcualmImg = (await import('@/public/curcucalm.png')).default
 
   return (
@@ -147,6 +139,39 @@ export default async function Projects({
             <ProjectLink
               content_id="S_Coffee"
               href="https://in-dev-coffeeroasters-subscription-site.vercel.app/"
+            >
+              <PreviewIcon className="mr-3 h-8 w-auto" />
+              Site Link
+            </ProjectLink>
+          </div>
+        </div>
+
+        <h2 className="py-10 text-xl font-bold">{t('frontend.designo.title')}</h2>
+
+        <div className="space-y-4">
+          {[...Array(1)].map((_paragraph, index) => (
+            <p key={index}>{t(`frontend.designo.paragraphs.p${index}`)}</p>
+          ))}
+
+          <div className="flex flex-row items-center justify-center space-x-10 fill-slate-dark-6 py-10 dark:fill-slate-light-3">
+            <AstroLogo className="h-auto w-32 md:w-auto" />
+            <TailwindLogo className="h-auto w-14 md:w-auto" />
+          </div>
+
+          <ProjectImage src={designoSiteImg} alt="designo-site" />
+
+          <div className="flex w-full flex-col items-center justify-center space-x-0 md:flex-row md:space-x-10">
+            <ProjectLink
+              content_id="G_Designo"
+              href="https://github.com/inacio-dev/designo-multi-page-website.git"
+            >
+              <GitHubIcon className="mr-3 h-8 w-auto" />
+              Github Link
+            </ProjectLink>
+
+            <ProjectLink
+              content_id="S_Designo"
+              href="https://in-dev-designo-multi-page-website.vercel.app/"
             >
               <PreviewIcon className="mr-3 h-8 w-auto" />
               Site Link

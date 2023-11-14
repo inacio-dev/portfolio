@@ -1,15 +1,10 @@
 import HeroIndex from '@/src/components/HeroIndex'
 import { LinkToUrl } from '@/src/components/LinkToUrl'
 import MainSection from '@/src/components/MainSection'
-import { Languages } from '@/src/utils/types'
-import { getTranslator } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
-export async function generateMetadata({
-  params: { language },
-}: {
-  params: { language: Languages }
-}) {
-  const t = await getTranslator(language, 'Home')
+export async function generateMetadata() {
+  const t = await getTranslations('Home')
   const creator = 'Inácio Rodrigues'
 
   try {
@@ -21,8 +16,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function Home({ params: { language } }: { params: { language: Languages } }) {
-  const t = await getTranslator(language, 'Home')
+export default async function Home() {
+  const t = await getTranslations('Home')
 
   return (
     <MainSection className="items-start">
