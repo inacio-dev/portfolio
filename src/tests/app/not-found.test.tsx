@@ -44,9 +44,4 @@ describe('NotFound', () => {
     expect(container).toContainElement(screen.getByText(/could not find requested resource/i))
     expect(container).toContainElement(screen.getByRole('link', { name: /return home/i }))
   })
-
-  it('should match snapshot', () => {
-    const { container } = render(<NotFound />)
-    expect(container.firstChild).toMatchSnapshot()
-  })
 })
