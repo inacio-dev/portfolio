@@ -2,4 +2,5 @@
 build
 coverage
 certificates
+.github
 pnpm-lock.yaml

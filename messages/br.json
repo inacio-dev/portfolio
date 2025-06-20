@@ -1,0 +1,15 @@
+{
+  "HomePage": {
+    "title": "Olá mundo!",
+    "about": "Sobre mim"
+  },
+  "Metadata": {
+    "title": "Inácio Rodrigues - Portfólio",
+    "description": "Portfólio pessoal de Inácio Rodrigues - Desenvolvedor"
+  },
+  "NotFound": {
+    "title": "Página não encontrada",
+    "description": "Não foi possível encontrar o recurso solicitado",
+    "returnHome": "Voltar ao início"
+  }
+}
