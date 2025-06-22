@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 
 import '../globals.css'
 
@@ -8,14 +8,12 @@ import { routing } from '@/i18n/routing'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
+import Layout from '@/components/Layout'
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains-mono',
   subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 })
 
 export async function generateMetadata({
@@ -45,9 +43,11 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+    <html lang={locale}>
+      <body className={`${jetbrainsMono.variable} antialiased`}>
+        <NextIntlClientProvider>
+          <Layout>{children}</Layout>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
