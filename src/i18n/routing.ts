@@ -22,13 +22,6 @@ export const routing = defineRouting({
   pathnames: {
     // Rota principal
     '/': '/',
-    // Página sobre - URLs traduzidas
-    '/about': {
-      br: '/sobre',
-      en: '/about',
-      es: '/acerca-de',
-      zh: '/关于',
-    },
     // Portfolio/projetos
     '/portfolio': {
       br: '/portfolio',
