@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
 import CvDownloadButton from './CvDownloadButton'
-import DoubtButton from './DoubtButton'
+import LanguageButton from './LanguageButton'
 import MenuButton from './MenuButton'
 import NavLink from './NavLink'
 import ProfileButton from './ProfileButton'
@@ -31,7 +31,7 @@ export default async function Header() {
 
         <div className="inline-flex items-center justify-center space-x-2">
           <CvDownloadButton />
-          <DoubtButton />
+          <LanguageButton />
         </div>
       </header>
 
