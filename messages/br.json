@@ -11,5 +11,10 @@
     "title": "Página não encontrada",
     "description": "Não foi possível encontrar o recurso solicitado",
     "returnHome": "Voltar ao início"
+  },
+  "Navigation": {
+    "home": "Início",
+    "portfolio": "Portfólio",
+    "contact": "Contato"
   }
 }

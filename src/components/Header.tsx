@@ -1,46 +1,34 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
-import CvDownloadButton from './CvDownloadButton'
+import DownloadCvButton from './DownloadCvButton'
 import LanguageButton from './LanguageButton'
-import MenuButton from './MenuButton'
-import NavLink from './NavLink'
-import ProfileButton from './ProfileButton'
+import MenuDrawer from './MenuDrawer'
+import Navigation from './Navigation'
+import ProfileDrawer from './ProfileDrawer'
 
 export default async function Header() {
   return (
-    <div className="sticky top-0 z-50 flex items-center justify-between px-4 pt-4 lg:px-12 lg:pt-6 lg:backdrop-blur-xs">
+    <div className="sticky top-0 z-40 flex items-center justify-between px-4 pt-4 lg:px-12 lg:pt-6 lg:backdrop-blur-xs">
       <Link href="/">
         <Image src="/logo-small.png" width={48} height={48} alt="logo" priority />
       </Link>
 
       <header className="bg-header hidden w-auto items-center justify-between rounded-full px-4 py-2 lg:flex lg:w-[50vw] 2xl:w-[40vw]">
-        <nav>
-          <ul className="inline-flex space-x-6">
-            <li>
-              <NavLink href="/">Início</NavLink>
-            </li>
-            <li>
-              <NavLink href="/portfolio">Portfólio</NavLink>
-            </li>
-            <li>
-              <NavLink href="/contact">Contato</NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
 
         <div className="inline-flex items-center justify-center space-x-2">
-          <CvDownloadButton />
+          <DownloadCvButton />
           <LanguageButton />
         </div>
       </header>
 
       <div className="hidden lg:block">
-        <ProfileButton />
+        <ProfileDrawer />
       </div>
 
       <div className="block lg:hidden">
-        <MenuButton />
+        <MenuDrawer />
       </div>
     </div>
   )

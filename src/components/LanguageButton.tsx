@@ -1,21 +1,12 @@
 'use client'
 
-import { MouseEvent, useState } from 'react'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { Menu, MenuItem } from '@mui/material'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import clsx from 'clsx'
 import { Locale, useLocale } from 'next-intl'
 
 export default function LanguageButton() {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
   const locales = routing.locales
   const currentLocale = useLocale()
   const pathname = usePathname()
@@ -23,51 +14,37 @@ export default function LanguageButton() {
 
   function changeLocale(locale: Locale) {
     router.push(pathname, { locale })
-    handleClose()
   }
 
   return (
     <>
-      <button
-        onClick={handleClick}
-        className="flex size-10 cursor-pointer items-center justify-center rounded-full bg-white transition-all duration-300 hover:bg-white/60"
-      >
-        <span className="text-black">{currentLocale.toUpperCase()}</span>
-      </button>
+      <Menu as="div" className="relative inline-block text-left">
+        <div>
+          <MenuButton className="flex size-10 cursor-pointer items-center justify-center rounded-full bg-white transition-all duration-300 hover:bg-white/60">
+            <span className="text-black">{currentLocale.toUpperCase()}</span>
+          </MenuButton>
+        </div>
 
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        slotProps={{
-          list: {
-            'aria-labelledby': 'basic-button',
-            className: 'bg-header-button text-white',
-          },
-        }}
-      >
-        {locales.map((locale, index) => (
-          <MenuItem
-            key={index}
-            onClick={() => changeLocale(locale)}
-            selected={currentLocale === locale}
-            sx={{
-              backgroundColor: currentLocale === locale ? 'rgba(255,255,255,0.3)' : 'transparent',
-              transition: 'background-color 300ms ease',
-              '&:hover': {
-                backgroundColor: 'rgba(255,255,255,0.1)',
-              },
-              '&.Mui-selected': {
-                backgroundColor: 'rgba(255,255,255,0.3)',
-                '&:hover': {
-                  backgroundColor: 'rgba(255,255,255,0.4)',
-                },
-              },
-            }}
-          >
-            <span>{locale.toUpperCase()}</span>
-          </MenuItem>
-        ))}
+        <MenuItems
+          transition
+          className="absolute right-0 z-10 mt-2 w-auto origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+        >
+          <div className="py-1">
+            {locales.map((locale, index) => (
+              <MenuItem key={index}>
+                <button
+                  onClick={() => changeLocale(locale)}
+                  className={clsx(
+                    'block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden',
+                    currentLocale === locale ? 'bg-black/20' : '',
+                  )}
+                >
+                  <span>{locale.toUpperCase()}</span>
+                </button>
+              </MenuItem>
+            ))}
+          </div>
+        </MenuItems>
       </Menu>
     </>
   )

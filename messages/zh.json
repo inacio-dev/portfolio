@@ -11,5 +11,10 @@
     "title": "未找到",
     "description": "找不到请求的资源",
     "returnHome": "返回首页"
+  },
+  "Navigation": {
+    "home": "首页",
+    "portfolio": "作品集",
+    "contact": "联系我"
   }
 }

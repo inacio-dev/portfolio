@@ -11,5 +11,10 @@
     "title": "Not Found",
     "description": "Could not find requested resource",
     "returnHome": "Return Home"
+  },
+  "Navigation": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
   }
 }
