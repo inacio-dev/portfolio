@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
@@ -22,17 +23,61 @@ jest.mock('next-intl', () => ({
   useLocale: jest.fn(),
 }))
 
-// Mock do Material-UI
-jest.mock('@mui/material', () => ({
-  Menu: ({ children, open, onClose }: any) =>
-    open ? (
-      <div data-testid="language-menu" onClick={onClose}>
+// Mock do clsx
+jest.mock('clsx', () => ({
+  __esModule: true,
+  default: (...classes: (string | object | boolean | undefined)[]) =>
+    classes.filter(Boolean).join(' '),
+}))
+
+// Mock da Headless UI
+jest.mock('@headlessui/react', () => ({
+  Menu: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="headless-menu">{children}</div>
+  ),
+  MenuButton: ({
+    children,
+    className,
+    ...props
+  }: {
+    children: React.ReactNode
+    className?: string
+    onClick?: () => void
+  }) => (
+    <button className={className} data-testid="menu-button" {...props}>
+      {children}
+    </button>
+  ),
+  MenuItems: ({
+    children,
+    className,
+    transition,
+    ...restProps
+  }: {
+    children: React.ReactNode
+    className?: string
+    transition?: boolean
+    [key: string]: unknown
+  }) => {
+    // Filtra apenas as props que são válidas para elementos HTML
+    const validProps = Object.fromEntries(
+      Object.entries(restProps).filter(([key]) => !['anchor', 'portal', 'modal'].includes(key)),
+    )
+
+    return (
+      <div className={className} data-testid="menu-items" {...validProps}>
         {children}
       </div>
-    ) : null,
-  MenuItem: ({ children, onClick, selected }: any) => (
-    <div data-testid="menu-item" onClick={onClick} data-selected={selected} role="menuitem">
-      {children}
+    )
+  },
+  MenuItem: ({
+    children,
+    ...props
+  }: {
+    children: ({ focus }: { focus: boolean }) => React.ReactNode
+  }) => (
+    <div data-testid="menu-item" {...props}>
+      {typeof children === 'function' ? children({ focus: false }) : children}
     </div>
   ),
 }))
@@ -42,20 +87,33 @@ const mockUseRouter = useRouter as jest.MockedFunction<typeof useRouter>
 const mockUseLocale = useLocale as jest.MockedFunction<typeof useLocale>
 
 const mockPush = jest.fn()
-const mockRouter = { push: mockPush }
+const mockReplace = jest.fn()
+const mockPrefetch = jest.fn()
+const mockBack = jest.fn()
+const mockForward = jest.fn()
+const mockRefresh = jest.fn()
+
+const mockRouter = {
+  push: mockPush,
+  replace: mockReplace,
+  prefetch: mockPrefetch,
+  back: mockBack,
+  forward: mockForward,
+  refresh: mockRefresh,
+}
 
 describe('LanguageButton', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     mockUsePathname.mockReturnValue('/')
-    mockUseRouter.mockReturnValue(mockRouter as any)
+    mockUseRouter.mockReturnValue(mockRouter)
     mockUseLocale.mockReturnValue('pt')
   })
 
   it('deve renderizar o botão com o locale atual', () => {
     render(<LanguageButton />)
 
-    const button = screen.getByRole('button')
+    const button = screen.getByTestId('menu-button')
     expect(button).toBeInTheDocument()
     expect(button).toHaveTextContent('PT')
   })
@@ -63,7 +121,7 @@ describe('LanguageButton', () => {
   it('deve aplicar as classes CSS corretas ao botão', () => {
     render(<LanguageButton />)
 
-    const button = screen.getByRole('button')
+    const button = screen.getByTestId('menu-button')
     expect(button).toHaveClass(
       'flex',
       'size-10',
@@ -78,96 +136,45 @@ describe('LanguageButton', () => {
     )
   })
 
-  it('deve abrir o menu quando o botão for clicado', () => {
+  it('deve renderizar o componente Menu da Headless UI', () => {
     render(<LanguageButton />)
 
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
-    expect(screen.getByTestId('language-menu')).toBeInTheDocument()
+    expect(screen.getByTestId('headless-menu')).toBeInTheDocument()
+    expect(screen.getByTestId('menu-button')).toBeInTheDocument()
+    expect(screen.getByTestId('menu-items')).toBeInTheDocument()
   })
 
   it('deve exibir todos os locales disponíveis no menu', () => {
     render(<LanguageButton />)
 
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
     const menuItems = screen.getAllByTestId('menu-item')
     expect(menuItems).toHaveLength(4) // pt, en, es, zh
-
-    expect(menuItems[0]).toHaveTextContent('PT')
-    expect(menuItems[1]).toHaveTextContent('EN')
-    expect(menuItems[2]).toHaveTextContent('ES')
-    expect(menuItems[3]).toHaveTextContent('ZH')
-  })
-
-  it('deve marcar o locale atual como selecionado', () => {
-    mockUseLocale.mockReturnValue('en')
-
-    render(<LanguageButton />)
-
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
-    const menuItems = screen.getAllByTestId('menu-item')
-
-    // Primeiro item (PT) não deve estar selecionado
-    expect(menuItems[0]).toHaveAttribute('data-selected', 'false')
-    // Segundo item (EN) deve estar selecionado
-    expect(menuItems[1]).toHaveAttribute('data-selected', 'true')
   })
 
   it('deve chamar router.push quando um locale for selecionado', async () => {
     render(<LanguageButton />)
 
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
     const menuItems = screen.getAllByTestId('menu-item')
-    fireEvent.click(menuItems[1]) // Clica em EN
+    const firstMenuItem = menuItems[0]
 
-    await waitFor(() => {
-      expect(mockPush).toHaveBeenCalledWith('/', { locale: 'en' })
-    })
-  })
+    // Encontra o botão dentro do MenuItem
+    const button = firstMenuItem.querySelector('button')
+    expect(button).toBeInTheDocument()
 
-  it('deve fechar o menu após selecionar um locale', async () => {
-    render(<LanguageButton />)
+    if (button) {
+      fireEvent.click(button)
 
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
-    expect(screen.getByTestId('language-menu')).toBeInTheDocument()
-
-    const menuItems = screen.getAllByTestId('menu-item')
-    fireEvent.click(menuItems[1])
-
-    await waitFor(() => {
-      expect(screen.queryByTestId('language-menu')).not.toBeInTheDocument()
-    })
-  })
-
-  it('deve fechar o menu quando clicar fora dele', () => {
-    render(<LanguageButton />)
-
-    const button = screen.getByRole('button')
-    fireEvent.click(button)
-
-    expect(screen.getByTestId('language-menu')).toBeInTheDocument()
-
-    // Simula clique fora do menu
-    const menu = screen.getByTestId('language-menu')
-    fireEvent.click(menu)
-
-    expect(screen.queryByTestId('language-menu')).not.toBeInTheDocument()
+      await waitFor(() => {
+        expect(mockPush).toHaveBeenCalledWith('/', { locale: 'pt' })
+      })
+    }
   })
 
   it('deve exibir o locale atual no botão dinamicamente', () => {
     const { rerender } = render(<LanguageButton />)
 
     // Inicialmente PT
-    expect(screen.getByRole('button')).toHaveTextContent('PT')
+    expect(screen.getByTestId('menu-button')).toHaveTextContent('PT')
 
     // Muda para EN
     mockUseLocale.mockReturnValue('en')
@@ -176,71 +183,32 @@ describe('LanguageButton', () => {
       rerender(<LanguageButton />)
     })
 
-    expect(screen.getByRole('button')).toHaveTextContent('EN')
+    expect(screen.getByTestId('menu-button')).toHaveTextContent('EN')
   })
 
   it('deve lidar com locales não reconhecidos graciosamente', () => {
-    mockUseLocale.mockReturnValue('unknown' as any)
+    mockUseLocale.mockReturnValue('unknown' as 'pt')
 
     render(<LanguageButton />)
 
-    expect(screen.getByRole('button')).toHaveTextContent('UNKNOWN')
+    expect(screen.getByTestId('menu-button')).toHaveTextContent('UNKNOWN')
   })
 
   describe('Acessibilidade', () => {
     it('deve ter um botão acessível', () => {
       render(<LanguageButton />)
 
-      const button = screen.getByRole('button')
+      const button = screen.getByTestId('menu-button')
       expect(button).toBeInTheDocument()
+      expect(button.tagName).toBe('BUTTON')
     })
 
-    it('deve ter itens de menu com role correto', () => {
+    it('deve renderizar a estrutura correta do menu', () => {
       render(<LanguageButton />)
 
-      const button = screen.getByRole('button')
-      fireEvent.click(button)
-
-      const menuItems = screen.getAllByRole('menuitem')
-      expect(menuItems).toHaveLength(4)
-    })
-  })
-
-  describe('Interações do menu', () => {
-    it('deve manter o menu fechado inicialmente', () => {
-      render(<LanguageButton />)
-
-      expect(screen.queryByTestId('language-menu')).not.toBeInTheDocument()
-    })
-
-    it('deve permitir navegar entre diferentes locales', async () => {
-      render(<LanguageButton />)
-
-      const button = screen.getByRole('button')
-      fireEvent.click(button)
-
-      const menuItems = screen.getAllByTestId('menu-item')
-
-      // Testa clique em diferentes locales
-      fireEvent.click(menuItems[2]) // ES
-
-      await waitFor(() => {
-        expect(mockPush).toHaveBeenCalledWith('/', { locale: 'es' })
-      })
-    })
-
-    it('deve exibir o texto correto para cada locale', () => {
-      render(<LanguageButton />)
-
-      const button = screen.getByRole('button')
-      fireEvent.click(button)
-
-      const menuItems = screen.getAllByTestId('menu-item')
-
-      expect(menuItems[0]).toHaveTextContent('PT')
-      expect(menuItems[1]).toHaveTextContent('EN')
-      expect(menuItems[2]).toHaveTextContent('ES')
-      expect(menuItems[3]).toHaveTextContent('ZH')
+      expect(screen.getByTestId('headless-menu')).toBeInTheDocument()
+      expect(screen.getByTestId('menu-button')).toBeInTheDocument()
+      expect(screen.getByTestId('menu-items')).toBeInTheDocument()
     })
   })
 
@@ -250,7 +218,7 @@ describe('LanguageButton', () => {
 
       render(<LanguageButton />)
 
-      expect(screen.getByRole('button')).toHaveTextContent('ZH')
+      expect(screen.getByTestId('menu-button')).toHaveTextContent('ZH')
     })
 
     it('deve mostrar estado correto para locale es', () => {
@@ -258,21 +226,99 @@ describe('LanguageButton', () => {
 
       render(<LanguageButton />)
 
-      expect(screen.getByRole('button')).toHaveTextContent('ES')
+      expect(screen.getByTestId('menu-button')).toHaveTextContent('ES')
     })
 
-    it('deve manter consistência entre o botão e menu selecionado', () => {
-      mockUseLocale.mockReturnValue('zh')
+    it('deve mostrar estado correto para locale en', () => {
+      mockUseLocale.mockReturnValue('en')
 
       render(<LanguageButton />)
 
-      const button = screen.getByRole('button')
-      expect(button).toHaveTextContent('ZH')
+      expect(screen.getByTestId('menu-button')).toHaveTextContent('EN')
+    })
+  })
 
-      fireEvent.click(button)
+  describe('Funcionalidade do menu', () => {
+    it('deve permitir navegar entre diferentes locales', async () => {
+      render(<LanguageButton />)
 
       const menuItems = screen.getAllByTestId('menu-item')
-      expect(menuItems[3]).toHaveAttribute('data-selected', 'true') // zh é o 4º item
+
+      // Testa cada locale
+      const locales = ['pt', 'en', 'es', 'zh']
+
+      for (let i = 0; i < locales.length; i++) {
+        const button = menuItems[i].querySelector('button')
+        if (button) {
+          fireEvent.click(button)
+
+          await waitFor(() => {
+            expect(mockPush).toHaveBeenCalledWith('/', { locale: locales[i] })
+          })
+        }
+      }
+    })
+
+    it('deve exibir o texto correto para cada locale', () => {
+      render(<LanguageButton />)
+
+      const menuItems = screen.getAllByTestId('menu-item')
+      const expectedTexts = ['PT', 'EN', 'ES', 'ZH']
+
+      menuItems.forEach((item, index) => {
+        expect(item).toHaveTextContent(expectedTexts[index])
+      })
+    })
+
+    it('deve aplicar a classe correta para o locale selecionado', () => {
+      mockUseLocale.mockReturnValue('en')
+      render(<LanguageButton />)
+
+      const menuItems = screen.getAllByTestId('menu-item')
+
+      // Verifica se o segundo item (EN) tem a classe de selecionado
+      const enButton = menuItems[1].querySelector('button')
+      expect(enButton).toHaveClass('bg-black/20')
+
+      // Verifica se os outros não têm a classe
+      const ptButton = menuItems[0].querySelector('button')
+      expect(ptButton).not.toHaveClass('bg-black/20')
+    })
+  })
+
+  describe('Integração com roteamento', () => {
+    it('deve usar o pathname atual ao navegar', async () => {
+      mockUsePathname.mockReturnValue('/portfolio')
+
+      render(<LanguageButton />)
+
+      const menuItems = screen.getAllByTestId('menu-item')
+      const button = menuItems[1].querySelector('button') // EN
+
+      if (button) {
+        fireEvent.click(button)
+
+        await waitFor(() => {
+          expect(mockPush).toHaveBeenCalledWith('/portfolio', { locale: 'en' })
+        })
+      }
+    })
+
+    it('deve funcionar com diferentes pathnames', async () => {
+      mockUsePathname.mockReturnValue('/contact')
+
+      render(<LanguageButton />)
+
+      const menuItems = screen.getAllByTestId('menu-item')
+      const button = menuItems[2].querySelector('button') // ES
+
+      if (button) {
+        fireEvent.click(button)
+
+        await waitFor(() => {
+          expect(mockPush).toHaveBeenCalledWith('/contact', { locale: 'es' })
+        })
+      }
     })
   })
 })

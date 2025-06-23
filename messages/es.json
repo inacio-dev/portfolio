@@ -11,5 +11,10 @@
     "title": "No encontrado",
     "description": "No se pudo encontrar el recurso solicitado",
     "returnHome": "Volver al inicio"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "portfolio": "Portafolio",
+    "contact": "Contacto"
   }
 }

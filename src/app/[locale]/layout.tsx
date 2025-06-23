@@ -8,7 +8,7 @@ import { routing } from '@/i18n/routing'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
-import Layout from '@/components/Layout'
+import StyleLayout from '@/components/StyleLayout'
 
 const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
@@ -44,9 +44,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+      <body className={`${jetbrainsMono.variable} min-h-screen antialiased`}>
         <NextIntlClientProvider>
-          <Layout>{children}</Layout>
+          <StyleLayout>{children}</StyleLayout>
         </NextIntlClientProvider>
       </body>
     </html>

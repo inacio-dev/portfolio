@@ -1,6 +1,6 @@
 import Header from './Header'
 
-export default async function Layout({
+export default async function StyleLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -9,7 +9,7 @@ export default async function Layout({
   return (
     <>
       <Header />
-      <main className="mt-4 flex items-start justify-center">{children}</main>
+      <main className="m-4 flex h-full items-start justify-center lg:mx-6">{children}</main>
     </>
   )
 }
