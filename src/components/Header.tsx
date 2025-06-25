@@ -3,13 +3,13 @@ import { Link } from '@/i18n/navigation'
 
 import DownloadCvButton from './DownloadCvButton'
 import LanguageButton from './LanguageButton'
-import MenuDrawer from './MenuDrawer'
+import MobileMenu from './MobileMenu'
+import MyProfile from './MyProfile'
 import Navigation from './Navigation'
-import ProfileDrawer from './ProfileDrawer'
 
 export default async function Header() {
   return (
-    <div className="sticky top-0 z-40 flex items-center justify-between px-4 pt-4 lg:px-12 lg:pt-6 lg:backdrop-blur-xs">
+    <div className="sticky top-0 z-30 flex items-center justify-between px-4 pt-4 lg:px-12 lg:pt-6 lg:backdrop-blur-xs">
       <Link href="/">
         <Image src="/logo-small.png" width={48} height={48} alt="logo" priority />
       </Link>
@@ -24,11 +24,11 @@ export default async function Header() {
       </header>
 
       <div className="hidden lg:block">
-        <ProfileDrawer />
+        <MyProfile />
       </div>
 
       <div className="block lg:hidden">
-        <MenuDrawer />
+        <MobileMenu />
       </div>
     </div>
   )
