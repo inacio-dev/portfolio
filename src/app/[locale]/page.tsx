@@ -1,36 +1,16 @@
-import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
+
+import CircularCarousel from '@/components/CircularCarousel'
 
 export default async function Home() {
-  const t = await getTranslations('HomePage')
-
   return (
     <>
-      <div className="flex flex-col space-y-10">
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
-        <h1>{t('title')}</h1>
+      <div className="relative min-h-[75svh] w-full overflow-hidden rounded-4xl">
+        <Image src="/home.jpg" alt="Background image" fill className="object-cover" priority />
+        <div className="relative z-10 text-white">{/* content */}</div>
       </div>
+
+      <CircularCarousel />
     </>
   )
 }

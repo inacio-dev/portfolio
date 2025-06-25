@@ -9,7 +9,9 @@ export default async function StyleLayout({
   return (
     <>
       <Header />
-      <main className="m-4 flex h-full items-start justify-center lg:mx-6">{children}</main>
+      <main className="m-4 flex h-full flex-col items-start justify-center lg:mx-12">
+        {children}
+      </main>
     </>
   )
 }
