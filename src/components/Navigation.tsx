@@ -8,7 +8,7 @@ export default async function Navigation() {
   return (
     <>
       <nav>
-        <ul className="inline-flex space-x-6">
+        <ul className="inline-flex space-x-4">
           <li>
             <NavLink href="/">{t('home')}</NavLink>
           </li>

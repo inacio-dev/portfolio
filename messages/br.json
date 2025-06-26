@@ -12,5 +12,15 @@
     "home": "Início",
     "portfolio": "Portfólio",
     "contact": "Contato"
+  },
+  "LandingHome": {
+    "word1": "Full-Stack",
+    "word2": "Mobile",
+    "word3": "Cloud",
+    "word4": "Engenharia",
+    "word5": "Design",
+    "description": "Como engenheiro de software versátil, destaco-me pela capacidade de atuar em todas as etapas do ciclo de desenvolvimento.",
+    "portfolioSource": "Ver código deste site",
+    "requestQuote": "Solicitar Orçamento"
   }
 }

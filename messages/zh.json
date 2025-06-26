@@ -12,5 +12,15 @@
     "home": "首页",
     "portfolio": "作品集",
     "contact": "联系我"
+  },
+  "LandingHome": {
+    "word1": "全栈开发",
+    "word2": "移动开发",
+    "word3": "云计算",
+    "word4": "工程",
+    "word5": "设计",
+    "description": "作为一名多才多艺的软件工程师，我擅长在开发周期的所有阶段工作。",
+    "portfolioSource": "查看此网站代码",
+    "requestQuote": "索取报价"
   }
 }

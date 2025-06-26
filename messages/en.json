@@ -12,5 +12,15 @@
     "home": "Home",
     "portfolio": "Portfolio",
     "contact": "Contact"
+  },
+  "LandingHome": {
+    "word1": "Full-Stack",
+    "word2": "Mobile",
+    "word3": "Cloud",
+    "word4": "Engineering",
+    "word5": "Design",
+    "description": "As a versatile software engineer, I excel in my ability to work across all stages of the development lifecycle.",
+    "portfolioSource": "View this site's code",
+    "requestQuote": "Request Quote"
   }
 }
