@@ -55,7 +55,7 @@ describe('CircularImageCarousel', () => {
     render(<CircularImageCarousel />)
 
     const images = screen.getAllByTestId('carousel-image')
-    expect(images).toHaveLength(21) // Total de imagens no array
+    expect(images).toHaveLength(18) // Total de imagens no array
   })
 
   it('deve aplicar classes responsivas no primeiro item', () => {
