@@ -40,7 +40,7 @@ export default function Drawer({
                     </button>
                   </div>
                 </TransitionChild>
-                <div className="flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl">
+                <div className="bg-header-button flex h-full flex-col overflow-y-auto py-6 shadow-xl">
                   <div className="relative mt-6 flex-1 px-4 sm:px-6">{children}</div>
                 </div>
               </DialogPanel>
