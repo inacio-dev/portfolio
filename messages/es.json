@@ -22,5 +22,37 @@
     "description": "Como ingeniero de software versátil, me destaco por mi capacidad de trabajar en todas las etapas del ciclo de desarrollo.",
     "portfolioSource": "Ver código de este sitio",
     "requestQuote": "Solicitar Presupuesto"
+  },
+  "GitHubStats": {
+    "commits": "Commits",
+    "repositories": "Repositorios",
+    "pullRequests": "Pull Requests",
+    "languages": "Lenguajes",
+    "contributions": "Contribuciones",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "watching": "Observando"
+  },
+  "MyProfile": {
+    "about": "Acerca de",
+    "name": "Inácio Rodrigues",
+    "title": "Analista y arquitecto de software",
+    "location": "Ceará, BR",
+    "connect": "Conectar",
+    "profileAlt": "Perfil de Inácio Rodrigues",
+    "accordion": {
+      "profile": {
+        "title": "¿Cuál es mi perfil profesional?",
+        "content": "Como ingeniero de software versátil, me destaco por mi capacidad de actuar en todas las etapas del ciclo de desarrollo, desde la concepción arquitectónica hasta la implementación y despliegue en producción. Mi experiencia incluye la construcción completa de sistemas basados en microservicios utilizando tecnologías como Kubernetes, Docker, PostgreSQL, RabbitMQ, Django, FastAPI y Angular."
+      },
+      "skills": {
+        "title": "¿Cuáles son mis diferenciales técnicos?",
+        "content": "Mi diferencial está en la adaptabilidad técnica para trabajar con cualquier lenguaje necesario y en el compromiso con estándares de eficiencia que garantizan alto rendimiento y escalabilidad. Tengo experiencia en la implementación de buenas prácticas como SOLID y Object Chalistenics, además de técnicas avanzadas de caché y balanceamiento de carga."
+      },
+      "education": {
+        "title": "¿Cuál es mi formación académica?",
+        "content": "Actualmente cursando Ingeniería en Computación en la UFC, busco profundizar mi conocimiento en ingeniería de software y desarrollar soluciones que combinen excelencia técnica con impacto real para usuarios y negocios."
+      }
+    }
   }
 }

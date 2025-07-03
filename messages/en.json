@@ -22,5 +22,37 @@
     "description": "As a versatile software engineer, I excel in my ability to work across all stages of the development lifecycle.",
     "portfolioSource": "View this site's code",
     "requestQuote": "Request Quote"
+  },
+  "GitHubStats": {
+    "commits": "Commits",
+    "repositories": "Repositories",
+    "pullRequests": "Pull Requests",
+    "languages": "Languages",
+    "contributions": "Contributions",
+    "followers": "Followers",
+    "following": "Following",
+    "watching": "Watching"
+  },
+  "MyProfile": {
+    "about": "About",
+    "name": "Inácio Rodrigues",
+    "title": "Software analyst and architect",
+    "location": "Ceará, BR",
+    "connect": "Connect",
+    "profileAlt": "Inácio Rodrigues profile",
+    "accordion": {
+      "profile": {
+        "title": "What is my professional profile?",
+        "content": "As a versatile software engineer, I stand out for my ability to work in all stages of the development cycle, from architectural conception to implementation and production deployment. My experience includes the complete construction of microservices-based systems using technologies such as Kubernetes, Docker, PostgreSQL, RabbitMQ, Django, FastAPI and Angular."
+      },
+      "skills": {
+        "title": "What are my technical differentials?",
+        "content": "My differential lies in technical adaptability to work with any necessary language and in the commitment to efficiency standards that guarantee high performance and scalability. I have expertise in implementing best practices such as SOLID and Object Chalistenics, in addition to advanced caching and load balancing techniques."
+      },
+      "education": {
+        "title": "What is my academic background?",
+        "content": "Currently studying Computer Engineering at UFC, I seek to deepen my knowledge in software engineering and develop solutions that combine technical excellence with real impact for users and businesses."
+      }
+    }
   }
 }

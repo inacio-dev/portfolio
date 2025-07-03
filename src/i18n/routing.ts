@@ -6,7 +6,6 @@ export const routing = defineRouting({
     'br', // Português Brasileiro (padrão)
     'en', // Inglês
     'es', // Espanhol
-    'zh', // Chinês Mandarim
   ],
 
   // Used when no locale matches
@@ -16,7 +15,7 @@ export const routing = defineRouting({
   localePrefix: 'as-needed',
 
   // Detecta automaticamente pelo Accept-Language do navegador
-  localeDetection: true,
+  // localeDetection: true,
 
   // Traduções de URLs/rotas
   pathnames: {
@@ -27,14 +26,12 @@ export const routing = defineRouting({
       br: '/portfolio',
       en: '/portfolio',
       es: '/portafolio',
-      zh: '/作品集',
     },
     // Contato
     '/contact': {
       br: '/contato',
       en: '/contact',
       es: '/contacto',
-      zh: '/联系',
     },
   },
 })

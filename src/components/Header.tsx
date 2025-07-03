@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
+import { fetchGitHubStats } from '@/lib/fetchGitHubStats'
+
 import DownloadCvButton from './DownloadCvButton'
 import LanguageButton from './LanguageButton'
 import MobileMenu from './MobileMenu'
@@ -8,6 +10,8 @@ import MyProfile from './MyProfile'
 import Navigation from './Navigation'
 
 export default async function Header() {
+  const githubStats = await fetchGitHubStats()
+
   return (
     <div className="sticky top-0 z-30 flex items-center justify-between px-4 pt-4 lg:px-12 lg:pt-6 lg:backdrop-blur-xs">
       <Link href="/">
@@ -24,7 +28,7 @@ export default async function Header() {
       </header>
 
       <div className="hidden lg:block">
-        <MyProfile />
+        <MyProfile githubStats={githubStats} />
       </div>
 
       <div className="block lg:hidden">

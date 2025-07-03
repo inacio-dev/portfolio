@@ -22,5 +22,37 @@
     "description": "Como engenheiro de software versátil, destaco-me pela capacidade de atuar em todas as etapas do ciclo de desenvolvimento.",
     "portfolioSource": "Ver código deste site",
     "requestQuote": "Solicitar Orçamento"
+  },
+  "GitHubStats": {
+    "commits": "Commits",
+    "repositories": "Repositórios",
+    "pullRequests": "Pull Requests",
+    "languages": "Linguagens",
+    "contributions": "Contribuições",
+    "followers": "Seguidores",
+    "following": "Seguindo",
+    "watching": "Observando"
+  },
+  "MyProfile": {
+    "about": "Sobre",
+    "name": "Inácio Rodrigues",
+    "title": "Analista e arquiteto de software",
+    "location": "Ceará, BR",
+    "connect": "Conectar",
+    "profileAlt": "Perfil de Inácio Rodrigues",
+    "accordion": {
+      "profile": {
+        "title": "Qual é o meu perfil profissional?",
+        "content": "Como engenheiro de software versátil, destaco-me pela capacidade de atuar em todas as etapas do ciclo de desenvolvimento, desde a concepção arquitetural até a implementação e deploy em produção. Minha experiência inclui a construção completa de sistemas baseados em microserviços utilizando tecnologias como Kubernetes, Docker, PostgreSQL, RabbitMQ, Django, FastAPI e Angular."
+      },
+      "skills": {
+        "title": "Quais são os meus diferenciais técnicos?",
+        "content": "Meu diferencial está na adaptabilidade técnica para trabalhar com qualquer linguagem necessária e no compromisso com padrões de eficiência que garantem alta performance e escalabilidade. Tenho expertise na implementação de boas práticas como SOLID e Object Chalistenics, além de técnicas avançadas de cacheamento e balanceamento de carga."
+      },
+      "education": {
+        "title": "Qual é a minha formação acadêmica?",
+        "content": "Atualmente cursando Engenharia da Computação na UFC, busco aprofundar meu conhecimento em engenharia de software e desenvolver soluções que combinem excelência técnica com real impacto para os usuários e negócios."
+      }
+    }
   }
 }
