@@ -54,5 +54,83 @@
         "content": "Actualmente cursando Ingeniería en Computación en la UFC, busco profundizar mi conocimiento en ingeniería de software y desarrollar soluciones que combinen excelencia técnica con impacto real para usuarios y negocios."
       }
     }
+  },
+  "ProfessionalExperience": {
+    "bq": {
+      "company": "B&Q",
+      "workType": "Tiempo completo · 1 a 7 m",
+      "mode": "Híbrido",
+      "srDeveloper": {
+        "title": "Desarrollador de sistemas SR",
+        "period": "nov 2024 - actualidad · 9 meses",
+        "location": "Eusébio, Ceará, Brasil",
+        "responsibilities": {
+          "0": "- Lidero la validación técnica e implementación de características críticas para los sistemas de la empresa, garantizando calidad y adherencia a las buenas prácticas de desarrollo",
+          "1": "- Responsable del análisis, documentación y arquitectura de proyectos actuales y futuros",
+          "2": "- Programo componentes esenciales en diversos proyectos utilizando tecnologías como FastAPI, Typescript, Fastify, Angular, Django, Python, y ecosistema de infraestructura con Docker, Postgres, RabbitMQ y Redis",
+          "3": "- Implementé estrategias de despliegue en servidor local que resultaron en reducción significativa de costos operacionales",
+          "4": "- Me destaqué por la velocidad y calidad en las entregas, generando alta satisfacción de clientes y stakeholders"
+        },
+        "achievementsTitle": "Principales logros:",
+        "achievements": {
+          "0": "- Liderazgo técnico en el proyecto \"Pacto pela Vida\", desarrollado en asociación con Senai y Argo Tech, un sistema completo para gestión y seguimiento de colaboradores y flujos de B&Q",
+          "1": "- Implementación individual de todas las etapas del proyecto, desde arquitectura hasta el despliegue en producción"
+        },
+        "skills": "AngularJS, Kubernetes y más de 21 competencias"
+      },
+      "jrDeveloper": {
+        "title": "Desarrollador Full-Stack JR",
+        "period": "ene 2024 - nov 2024 · 11 meses",
+        "location": "Eusébio, Ceará, Brasil",
+        "responsibilities": {
+          "0": "- Colaboré en el desarrollo de aplicaciones web utilizando tecnologías modernas como Angular, React, FastAPI y Django",
+          "1": "- Participé en la implementación de soluciones de base de datos con PostgreSQL y Redis",
+          "2": "- Ayudé en la configuración y mantenimiento de ambientes de desarrollo con Docker",
+          "3": "- Trabajé siguiendo metodologías ágiles como SCRUM y Kanban, en sintonía con las empresas asociadas"
+        },
+        "skills": "AngularJS, Django y más de 21 competencias"
+      }
+    },
+    "neuroarq": {
+      "company": "NEUROARQ® Academy",
+      "period": "nov 2024 - actualidad · 9 meses",
+      "mode": "Remoto",
+      "fullstack": {
+        "title": "Desarrollador Full-Stack",
+        "period": "nov 2024 - actualidad · 9 meses",
+        "description": "Desarrollador Full Stack especializado en crear soluciones digitales completas y escalables para empresas de diversos segmentos. Trabajo de forma remota, ofreciendo flexibilidad y eficiencia en el desarrollo de proyectos a medida.",
+        "skills": "Typescript, Next.js y más de 2 competencias"
+      }
+    }
+  },
+  "AcademicExperience": {
+    "ufc": {
+      "university": "Universidad Federal de Ceará",
+      "degree": "Licenciatura en Ingeniería Informática",
+      "period": "ene 2020 - actualidad",
+      "computerEngineering": {
+        "title": "Ingeniería Informática",
+        "period": "ene 2020 - actualidad",
+        "status": "Actualmente en el 10º semestre, con previsión de graduación en diciembre de 2025.",
+        "activities": {
+          "0": "• Participación como voluntario en la elaboración de software en Python del Programa de Extensión Universitaria de la UFC en el proyecto de \"Evaluación de los indicadores antropométricos y hematológicos en niños entre 4 a 12 años asistidos por el Lions Club de Acaraú Ceará, Escuela Municipal de Enseñanza Infantil y Enseñanza Fundamental Comunitario Francisco Barbosa en Maracanaú - Ceará y por los adolescentes asistidos por la Coordinadora de Desarrollo Familiar (CDFAM)\".",
+          "1": "• Participación en la maratón HackPI Ceara: Hackathon para la Primera Infancia Cearense en el año 2021.",
+          "2": "• Participación de los minicursos Autenticación en Redes y Redes Neurales convolucionales con Tensorflow ofrecidos durante la Semana de la Tecnología de la Información y Comunicación (SETIC) en el año 2020."
+        },
+        "skills": "XML, SASS y más de 26 competencias"
+      }
+    },
+    "highSchool": {
+      "school": "Colegio Lourenço Filho",
+      "level": "Enseñanza Media",
+      "period": "ene 2014 - dic 2016",
+      "description": "Conclusión de la enseñanza media completa.",
+      "skills": "Prototipado y Arquitectura de computadores"
+    }
+  },
+  "MyExperience": {
+    "viewExperience": "Ver Experiencia",
+    "professional": "Profesional",
+    "academic": "Académica"
   }
 }

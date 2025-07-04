@@ -54,5 +54,83 @@
         "content": "Currently studying Computer Engineering at UFC, I seek to deepen my knowledge in software engineering and develop solutions that combine technical excellence with real impact for users and businesses."
       }
     }
+  },
+  "ProfessionalExperience": {
+    "bq": {
+      "company": "B&Q",
+      "workType": "Full-time · 1 to 7 m",
+      "mode": "Hybrid",
+      "srDeveloper": {
+        "title": "Senior Systems Developer",
+        "period": "Nov 2024 - present · 9 months",
+        "location": "Eusébio, Ceará, Brazil",
+        "responsibilities": {
+          "0": "- Lead technical validation and implementation of critical features for company systems, ensuring quality and adherence to development best practices",
+          "1": "- Responsible for analysis, documentation and architecture of current and future projects",
+          "2": "- Program essential components in various projects using technologies such as FastAPI, Typescript, Fastify, Angular, Django, Python, and infrastructure ecosystem with Docker, Postgres, RabbitMQ and Redis",
+          "3": "- Implemented deployment strategies on local server that resulted in significant reduction of operational costs",
+          "4": "- Distinguished myself for speed and quality in deliveries, generating high satisfaction from clients and stakeholders"
+        },
+        "achievementsTitle": "Key achievements:",
+        "achievements": {
+          "0": "- Technical leadership in the \"Pacto pela Vida\" project, developed in partnership with Senai and Argo Tech, a complete system for management and tracking of B&Q collaborators and workflows",
+          "1": "- Solo implementation of all project stages, from architecture to production deployment"
+        },
+        "skills": "AngularJS, Kubernetes and 21+ more skills"
+      },
+      "jrDeveloper": {
+        "title": "Junior Full-Stack Developer",
+        "period": "Jan 2024 - Nov 2024 · 11 months",
+        "location": "Eusébio, Ceará, Brazil",
+        "responsibilities": {
+          "0": "- Collaborated in web application development using modern technologies such as Angular, React, FastAPI and Django",
+          "1": "- Participated in database solution implementation with PostgreSQL and Redis",
+          "2": "- Assisted in configuration and maintenance of development environments with Docker",
+          "3": "- Worked following agile methodologies such as SCRUM and Kanban, in sync with partner companies"
+        },
+        "skills": "AngularJS, Django and 21+ more skills"
+      }
+    },
+    "neuroarq": {
+      "company": "NEUROARQ® Academy",
+      "period": "Nov 2024 - present · 9 months",
+      "mode": "Remote",
+      "fullstack": {
+        "title": "Full-Stack Developer",
+        "period": "Nov 2024 - present · 9 months",
+        "description": "Full Stack Developer specialized in creating complete and scalable digital solutions for companies across various segments. I work remotely, offering flexibility and efficiency in developing custom projects.",
+        "skills": "Typescript, Next.js and 2+ more skills"
+      }
+    }
+  },
+  "AcademicExperience": {
+    "ufc": {
+      "university": "Federal University of Ceará",
+      "degree": "Bachelor's in Computer Engineering",
+      "period": "Jan 2020 - present",
+      "computerEngineering": {
+        "title": "Computer Engineering",
+        "period": "Jan 2020 - present",
+        "status": "Currently in 10th semester, expected graduation in December 2025.",
+        "activities": {
+          "0": "• Volunteer participation in Python software development for UFC's University Extension Program in the project \"Evaluation of anthropometric and hematological indicators in children aged 4 to 12 years assisted by Lions Club of Acaraú Ceará, Municipal School of Early Childhood and Elementary Education Comunitário Francisco Barbosa in Maracanaú - Ceará and adolescents assisted by the Family Development Coordination (CDFAM)\".",
+          "1": "• Participation in HackPI Ceara marathon: Hackathon for Early Childhood Ceará in 2021.",
+          "2": "• Participation in mini-courses on Network Authentication and Convolutional Neural Networks with Tensorflow offered during Information and Communication Technology Week (SETIC) in 2020."
+        },
+        "skills": "XML, SASS and 26+ more skills"
+      }
+    },
+    "highSchool": {
+      "school": "Lourenço Filho College",
+      "level": "High School",
+      "period": "Jan 2014 - Dec 2016",
+      "description": "Complete high school graduation.",
+      "skills": "Prototyping and Computer Architecture"
+    }
+  },
+  "MyExperience": {
+    "viewExperience": "View Experience",
+    "professional": "Professional",
+    "academic": "Academic"
   }
 }

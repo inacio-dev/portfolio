@@ -54,5 +54,83 @@
         "content": "Atualmente cursando Engenharia da Computação na UFC, busco aprofundar meu conhecimento em engenharia de software e desenvolver soluções que combinem excelência técnica com real impacto para os usuários e negócios."
       }
     }
+  },
+  "ProfessionalExperience": {
+    "bq": {
+      "company": "B&Q",
+      "workType": "Tempo integral · 1 a 7 m",
+      "mode": "Híbrida",
+      "srDeveloper": {
+        "title": "Desenvolvedor de sistemas SR",
+        "period": "nov de 2024 - atualmente · 9 meses",
+        "location": "Eusébio, Ceará, Brasil",
+        "responsibilities": {
+          "0": "- Lidero a validação técnica e implementação de features críticas para os sistemas da empresa, garantindo qualidade e aderência às boas práticas de desenvolvimento",
+          "1": "- Responsável pela análise, documentação e arquitetura de projetos atuais e futuros",
+          "2": "- Programo componentes essenciais em diversos projetos utilizando tecnologias como FastAPI, Typescript, Fastify, Angular, Django, Python, e ecossistema de infraestrutura com Docker, Postgres, RabbitMQ e Redis",
+          "3": "- Implementei estratégias de deploy em servidor local que resultaram em redução significativa de custos operacionais",
+          "4": "- Destaquei-me pela velocidade e qualidade nas entregas, gerando alta satisfação dos clientes e stakeholders"
+        },
+        "achievementsTitle": "Principais realizações:",
+        "achievements": {
+          "0": "- Liderança técnica no projeto \"Pacto pela Vida\", desenvolvido em parceria com Senai e Argo Tech, um sistema completo para gestão e rastreamento de colaboradores e fluxos da B&Q",
+          "1": "- Implementação solo de todas as etapas do projeto, desde arquitetura até o deploy em produção"
+        },
+        "skills": "AngularJS, Kubernetes e mais 21 competências"
+      },
+      "jrDeveloper": {
+        "title": "Desenvolvedor Full-Stack JR",
+        "period": "jan de 2024 - nov de 2024 · 11 meses",
+        "location": "Eusébio, Ceará, Brasil",
+        "responsibilities": {
+          "0": "- Colaborei no desenvolvimento de aplicações web utilizando tecnologias modernas como Angular, React, FastAPI e Django",
+          "1": "- Participei da implementação de soluções de banco de dados com PostgreSQL e Redis",
+          "2": "- Auxiliei na configuração e manutenção de ambientes de desenvolvimento com Docker",
+          "3": "- Trabalhei seguindo metodologias ágeis como SCRUM e Kanban, em sintonia com as empresas parceiras"
+        },
+        "skills": "AngularJS, Django e mais 21 competências"
+      }
+    },
+    "neuroarq": {
+      "company": "NEUROARQ® Academy",
+      "period": "nov de 2024 - atualmente · 9 meses",
+      "mode": "Remota",
+      "fullstack": {
+        "title": "Desenvolvedor Full-Stack",
+        "period": "nov de 2024 - atualmente · 9 meses",
+        "description": "Desenvolvedor Full Stack especializado em criar soluções digitais completas e escaláveis para empresas de diversos segmentos. Trabalho de forma remota, oferecendo flexibilidade e eficiência no desenvolvimento de projetos sob medida.",
+        "skills": "Typescript, Next.js e mais 2 competências"
+      }
+    }
+  },
+  "AcademicExperience": {
+    "ufc": {
+      "university": "Universidade Federal do Ceará",
+      "degree": "Bacharelado em Engenharia de Computação",
+      "period": "jan de 2020 - atualmente",
+      "computerEngineering": {
+        "title": "Engenharia de Computação",
+        "period": "jan de 2020 - atualmente",
+        "status": "Atualmente no 10º semestre, com previsão de formatura em dezembro de 2025.",
+        "activities": {
+          "0": "• Participação como voluntário na elaboração de software em Python do Programa de Extensão Universitária da UFC no projeto de \"Avaliação dos indicadores antropométricos e hematológicos em crianças entre 4 a 12 anos assistidas pelo Lions Clube de Acaraú Ceará, Escola Municipal de Ensino Infantil e Ensino Fundamental Comunitário Francisco Barbosa em Maracanaú - Ceará e pelos adolescentes assistidos pela Coordenadoria de Desenvolvimento Familiar (CDFAM)\".",
+          "1": "• Participação da maratona HackPI Ceara: Hackathon para a Primeira Infância Cearense no ano de 2021.",
+          "2": "• Participação dos minicursos Autenticação em Redes e Redes Neurais convolucionais com Tensorflow oferecidos durante a Semana da Tecnologia da Informação e Comunicação (SETIC) no ano de 2020."
+        },
+        "skills": "XML, SASS e mais 26 competências"
+      }
+    },
+    "highSchool": {
+      "school": "Colégio Lourenço Filho",
+      "level": "Ensino Médio",
+      "period": "jan de 2014 - dez de 2016",
+      "description": "Conclusão do ensino médio completo.",
+      "skills": "Prototipagem e Arquitetura de computadores"
+    }
+  },
+  "MyExperience": {
+    "viewExperience": "Ver Experiência",
+    "professional": "Profissional",
+    "academic": "Acadêmica"
   }
 }
