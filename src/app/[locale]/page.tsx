@@ -11,7 +11,7 @@ export default async function Home() {
         <Image
           src="/home.jpg"
           alt="Background image"
-          className="opacity-50"
+          className="object-cover opacity-50"
           fill
           sizes="100vw"
           priority

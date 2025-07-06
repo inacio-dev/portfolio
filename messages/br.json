@@ -132,5 +132,25 @@
     "viewExperience": "Ver Experiência",
     "professional": "Profissional",
     "academic": "Acadêmica"
+  },
+  "Contact": {
+    "title": "Pronto para o próximo projeto",
+    "description": "Busco oportunidades onde posso aplicar minha expertise em engenharia de software para criar impacto real. Vamos conversar sobre como posso contribuir com seus objetivos.",
+    "social": "Social",
+    "backgroundAlt": "Imagem de contato",
+    "contactInfo": {
+      "email": {
+        "title": "Email",
+        "value": "inaciormgalvao@outlook.com"
+      },
+      "whatsapp": {
+        "title": "Whatsapp",
+        "value": "+55 (85) 9.9827-7174"
+      },
+      "location": {
+        "title": "Local",
+        "value": "Fortaleza, CE - BR"
+      }
+    }
   }
 }

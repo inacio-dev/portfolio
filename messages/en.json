@@ -132,5 +132,25 @@
     "viewExperience": "View Experience",
     "professional": "Professional",
     "academic": "Academic"
+  },
+  "Contact": {
+    "title": "Ready for the next project",
+    "description": "I seek opportunities where I can apply my expertise in software engineering to create real impact. Let's talk about how I can contribute to your goals.",
+    "social": "Social",
+    "backgroundAlt": "Contact background image",
+    "contactInfo": {
+      "email": {
+        "title": "Email",
+        "value": "inaciormgalvao@outlook.com"
+      },
+      "whatsapp": {
+        "title": "Whatsapp",
+        "value": "+55 (85) 9.9827-7174"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Fortaleza, CE - BR"
+      }
+    }
   }
 }
