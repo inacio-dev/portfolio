@@ -14,7 +14,8 @@
   --color-header-button: #242424;
 }
 
-body {
+body,
+html {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-jetbrains-mono), monospace;
