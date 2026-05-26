@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 
 import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/next'
 import { hasLocale } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 
@@ -173,6 +174,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Footer />
           <CookieConsent />
         </Providers>
+
+        {/* Vercel Web Analytics — sem cookies, sem PII, LGPD-friendly.
+            Convive com o GTM/GA4 (consent mode) — não exige opt-in extra.
+            Em dev local fica em modo "debug" e não envia dados pra Vercel. */}
+        <Analytics />
       </body>
     </html>
   )
