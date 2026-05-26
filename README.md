@@ -11,7 +11,7 @@ Portfólio pessoal e open source de **Inácio Rodrigues** — Desenvolvedor Full
 - **next-intl** v4 — i18n com prefixo de path (pt-BR default, /en, /es) e pathnames traduzidos
 - **next-themes** — dark-first com toggle e preferência do sistema
 - **Google Tag Manager + Consent Mode v2** — analytics LGPD-compliant
-- **Vercel Web Analytics** — métricas sem cookies, complementar ao GTM
+- **Vercel Web Analytics + Speed Insights** — métricas e Core Web Vitals sem cookies, complementar ao GTM
 - **Cloudflare Turnstile** — anti-spam invisível no form de contato
 - **Resend** — entrega de email do form de contato (3k/mês no free tier)
 
