@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+next-env.d.ts
+*.log
+.env
+.env.*
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+CHANGELOG.md
+
+# shadcn/ui components — copiados da lib, não formatamos.
+components/ui/

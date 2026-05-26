@@ -1,0 +1,226 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system do portfólio — "Code, Hardware, Distribuído"
+ *
+ * Paleta dark-first com acento neon cyan/teal (estilo terminal/devtools).
+ * Light mode também disponível via next-themes (toggle no header).
+ *
+ * Camadas de tokens:
+ * 1. --color-portifolio-* → paleta base (fonte de verdade)
+ * 2. --primary/--accent/...→ tokens semânticos shadcn
+ * 3. @theme inline        → expõe como utilities Tailwind v4
+ *
+ * Tipografia:
+ * - Bricolage Grotesque (display variável) — headlines e números
+ * - Plus Jakarta Sans (body) — leitura confortável
+ * - IBM Plex Mono — código, valores técnicos, paths
+ */
+:root {
+  /* ============================================================
+     Camada 1 — Paleta base (light mode default)
+     ============================================================ */
+  --color-portifolio-bg: #fafaf9;
+  --color-portifolio-surface: #ffffff;
+  --color-portifolio-surface-2: #f4f4f3;
+  --color-portifolio-line: #e5e5e3;
+  --color-portifolio-ink: #0a0a0a;
+  --color-portifolio-ink-soft: #404040;
+  --color-portifolio-ink-subtle: #737373;
+
+  /* Acento neon — cyan/teal elétrico, lê bem em fundo escuro e claro */
+  --color-portifolio-accent: #00d4b4;
+  --color-portifolio-accent-hover: #00b89c;
+  --color-portifolio-accent-foreground: #001a14;
+
+  /* Estados */
+  --color-portifolio-success: #16a34a;
+  --color-portifolio-warning: #d97706;
+  --color-portifolio-danger: #dc2626;
+
+  /* ============================================================
+     Camada 2 — Tokens semânticos shadcn
+     ============================================================ */
+  --background: var(--color-portifolio-bg);
+  --foreground: var(--color-portifolio-ink);
+
+  --card: var(--color-portifolio-surface);
+  --card-foreground: var(--color-portifolio-ink);
+
+  --popover: var(--color-portifolio-surface);
+  --popover-foreground: var(--color-portifolio-ink);
+
+  --primary: var(--color-portifolio-accent);
+  --primary-foreground: var(--color-portifolio-accent-foreground);
+
+  --secondary: var(--color-portifolio-surface-2);
+  --secondary-foreground: var(--color-portifolio-ink);
+
+  --muted: var(--color-portifolio-surface-2);
+  --muted-foreground: var(--color-portifolio-ink-subtle);
+
+  --accent: var(--color-portifolio-surface-2);
+  --accent-foreground: var(--color-portifolio-ink);
+
+  --destructive: var(--color-portifolio-danger);
+  --destructive-foreground: #ffffff;
+
+  --border: var(--color-portifolio-line);
+  --input: var(--color-portifolio-line);
+  --ring: var(--color-portifolio-accent);
+
+  --radius: 0.625rem;
+}
+
+/* ============================================================
+   Dark mode — default da aplicação (next-themes class="dark")
+   ============================================================ */
+.dark {
+  --color-portifolio-bg: #07090d;
+  --color-portifolio-surface: #0f1218;
+  --color-portifolio-surface-2: #161a23;
+  --color-portifolio-line: #232834;
+  --color-portifolio-ink: #f4f4f5;
+  --color-portifolio-ink-soft: #c4c4c8;
+  --color-portifolio-ink-subtle: #8a8d94;
+
+  --color-portifolio-accent: #5eead4;
+  --color-portifolio-accent-hover: #2dd4bf;
+  --color-portifolio-accent-foreground: #00120e;
+
+  --color-portifolio-success: #4ade80;
+  --color-portifolio-warning: #fbbf24;
+  --color-portifolio-danger: #f87171;
+
+  --background: var(--color-portifolio-bg);
+  --foreground: var(--color-portifolio-ink);
+
+  --card: var(--color-portifolio-surface);
+  --card-foreground: var(--color-portifolio-ink);
+
+  --popover: var(--color-portifolio-surface);
+  --popover-foreground: var(--color-portifolio-ink);
+
+  --primary: var(--color-portifolio-accent);
+  --primary-foreground: var(--color-portifolio-accent-foreground);
+
+  --secondary: var(--color-portifolio-surface-2);
+  --secondary-foreground: var(--color-portifolio-ink);
+
+  --muted: var(--color-portifolio-surface-2);
+  --muted-foreground: var(--color-portifolio-ink-subtle);
+
+  --accent: var(--color-portifolio-surface-2);
+  --accent-foreground: var(--color-portifolio-ink);
+
+  --destructive: var(--color-portifolio-danger);
+  --destructive-foreground: #0a0a0a;
+
+  --border: var(--color-portifolio-line);
+  --input: var(--color-portifolio-line);
+  --ring: var(--color-portifolio-accent);
+}
+
+/* ============================================================
+   Camada 3 — @theme inline (Tailwind v4 tokens)
+   ============================================================ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   Base styles
+   ============================================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    background: var(--color-portifolio-accent);
+    color: var(--color-portifolio-accent-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background outline-none;
+  }
+}
+
+/* ============================================================
+   Utilities adicionais
+   ============================================================ */
+@layer utilities {
+  .inline-mono {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-card-foreground;
+  }
+
+  .glow-accent {
+    box-shadow:
+      0 0 0 1px var(--color-portifolio-accent),
+      0 0 24px -4px color-mix(in srgb, var(--color-portifolio-accent) 50%, transparent);
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(
+      135deg,
+      var(--color-portifolio-ink) 0%,
+      var(--color-portifolio-accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-dotted {
+    background-image: radial-gradient(circle, var(--color-portifolio-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}

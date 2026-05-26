@@ -1,0 +1,211 @@
+{
+  "Meta": {
+    "siteName": "Inácio Rodrigues",
+    "defaultTitle": "Inácio Rodrigues — Full Stack Developer & Computer Engineer",
+    "titleTemplate": "%s · Inácio Rodrigues",
+    "defaultDescription": "Senior Full Stack Developer and Computer Engineer (UFC). Technical and architectural decisions in mission-critical, highly available systems.",
+    "keywords": "full stack developer, computer engineer, fortaleza, brazil, typescript, next.js, kubernetes, devops"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "viewCode": "View source",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
+  },
+  "Home": {
+    "eyebrow": "Hi, I'm Inácio",
+    "heroTitle": "Full Stack Developer & Computer Engineer",
+    "heroSubtitle": "I build mission-critical, highly available systems with Kubernetes, DevOps and resilient architecture. Currently developing my thesis on real-time teleoperation with low-latency UDP communication.",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "Get in touch",
+    "ctaGithubRepo": "Check out the source code of this portfolio on GitHub",
+    "currentTitle": "Currently",
+    "currentRole": "Senior Systems Developer at B&Q Energia",
+    "currentEducation": "Graduating in Computer Engineering at UFC",
+    "highlightsTitle": "Highlights",
+    "highlightProjectsTitle": "Selected projects",
+    "highlightProjectsDescription": "Thesis on teleoperation, internal production systems and open-source side projects.",
+    "highlightSkillsTitle": "Main stack",
+    "highlightSkillsDescription": "TypeScript, Next.js, Node.js, Python, Kubernetes, PostgreSQL, embedded systems.",
+    "highlightExperienceTitle": "Professional experience",
+    "highlightExperienceDescription": "Technical and architectural decisions in highly critical environments.",
+    "stackTitle": "Stack",
+    "viewAllProjects": "View all projects",
+    "viewExperience": "View full experience"
+  },
+  "About": {
+    "title": "About",
+    "subtitle": "Computer Engineer (UFC), Senior Full Stack Developer",
+    "objectivesTitle": "Objectives",
+    "objectives": "Expertise across all project stages, from concept to software and hardware development. I pursue code quality, maximum performance and an enhanced user experience with emphasis on accessibility. My multidisciplinary background allows me to deliver innovative, high-end solutions.",
+    "summaryTitle": "Summary",
+    "summary": "I'm a Senior Full Stack Developer graduating in Computer Engineering at UFC, working in development, evolution and maintenance of critical systems. I lead technical and architectural decisions, from concept to deployment, on highly available applications, DevOps practices and resilient architectures.",
+    "summarySecondary": "I have an analytical, multidisciplinary profile, with experience in corporate systems, educational platforms and innovation projects. I'm developing my thesis on real-time systems and teleoperation with low-latency communication, integrating software, hardware and infrastructure, with focus on performance, scalability and reliability.",
+    "languagesTitle": "Languages",
+    "languagePtNative": "Portuguese — Fluent (Native)",
+    "languageEnAdvanced": "English — Advanced",
+    "languageEsBasic": "Spanish — Basic",
+    "skillsTitle": "Focus areas"
+  },
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Selected work",
+    "description": "A mix of thesis work, production systems at B&Q Energia and NeuroArq Academy, and public side projects on GitHub.",
+    "viewCode": "View source",
+    "viewLive": "View demo",
+    "featured": "Featured",
+    "items": {
+      "teleoperacao": {
+        "title": "Teleoperation System with Force Feedback",
+        "subtitle": "Thesis — UFC, 2026",
+        "description": "Real-time remote control system with low-latency UDP communication, integrating Raspberry Pi, ESP32, telemetry, live video and haptic interface (force feedback). Combines software, hardware and distributed systems."
+      },
+      "beq": {
+        "title": "B&Q Energia internal platforms",
+        "subtitle": "2024 — present",
+        "description": "Maintenance and evolution of critical applications for inspection monitoring, workforce management and goal tracking. Multi-cluster Kubernetes architecture, high availability and DevOps practices."
+      },
+      "neuroarq": {
+        "title": "NeuroArq Academy platform",
+        "subtitle": "2024 — present",
+        "description": "Development and evolution of NeuroArq's educational platforms, with focus on performant applications and modern internal solutions."
+      },
+      "portfolio": {
+        "title": "This portfolio",
+        "subtitle": "Open source",
+        "description": "Next.js 16, App Router, next-intl (PT/EN/ES), Tailwind CSS v4, server actions, GTM with Consent Mode v2. Source available on GitHub."
+      }
+    }
+  },
+  "Experience": {
+    "title": "Experience",
+    "subtitle": "Professional and academic journey",
+    "professional": "Professional",
+    "academic": "Education",
+    "complementary": "Complementary education",
+    "current": "Current",
+    "items": {
+      "beqSr": {
+        "role": "Senior Systems Developer",
+        "company": "B&Q Energia",
+        "period": "November 2024 — present",
+        "description": "Senior Full Stack Developer responsible for developing, evolving and maintaining the company's systems. I lead most technical and architectural decisions — from concept to deploy, defining stacks, patterns and infrastructure strategies. High-criticality projects: inspection monitoring, workforce management, goals and internal controls. Highly available environments on Kubernetes, multi-cluster and DevOps practices."
+      },
+      "beqJr": {
+        "role": "Junior Full Stack Developer",
+        "company": "B&Q Energia",
+        "period": "January 2024 — November 2024",
+        "description": "Developed new features and maintained existing applications, gaining expertise in critical system maintenance."
+      },
+      "neuroarq": {
+        "role": "Full Stack Developer",
+        "company": "NeuroArq Academy",
+        "period": "November 2024 — present",
+        "description": "Development and evolution of educational platforms and modern, performant internal solutions."
+      },
+      "ufc": {
+        "title": "Bachelor in Computer Engineering",
+        "institution": "Federal University of Ceará — UFC",
+        "period": "2020 — 2026.1 (Graduating)",
+        "description": "Thesis: \"Teleoperation System with Force Feedback for RC Vehicle\" — real-time remote control with low-latency UDP, Raspberry Pi and ESP32. Participated in the University Extension Program (PREX) with research on anthropometric and hematological indicators. HackPI Ceará 2021. SETIC mini-courses: Network Authentication and Convolutional Neural Networks with TensorFlow."
+      },
+      "ensinoMedio": {
+        "title": "High School",
+        "institution": "Colégio Lourenço Filho",
+        "period": "Completed in 2018",
+        "description": "Completed high school education."
+      }
+    }
+  },
+  "Certifications": {
+    "title": "Certifications",
+    "subtitle": "Courses, certifications and participation",
+    "description": "Official documents available for download in the cards below.",
+    "viewPdf": "View PDF",
+    "year": "Year"
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk",
+    "description": "Open to opportunities, partnerships and technical conversations. Reply within 2 business days.",
+    "formTitle": "Send a message",
+    "fieldName": "Name",
+    "fieldNamePlaceholder": "Your name",
+    "fieldEmail": "Email",
+    "fieldEmailPlaceholder": "your@email.com",
+    "fieldSubject": "Subject",
+    "fieldSubjectPlaceholder": "What's this about?",
+    "fieldMessage": "Message",
+    "fieldMessagePlaceholder": "Tell me more about what you need…",
+    "fieldConsent": "I agree with the privacy policy.",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "successTitle": "Message sent",
+    "successDescription": "I'll reply within 2 business days.",
+    "errorTitle": "Send failed",
+    "errorDescription": "Please try again or reach me directly through the channels below.",
+    "channelsTitle": "Direct channels",
+    "channelEmail": "Email",
+    "channelWhatsapp": "WhatsApp",
+    "channelLinkedin": "LinkedIn",
+    "channelGithub": "GitHub",
+    "locationLabel": "Location",
+    "location": "Fortaleza — CE, Brazil"
+  },
+  "Cookie": {
+    "title": "Cookies and privacy",
+    "description": "I use cookies to understand who visits the portfolio (Google Analytics via GTM). No personal data is collected and consent expires in 180 days.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "moreInfo": "More info"
+  },
+  "Privacy": {
+    "title": "Privacy policy",
+    "lastUpdate": "Last update",
+    "intro": "This page describes how inaciorodrigues.dev.br handles data during a visit or contact.",
+    "section1Title": "1. Data collected",
+    "section1": "On visits, only anonymous data via Google Analytics (after consent): country, browser, pages visited. On contact form, only name, email and message provided by the visitor.",
+    "section2Title": "2. Purpose",
+    "section2": "Aggregated usage statistics (no individual identification) and direct reply to contacts.",
+    "section3Title": "3. Sharing",
+    "section3": "No data is sold. The email provider (SMTP) is the only third party involved in delivering messages.",
+    "section4Title": "4. Subject rights (LGPD)",
+    "section4": "You can request access, correction or deletion of your data at any time via email.",
+    "section5Title": "5. Contact",
+    "section5": "For questions or requests regarding data, email inaciormgalvao@outlook.com."
+  },
+  "Terms": {
+    "title": "Terms of use",
+    "lastUpdate": "Last update",
+    "intro": "By accessing this site you agree to the terms below.",
+    "section1Title": "1. Use of content",
+    "section1": "Written content (texts, project descriptions) is my own. The portfolio source code is open source on GitHub under the MIT license.",
+    "section2Title": "2. Third-party brands and logos",
+    "section2": "Company logos (B&Q Energia, NeuroArq Academy, UFC, etc.) belong to their respective owners and are shown only as professional reference.",
+    "section3Title": "3. Responsibility",
+    "section3": "I work to keep information accurate, but I'm not responsible for decisions made based on this site's content."
+  },
+  "Footer": {
+    "tagline": "Building software, hardware and infrastructure.",
+    "copyright": "© {year} Inácio Rodrigues. All rights reserved.",
+    "sourceCode": "Source code",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "builtWith": "Built with Next.js, Tailwind CSS and next-intl."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The route you tried to reach doesn't exist.",
+    "back": "Back to home"
+  }
+}
