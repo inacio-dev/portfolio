@@ -158,6 +158,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html
       lang={locale}
+      // `data-scroll-behavior="smooth"` faz o Next 16 desabilitar o
+      // `scroll-behavior: smooth` (definido em globals.css) durante route
+      // transitions, mantendo só para anchor links manuais. Sem isso, mudar
+      // de rota vira um scroll lento até o topo em vez de pular instantâneo.
+      data-scroll-behavior="smooth"
       className={`${bricolage.variable} ${jakarta.variable} ${plexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >

@@ -25,14 +25,15 @@ import { cn } from '@/lib/utils'
  */
 
 interface NavItem {
-  href: '/sobre' | '/projetos' | '/experiencia' | '/certificados' | '/contato'
-  labelKey: 'about' | 'projects' | 'experience' | 'certifications' | 'contact'
+  href: '/sobre' | '/projetos' | '/experiencia' | '/monografia' | '/certificados' | '/contato'
+  labelKey: 'about' | 'projects' | 'experience' | 'thesis' | 'certifications' | 'contact'
 }
 
 const NAV_ITEMS: readonly NavItem[] = [
   { href: '/sobre', labelKey: 'about' },
   { href: '/projetos', labelKey: 'projects' },
   { href: '/experiencia', labelKey: 'experience' },
+  { href: '/monografia', labelKey: 'thesis' },
   { href: '/certificados', labelKey: 'certifications' },
   { href: '/contato', labelKey: 'contact' },
 ] as const

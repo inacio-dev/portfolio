@@ -33,13 +33,28 @@ describe('PROJECTS catalog', () => {
     }
   })
 
-  it('repoUrl e liveUrl, quando presentes, são URLs absolutas válidas', () => {
+  it('repoUrl é URL absoluta válida', () => {
     for (const project of PROJECTS) {
       if (project.repoUrl) {
         expect(() => new URL(project.repoUrl as string)).not.toThrow()
       }
+    }
+  })
+
+  it('liveUrl, quando presente, é URL absoluta ou path interno começando com "/"', () => {
+    for (const project of PROJECTS) {
       if (project.liveUrl) {
-        expect(() => new URL(project.liveUrl as string)).not.toThrow()
+        const url = project.liveUrl
+        const isInternal = url.startsWith('/')
+        const isAbsolute = (() => {
+          try {
+            new URL(url)
+            return true
+          } catch {
+            return false
+          }
+        })()
+        expect(isInternal || isAbsolute, `${project.key} liveUrl inválido: ${url}`).toBe(true)
       }
     }
   })

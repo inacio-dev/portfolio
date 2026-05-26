@@ -43,14 +43,12 @@ export default async function TermsPage({ params }: PageProps) {
       <div className="prose prose-neutral dark:prose-invert mt-10 max-w-none">
         <p className="text-muted-foreground">{t('intro')}</p>
 
-        <h2 className="mt-10 font-display text-xl font-semibold">{t('section1Title')}</h2>
-        <p className="mt-2 text-muted-foreground">{t('section1')}</p>
-
-        <h2 className="mt-8 font-display text-xl font-semibold">{t('section2Title')}</h2>
-        <p className="mt-2 text-muted-foreground">{t('section2')}</p>
-
-        <h2 className="mt-8 font-display text-xl font-semibold">{t('section3Title')}</h2>
-        <p className="mt-2 text-muted-foreground">{t('section3')}</p>
+        {([1, 2, 3, 4] as const).map((n) => (
+          <section key={n} className="mt-8 first:mt-10">
+            <h2 className="font-display text-xl font-semibold">{t(`section${n}Title`)}</h2>
+            <p className="mt-2 text-muted-foreground">{t(`section${n}`)}</p>
+          </section>
+        ))}
       </div>
     </article>
   )

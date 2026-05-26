@@ -28,10 +28,11 @@ export interface ProjectMeta {
 export const PROJECTS: readonly ProjectMeta[] = [
   {
     key: 'teleoperacao',
-    stack: ['Python', 'C++', 'Raspberry Pi', 'ESP32', 'UDP', 'WebRTC', 'Three.js'],
+    stack: ['Python', 'Raspberry Pi', 'Arduino', 'BMI160', 'UDP', 'evdev', 'OpenCV'],
     repoUrl: 'https://github.com/inacio-dev/monografia',
+    liveUrl: '/monografia',
     featured: true,
-    cover: '/projects/teleoperacao.svg',
+    cover: '/monografia/prototipo.webp',
   },
   {
     key: 'beq',

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Award, FileText } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
+import { TrackedExternalLink } from '@/components/TrackedExternalLink'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { CERTIFICATIONS, type CertificateCategory } from '@/lib/certifications'
@@ -17,14 +18,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: t('title'), description: t('description') }
 }
 
-const CATEGORY_LABEL: Record<CertificateCategory, string> = {
-  tech: 'Tech',
-  business: 'Negócios',
-  language: 'Idiomas',
-  academic: 'Acadêmico',
-  event: 'Eventos',
-}
-
+/**
+ * Ordem de exibição das categorias na página. O label de cada uma vem
+ * de `messages/{locale}.json` → `Certifications.categories.<key>`.
+ */
 const CATEGORY_ORDER: readonly CertificateCategory[] = [
   'tech',
   'business',
@@ -63,16 +60,16 @@ export default async function CertificationsPage({ params }: PageProps) {
           <section key={category}>
             <div className="mb-4 flex items-center gap-2">
               <Award className="size-5 text-primary" aria-hidden="true" />
-              <h2 className="font-display text-xl font-semibold">{CATEGORY_LABEL[category]}</h2>
+              <h2 className="font-display text-xl font-semibold">{t(`categories.${category}`)}</h2>
               <span className="font-mono text-xs text-muted-foreground">({items.length})</span>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {items.map((cert) => (
-                <Card key={cert.slug}>
+                <Card key={cert.slug} className="group transition-colors hover:border-primary/40">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between gap-3">
                       <CardTitle className="font-display text-sm leading-tight">
-                        {cert.title}
+                        {t(`items.${cert.slug}`)}
                       </CardTitle>
                       <Badge variant="outline" className="font-mono text-[10px]">
                         {cert.year}
@@ -81,15 +78,20 @@ export default async function CertificationsPage({ params }: PageProps) {
                   </CardHeader>
                   <CardContent>
                     <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-                    <a
+                    <TrackedExternalLink
                       href={cert.file}
                       target="_blank"
                       rel="noopener noreferrer"
+                      event="certificate_opened"
+                      eventParams={{ slug: cert.slug, category: cert.category }}
                       className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
                     >
-                      <FileText className="size-3.5" aria-hidden="true" />
+                      <FileText
+                        className="size-3.5 transition-transform duration-200 ease-out group-hover:scale-110"
+                        aria-hidden="true"
+                      />
                       {t('viewPdf')}
-                    </a>
+                    </TrackedExternalLink>
                   </CardContent>
                 </Card>
               ))}

@@ -1,24 +1,25 @@
 /**
  * Catálogo de certificados — espelha os PDFs em `docs/certificados/`.
  *
- * Os PDFs ficam em `docs/` (fora de /public) propositalmente: o usuário
- * baixa via copy explícita para `/public/certificados/<slug>.pdf` no build,
- * ou via server action que serve o arquivo. Por simplicidade, este array
- * já lista os PDFs nominalmente — se quiser servir os arquivos, copiar
- * para /public/certificados/ no deploy e o `file` aponta pra lá.
+ * O **título** vive em `messages/{locale}.json` → `Certifications.items.<slug>`
+ * para que possa ser traduzido (alguns títulos são em inglês oficial e
+ * preservados; outros têm versões em pt-BR/en/es).
+ *
+ * **Issuer** fica aqui no catálogo — nome de instituição é marca registrada,
+ * não se traduz (Harvard, CertiProf, UFC, etc.).
  *
  * Para adicionar novo certificado:
- * 1. Coloque o PDF em `public/certificados/<slug>.pdf`
- * 2. Adicione uma entrada aqui com slug, título, ano, emissor
+ * 1. PDF em `public/certificados/<slug>.pdf`
+ * 2. Entrada aqui com `slug`, `issuer`, `year`, `category`, `file`
+ * 3. Tradução do título nas 3 chaves `Certifications.items.<slug>`
  */
 
 export type CertificateCategory = 'tech' | 'language' | 'business' | 'academic' | 'event'
 
 export interface Certificate {
+  /** Slug único — usado como key no JSON de tradução e para tracking */
   slug: string
-  /** Nome curto exibido no card */
-  title: string
-  /** Instituição emissora */
+  /** Instituição emissora — não se traduz (nome de marca) */
   issuer: string
   /** Ano de conclusão (string para flexibilidade — "2025", "Mar/2022", etc) */
   year: string
@@ -31,7 +32,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   // Tech / programação
   {
     slug: 'cs50-harvard',
-    title: "CS50's Web Programming with Python and JavaScript",
     issuer: 'HarvardX — Harvard University',
     year: '2022',
     category: 'tech',
@@ -39,7 +39,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'eldorado-cloud-swift-iot',
-    title: 'Práticas de Cloud Services usando Swift com ênfase em IoT',
     issuer: 'Instituto Eldorado (IBM/Apple)',
     year: '2019',
     category: 'tech',
@@ -47,7 +46,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'eldorado-logica-swift-js',
-    title: 'Lógica de Programação, Swift, JavaScript e RESTful API',
     issuer: 'Instituto Eldorado (IBM/Apple)',
     year: '2019',
     category: 'tech',
@@ -55,7 +53,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'ebac-react',
-    title: 'Primeiros passos com React',
     issuer: 'EBAC',
     year: '2024',
     category: 'tech',
@@ -63,7 +60,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'rocketseat-discover',
-    title: 'Conectar do Discover',
     issuer: 'Rocketseat',
     year: '2023',
     category: 'tech',
@@ -71,7 +67,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'santander-python',
-    title: 'Backend com Python',
     issuer: 'Santander Open Academy',
     year: '2025',
     category: 'tech',
@@ -81,7 +76,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   // Business / gestão
   {
     slug: 'scrum-foundation',
-    title: 'Scrum Foundation Professional Certificate (SFPC)',
     issuer: 'CertiProf',
     year: '2022',
     category: 'business',
@@ -89,7 +83,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'certificacao-executiva-negocios',
-    title: 'Certificação Executiva — Desenvolvimento de Negócios',
     issuer: 'Conquer',
     year: '2024',
     category: 'business',
@@ -97,7 +90,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'digital-marketing-professional',
-    title: 'Digital Marketing Professional Certificate (DMPC)',
     issuer: 'CertiProf',
     year: '2022',
     category: 'business',
@@ -105,7 +97,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'google-ads-imersao',
-    title: 'Imersão Google Ads — Search, Display e Vídeo',
     issuer: 'Escola Brasileira de Marketing Digital',
     year: '2022',
     category: 'business',
@@ -115,7 +106,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   // Idiomas
   {
     slug: 'cultura-inglesa-b1',
-    title: 'Inglês Avançado — CEFR B1',
     issuer: 'Cultura Inglesa',
     year: '2020',
     category: 'language',
@@ -123,7 +113,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'cultura-inglesa-a2',
-    title: 'Inglês Intermediário — CEFR A2',
     issuer: 'Cultura Inglesa',
     year: '2019',
     category: 'language',
@@ -133,7 +122,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   // Acadêmico
   {
     slug: 'declaracao-prex',
-    title: 'Declaração PREX — Programa de Extensão Universitária',
     issuer: 'UFC',
     year: '2022',
     category: 'academic',
@@ -141,7 +129,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'estrutura-curricular-ufc',
-    title: 'Estrutura Curricular — Engenharia de Computação',
     issuer: 'UFC',
     year: '2026',
     category: 'academic',
@@ -149,7 +136,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'historico-ensino-medio',
-    title: 'Conclusão e Histórico do Ensino Médio',
     issuer: 'Colégio Lourenço Filho',
     year: '2018',
     category: 'academic',
@@ -159,7 +145,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   // Eventos / palestras
   {
     slug: 'hackpi-2021',
-    title: 'HackPI Ceará — Hackathon para a Primeira Infância',
     issuer: 'Governo do Estado do Ceará',
     year: '2021',
     category: 'event',
@@ -167,7 +152,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'setic-autenticacao-redes',
-    title: 'Minicurso: Autenticação em Redes',
     issuer: 'SETIC — UFC',
     year: '2020',
     category: 'event',
@@ -175,7 +159,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'setic-redes-neurais-tensorflow',
-    title: 'Minicurso: Redes Neurais Convolucionais com TensorFlow',
     issuer: 'SETIC — UFC',
     year: '2020',
     category: 'event',
@@ -183,7 +166,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'semm-energia-solar',
-    title: 'Palestra: Energia Solar Fotovoltaica',
     issuer: 'SEMM',
     year: '2020',
     category: 'event',
@@ -191,7 +173,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'semm-nanotecnologia',
-    title: 'Palestra: Nanotecnologia como Ciência Fundamental',
     issuer: 'SEMM',
     year: '2020',
     category: 'event',
@@ -199,7 +180,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'letrare-paula-ianelli',
-    title: 'Bate-papo com Paula Ianelli',
     issuer: 'Letrare 2021',
     year: '2021',
     category: 'event',
@@ -207,7 +187,6 @@ export const CERTIFICATIONS: readonly Certificate[] = [
   },
   {
     slug: 'gracom-open-cg',
-    title: 'Open CG — Computação Gráfica',
     issuer: 'Gracom (Adobe)',
     year: '2018',
     category: 'event',

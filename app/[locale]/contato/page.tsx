@@ -7,6 +7,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { GitHubIcon } from '@/components/icons/GitHubIcon'
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon'
+import { TrackedExternalLink } from '@/components/TrackedExternalLink'
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, mailtoUrl, whatsappUrl } from '@/lib/site'
 
 interface PageProps {
@@ -49,66 +50,86 @@ export default async function ContactPage({ params }: PageProps) {
           <h2 className="font-display text-xl font-semibold">{t('channelsTitle')}</h2>
           <ul className="mt-6 space-y-4 text-sm">
             <li>
-              <a
+              <TrackedExternalLink
                 href={mailtoUrl()}
-                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
+                event="email_clicked"
+                eventParams={{ source: 'contact_page' }}
+                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary hover:bg-card/70"
               >
-                <Mail className="mt-0.5 size-5 text-primary" aria-hidden="true" />
+                <Mail
+                  className="mt-0.5 size-5 text-primary transition-transform duration-200 ease-out group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 <div>
                   <p className="font-medium text-foreground">{t('channelEmail')}</p>
                   <p className="mt-0.5 font-mono text-xs text-muted-foreground group-hover:text-foreground">
                     {CONTACT_EMAIL}
                   </p>
                 </div>
-              </a>
+              </TrackedExternalLink>
             </li>
             <li>
-              <a
+              <TrackedExternalLink
                 href={whatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
+                event="whatsapp_opened"
+                eventParams={{ source: 'contact_page' }}
+                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary hover:bg-card/70"
               >
-                <WhatsAppIcon className="mt-0.5 size-5 text-primary" aria-hidden="true" />
+                <WhatsAppIcon
+                  className="mt-0.5 size-5 text-primary transition-transform duration-200 ease-out group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 <div>
                   <p className="font-medium text-foreground">{t('channelWhatsapp')}</p>
                   <p className="mt-0.5 font-mono text-xs text-muted-foreground group-hover:text-foreground">
                     wa.me/Inácio
                   </p>
                 </div>
-              </a>
+              </TrackedExternalLink>
             </li>
             <li>
-              <a
+              <TrackedExternalLink
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
+                event="linkedin_clicked"
+                eventParams={{ source: 'contact_page' }}
+                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary hover:bg-card/70"
               >
-                <LinkedInIcon className="mt-0.5 size-5 text-primary" aria-hidden="true" />
+                <LinkedInIcon
+                  className="mt-0.5 size-5 text-primary transition-transform duration-200 ease-out group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 <div>
                   <p className="font-medium text-foreground">{t('channelLinkedin')}</p>
                   <p className="mt-0.5 font-mono text-xs text-muted-foreground group-hover:text-foreground">
                     /in/inacio-rodrigues-dev
                   </p>
                 </div>
-              </a>
+              </TrackedExternalLink>
             </li>
             <li>
-              <a
+              <TrackedExternalLink
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary"
+                event="github_clicked"
+                eventParams={{ source: 'contact_page' }}
+                className="group flex items-start gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary hover:bg-card/70"
               >
-                <GitHubIcon className="mt-0.5 size-5 text-primary" aria-hidden="true" />
+                <GitHubIcon
+                  className="mt-0.5 size-5 text-primary transition-transform duration-200 ease-out group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 <div>
                   <p className="font-medium text-foreground">{t('channelGithub')}</p>
                   <p className="mt-0.5 font-mono text-xs text-muted-foreground group-hover:text-foreground">
                     @inacio-dev
                   </p>
                 </div>
-              </a>
+              </TrackedExternalLink>
             </li>
             <li>
               <div className="flex items-start gap-3 rounded-lg border border-dashed border-border p-4">

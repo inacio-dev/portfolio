@@ -22,25 +22,34 @@
  */
 :root {
   /* ============================================================
-     Camada 1 — Paleta base (light mode default)
-     ============================================================ */
-  --color-portifolio-bg: #fafaf9;
-  --color-portifolio-surface: #ffffff;
-  --color-portifolio-surface-2: #f4f4f3;
-  --color-portifolio-line: #e5e5e3;
-  --color-portifolio-ink: #0a0a0a;
-  --color-portifolio-ink-soft: #404040;
-  --color-portifolio-ink-subtle: #737373;
+     Camada 1 — Paleta base (light mode)
+     ============================================================
+     Em light mode evitamos branco puro: o fundo tem leve tint
+     teal (#f5f7f7) que conversa com o acento sem saturar. Cards
+     ficam em branco quase puro pra criar separação visual via
+     contraste do fundo.
 
-  /* Acento neon — cyan/teal elétrico, lê bem em fundo escuro e claro */
-  --color-portifolio-accent: #00d4b4;
-  --color-portifolio-accent-hover: #00b89c;
-  --color-portifolio-accent-foreground: #001a14;
+     Acento é mais escuro (#0d9488 — teal-600) porque o cyan claro
+     do dark mode sumiria contra fundo branco. Esse tom mantém o
+     espírito mas garante contraste WCAG AA em texto e ícones.
+     ============================================================ */
+  --color-portifolio-bg: #e7f2ef;
+  --color-portifolio-surface: #ffffff;
+  --color-portifolio-surface-2: #d5e5e0;
+  --color-portifolio-line: #a8c5bc;
+  --color-portifolio-ink: #062521;
+  --color-portifolio-ink-soft: #1e433c;
+  --color-portifolio-ink-subtle: #4a6a62;
+
+  /* Acento teal-600 saturado — contraste alto em fundo levemente verde */
+  --color-portifolio-accent: #0d9488;
+  --color-portifolio-accent-hover: #0f766e;
+  --color-portifolio-accent-foreground: #ffffff;
 
   /* Estados */
-  --color-portifolio-success: #16a34a;
-  --color-portifolio-warning: #d97706;
-  --color-portifolio-danger: #dc2626;
+  --color-portifolio-success: #15803d;
+  --color-portifolio-warning: #b45309;
+  --color-portifolio-danger: #b91c1c;
 
   /* ============================================================
      Camada 2 — Tokens semânticos shadcn
@@ -191,6 +200,21 @@
 
   :focus-visible {
     @apply ring-2 ring-ring ring-offset-2 ring-offset-background outline-none;
+  }
+
+  /*
+   * Tailwind v4 / shadcn 4.x mudou o default dos botões para `cursor: default`
+   * (segue a especificação do user-agent moderna). Volto o `cursor: pointer`
+   * para botões e links ativos do portfólio — é o que o usuário do site
+   * espera quando o elemento é clicável.
+   *
+   * `:not(:disabled)` preserva o `not-allowed` em botões desabilitados.
+   * `[aria-disabled="true"]` cobre o wrapper de tooltip do botão desabilitado.
+   */
+  button:not(:disabled):not([aria-disabled='true']),
+  [role='button']:not([aria-disabled='true']),
+  a {
+    cursor: pointer;
   }
 }
 

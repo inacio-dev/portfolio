@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
@@ -15,13 +16,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: t('title') }
 }
 
-const FOCUS_AREAS = [
-  'Full Stack Development',
-  'DevOps & Kubernetes',
-  'Distributed Systems',
-  'Embedded Systems & IoT',
-  'Real-time Communication',
-  'Software Architecture',
+/**
+ * Áreas de atuação destacadas — keys correspondem ao namespace
+ * `About.focusAreas.*` em `messages/{locale}.json`. Termos técnicos
+ * universais (DevOps, Kubernetes, IoT) ficam intactos em todos os
+ * locales; só as palavras genéricas ao redor são traduzidas.
+ */
+const FOCUS_AREA_KEYS = [
+  'fullStack',
+  'architecture',
+  'devOps',
+  'distributed',
+  'embedded',
+  'realtime',
+  'cvMl',
+  'robotics',
 ] as const
 
 export default async function AboutPage({ params }: PageProps) {
@@ -58,9 +67,9 @@ export default async function AboutPage({ params }: PageProps) {
           <section>
             <h2 className="font-display text-xl font-semibold">{t('skillsTitle')}</h2>
             <div className="mt-4 flex flex-wrap gap-2">
-              {FOCUS_AREAS.map((area) => (
-                <Badge key={area} variant="outline" className="font-mono text-xs">
-                  {area}
+              {FOCUS_AREA_KEYS.map((key) => (
+                <Badge key={key} variant="outline" className="font-mono text-xs">
+                  {t(`focusAreas.${key}`)}
                 </Badge>
               ))}
             </div>
@@ -68,6 +77,23 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
 
         <aside className="space-y-6">
+          {/* Retrato: 4:5 vertical com leve glow no acento do tema. */}
+          <div className="relative aspect-4/5 overflow-hidden rounded-xl border border-border bg-card">
+            <Image
+              src="/me/portrait.webp"
+              alt="Inácio Rodrigues"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover"
+              priority
+            />
+            {/* Overlay sutil para ancorar a foto no tema dark sem mascarar */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent"
+            />
+          </div>
+
           <Card>
             <CardHeader>
               <CardTitle className="font-display text-base">{t('languagesTitle')}</CardTitle>
@@ -75,7 +101,6 @@ export default async function AboutPage({ params }: PageProps) {
             <CardContent className="space-y-2 text-sm text-muted-foreground">
               <p>{t('languagePtNative')}</p>
               <p>{t('languageEnAdvanced')}</p>
-              <p>{t('languageEsBasic')}</p>
             </CardContent>
           </Card>
         </aside>

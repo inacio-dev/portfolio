@@ -5,6 +5,7 @@ import { GitHubIcon } from '@/components/icons/GitHubIcon'
 import { LinkedInIcon } from '@/components/icons/LinkedInIcon'
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon'
 import { Link } from '@/components/Link'
+import { TrackedExternalLink } from '@/components/TrackedExternalLink'
 import { GITHUB_URL, LINKEDIN_URL, mailtoUrl, PORTFOLIO_REPO_URL, whatsappUrl } from '@/lib/site'
 
 /**
@@ -38,46 +39,66 @@ export async function Footer() {
             </p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>
-                <a
+                <TrackedExternalLink
                   href={mailtoUrl()}
-                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+                  event="email_clicked"
+                  eventParams={{ source: 'footer' }}
+                  className="group/social inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <Mail className="size-4" aria-hidden="true" />
+                  <Mail
+                    className="size-4 transition-transform duration-200 ease-out group-hover/social:scale-110"
+                    aria-hidden="true"
+                  />
                   {tContact('channelEmail')}
-                </a>
+                </TrackedExternalLink>
               </li>
               <li>
-                <a
+                <TrackedExternalLink
                   href={whatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+                  event="whatsapp_opened"
+                  eventParams={{ source: 'footer' }}
+                  className="group/social inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <WhatsAppIcon className="size-4" aria-hidden="true" />
+                  <WhatsAppIcon
+                    className="size-4 transition-transform duration-200 ease-out group-hover/social:scale-110"
+                    aria-hidden="true"
+                  />
                   WhatsApp
-                </a>
+                </TrackedExternalLink>
               </li>
               <li>
-                <a
+                <TrackedExternalLink
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+                  event="linkedin_clicked"
+                  eventParams={{ source: 'footer' }}
+                  className="group/social inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <LinkedInIcon className="size-4" aria-hidden="true" />
+                  <LinkedInIcon
+                    className="size-4 transition-transform duration-200 ease-out group-hover/social:scale-110"
+                    aria-hidden="true"
+                  />
                   LinkedIn
-                </a>
+                </TrackedExternalLink>
               </li>
               <li>
-                <a
+                <TrackedExternalLink
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+                  event="github_clicked"
+                  eventParams={{ source: 'footer' }}
+                  className="group/social inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <GitHubIcon className="size-4" aria-hidden="true" />
+                  <GitHubIcon
+                    className="size-4 transition-transform duration-200 ease-out group-hover/social:scale-110"
+                    aria-hidden="true"
+                  />
                   GitHub
-                </a>
+                </TrackedExternalLink>
               </li>
             </ul>
           </nav>
@@ -104,14 +125,16 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
-                <a
+                <TrackedExternalLink
                   href={PORTFOLIO_REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  event="github_repo_clicked"
+                  eventParams={{ source: 'footer' }}
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {t('sourceCode')}
-                </a>
+                </TrackedExternalLink>
               </li>
             </ul>
           </nav>

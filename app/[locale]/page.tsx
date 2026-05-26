@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { GitHubIcon } from '@/components/icons/GitHubIcon'
 import { Link } from '@/components/Link'
+import { TrackedExternalLink } from '@/components/TrackedExternalLink'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -44,33 +45,47 @@ export default async function HomePage({ params }: PageProps) {
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{t('heroSubtitle')}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="font-medium">
+              <Button asChild size="lg" className="group font-medium">
                 <Link
                   href="/projetos"
                   analyticsEvent="cta_clicked"
                   analyticsParams={{ source: 'home_hero_primary' }}
                 >
                   {t('ctaPrimary')}
-                  <ArrowRight className="ml-2 size-4" aria-hidden="true" />
+                  <ArrowRight
+                    className="ml-2 size-4 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+                <TrackedExternalLink
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  event="whatsapp_opened"
+                  eventParams={{ source: 'home_hero' }}
+                >
                   {t('ctaSecondary')}
-                </a>
+                </TrackedExternalLink>
               </Button>
             </div>
 
-            <a
+            <TrackedExternalLink
               href={PORTFOLIO_REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-md border border-border bg-card/50 px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+              event="github_repo_clicked"
+              eventParams={{ source: 'home_hero' }}
+              className="group mt-8 inline-flex items-center gap-2 rounded-md border border-border bg-card/50 px-3 py-2 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
             >
-              <GitHubIcon className="size-4" />
+              <GitHubIcon className="size-4 transition-transform duration-200 ease-out group-hover:scale-110" />
               <span>{t('ctaGithubRepo')}</span>
-              <ArrowRight className="size-3.5" aria-hidden="true" />
-            </a>
+              <ArrowRight
+                className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </TrackedExternalLink>
           </div>
         </div>
       </section>
@@ -101,27 +116,36 @@ export default async function HomePage({ params }: PageProps) {
             {t('highlightsTitle')}
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <Card>
+            <Card className="group transition-colors hover:border-primary/40">
               <CardHeader>
-                <Code2 className="size-6 text-primary" aria-hidden="true" />
+                <Code2
+                  className="size-6 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-6"
+                  aria-hidden="true"
+                />
                 <CardTitle className="mt-2 font-display text-lg">
                   {t('highlightProjectsTitle')}
                 </CardTitle>
                 <CardDescription>{t('highlightProjectsDescription')}</CardDescription>
               </CardHeader>
             </Card>
-            <Card>
+            <Card className="group transition-colors hover:border-primary/40">
               <CardHeader>
-                <Sparkles className="size-6 text-primary" aria-hidden="true" />
+                <Sparkles
+                  className="size-6 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-12"
+                  aria-hidden="true"
+                />
                 <CardTitle className="mt-2 font-display text-lg">
                   {t('highlightSkillsTitle')}
                 </CardTitle>
                 <CardDescription>{t('highlightSkillsDescription')}</CardDescription>
               </CardHeader>
             </Card>
-            <Card>
+            <Card className="group transition-colors hover:border-primary/40">
               <CardHeader>
-                <Briefcase className="size-6 text-primary" aria-hidden="true" />
+                <Briefcase
+                  className="size-6 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-6"
+                  aria-hidden="true"
+                />
                 <CardTitle className="mt-2 font-display text-lg">
                   {t('highlightExperienceTitle')}
                 </CardTitle>
@@ -144,33 +168,44 @@ export default async function HomePage({ params }: PageProps) {
             </div>
             <Link
               href="/projetos"
-              className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+              className="group inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
               analyticsEvent="cta_clicked"
               analyticsParams={{ source: 'home_projects_more' }}
             >
               {t('viewAllProjects')}
-              <ArrowRight className="size-4" aria-hidden="true" />
+              <ArrowRight
+                className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Link>
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {featuredProjects.map((project) => (
-              <Card key={project.key} className="flex flex-col">
+              <Card
+                key={project.key}
+                className="group flex flex-col transition-colors hover:border-primary/40"
+              >
                 <CardHeader>
                   <div className="flex items-center justify-between gap-2">
                     <CardTitle className="font-display text-lg">
                       {tProjects(`items.${project.key}.title`)}
                     </CardTitle>
                     {project.repoUrl && (
-                      <a
+                      <TrackedExternalLink
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        event="project_clicked"
+                        eventParams={{ project: project.key, source: 'home_card', target: 'repo' }}
                         aria-label={tProjects('viewCode')}
                         className="text-muted-foreground transition-colors hover:text-primary"
                       >
-                        <GitHubIcon className="size-4" aria-hidden="true" />
-                      </a>
+                        <GitHubIcon
+                          className="size-4 transition-transform duration-200 ease-out group-hover:scale-110"
+                          aria-hidden="true"
+                        />
+                      </TrackedExternalLink>
                     )}
                   </div>
                   <p className="font-mono text-xs text-muted-foreground">

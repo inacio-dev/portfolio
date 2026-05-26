@@ -56,6 +56,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
+    "to-ico": "^1.1.5",
     "typescript": "^5",
     "vitest": "^4.1.7"
   }

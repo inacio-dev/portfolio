@@ -28,6 +28,7 @@ const ROUTES: {
   { canonical: '/sobre', priority: 0.9, changeFrequency: 'monthly' },
   { canonical: '/projetos', priority: 0.95, changeFrequency: 'monthly' },
   { canonical: '/experiencia', priority: 0.8, changeFrequency: 'monthly' },
+  { canonical: '/monografia', priority: 0.85, changeFrequency: 'yearly' },
   { canonical: '/certificados', priority: 0.7, changeFrequency: 'monthly' },
   { canonical: '/contato', priority: 0.85, changeFrequency: 'yearly' },
   { canonical: '/privacidade', priority: 0.3, changeFrequency: 'yearly' },

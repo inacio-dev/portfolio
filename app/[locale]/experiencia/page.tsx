@@ -56,12 +56,21 @@ export default async function ExperiencePage({ params }: PageProps) {
           <ol className="relative space-y-8 border-l border-border pl-8">
             {WORK.map(({ key, current }) => (
               <li key={key} className="relative">
+                {/* Dot + halo de "current" pulsando (sem JS). */}
                 <span
                   className={`absolute -left-9.25 mt-1.5 size-3 rounded-full border-2 ${
-                    current ? 'border-primary bg-primary' : 'border-border bg-background'
+                    current
+                      ? 'border-primary bg-primary shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-primary)_25%,transparent)]'
+                      : 'border-border bg-background'
                   }`}
                   aria-hidden="true"
                 />
+                {current && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-9.25 mt-1.5 size-3 animate-ping rounded-full bg-primary/60 animation-duration-[2.5s]"
+                  />
+                )}
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-display text-base font-semibold">{t(`items.${key}.role`)}</h3>
                   {current && (
@@ -90,12 +99,21 @@ export default async function ExperiencePage({ params }: PageProps) {
           <ol className="relative space-y-8 border-l border-border pl-8">
             {EDUCATION.map(({ key, current }) => (
               <li key={key} className="relative">
+                {/* Dot + halo de "current" pulsando (sem JS). */}
                 <span
                   className={`absolute -left-9.25 mt-1.5 size-3 rounded-full border-2 ${
-                    current ? 'border-primary bg-primary' : 'border-border bg-background'
+                    current
+                      ? 'border-primary bg-primary shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-primary)_25%,transparent)]'
+                      : 'border-border bg-background'
                   }`}
                   aria-hidden="true"
                 />
+                {current && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-9.25 mt-1.5 size-3 animate-ping rounded-full bg-primary/60 animation-duration-[2.5s]"
+                  />
+                )}
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-display text-base font-semibold">
                     {t(`items.${key}.title`)}

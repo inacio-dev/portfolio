@@ -37,6 +37,11 @@ export const routing = defineRouting({
       en: '/experience',
       es: '/experiencia',
     },
+    '/monografia': {
+      'pt-BR': '/monografia',
+      en: '/thesis',
+      es: '/tesis',
+    },
     '/certificados': {
       'pt-BR': '/certificados',
       en: '/certifications',

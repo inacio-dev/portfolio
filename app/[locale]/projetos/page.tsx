@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { GitHubIcon } from '@/components/icons/GitHubIcon'
+import { TrackedExternalLink } from '@/components/TrackedExternalLink'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { PROJECTS } from '@/lib/projects'
@@ -38,7 +39,10 @@ export default async function ProjectsPage({ params }: PageProps) {
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {PROJECTS.map((project) => (
-          <Card key={project.key} className="flex flex-col">
+          <Card
+            key={project.key}
+            className="group flex flex-col transition-colors hover:border-primary/40"
+          >
             <CardHeader>
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -67,26 +71,36 @@ export default async function ProjectsPage({ params }: PageProps) {
               </div>
               <div className="mt-auto flex flex-wrap gap-3 pt-2 text-sm">
                 {project.repoUrl && (
-                  <a
+                  <TrackedExternalLink
                     href={project.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+                    event="project_clicked"
+                    eventParams={{ project: project.key, source: 'projects_page', target: 'repo' }}
+                    className="group/link inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <GitHubIcon className="size-4" aria-hidden="true" />
+                    <GitHubIcon
+                      className="size-4 transition-transform duration-200 ease-out group-hover/link:scale-110"
+                      aria-hidden="true"
+                    />
                     {t('viewCode')}
-                  </a>
+                  </TrackedExternalLink>
                 )}
                 {project.liveUrl && (
-                  <a
+                  <TrackedExternalLink
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
+                    event="project_clicked"
+                    eventParams={{ project: project.key, source: 'projects_page', target: 'live' }}
+                    className="group/link inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-primary"
                   >
-                    <ExternalLink className="size-4" aria-hidden="true" />
+                    <ExternalLink
+                      className="size-4 transition-transform duration-200 ease-out group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                      aria-hidden="true"
+                    />
                     {t('viewLive')}
-                  </a>
+                  </TrackedExternalLink>
                 )}
               </div>
             </CardContent>
