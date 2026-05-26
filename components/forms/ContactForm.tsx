@@ -66,10 +66,7 @@ export function ContactForm() {
   return (
     <form ref={formRef} action={formAction} className="space-y-5" noValidate>
       {/* Honeypot — escondido para humanos, irresistível para bots ingênuos */}
-      <div
-        className="pointer-events-none absolute -left-2500 size-0 opacity-0"
-        aria-hidden="true"
-      >
+      <div className="pointer-events-none absolute -left-2500 size-0 opacity-0" aria-hidden="true">
         <label>
           Website
           <input type="text" name="website" tabIndex={-1} autoComplete="off" />
