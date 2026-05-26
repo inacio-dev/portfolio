@@ -61,3 +61,16 @@ export const routing = defineRouting({
 })
 
 export type Locale = (typeof routing.locales)[number]
+
+/**
+ * Timezone fixo do projeto.
+ *
+ * Usado pelo next-intl tanto no server (`i18n/request.ts`) quanto no
+ * `NextIntlClientProvider` (em `app/providers.tsx`). Fixar é importante
+ * para evitar o warning `ENVIRONMENT_FALLBACK` e o risco de mismatch SSR/CSR
+ * quando o servidor roda em UTC e o cliente em GMT-3.
+ *
+ * O conteúdo é global, mas o autor é de Fortaleza (BR) — usamos São Paulo
+ * (mesmo offset, melhor reconhecimento de DST/feriados).
+ */
+export const TIME_ZONE = 'America/Sao_Paulo'

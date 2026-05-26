@@ -154,6 +154,13 @@
     "successDescription": "I'll reply within 2 business days.",
     "errorTitle": "Send failed",
     "errorDescription": "Please try again or reach me directly through the channels below.",
+    "errorChallenge": "Anti-spam verification failed. Reload the page and try again.",
+    "validation": {
+      "nameInvalid": "Please enter your name (minimum 2 characters).",
+      "emailInvalid": "Invalid email address.",
+      "messageInvalid": "Message too short (minimum 10 characters).",
+      "consentInvalid": "You must agree with the privacy policy to send."
+    },
     "channelsTitle": "Direct channels",
     "channelEmail": "Email",
     "channelWhatsapp": "WhatsApp",

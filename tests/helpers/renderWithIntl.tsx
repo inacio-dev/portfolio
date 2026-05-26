@@ -3,6 +3,7 @@ import * as React from 'react'
 import { render, type RenderOptions } from '@testing-library/react'
 import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 
+import { TIME_ZONE } from '@/i18n/routing'
 import ptBR from '@/messages/pt-BR.json'
 
 /**
@@ -33,7 +34,7 @@ export function renderWithIntl(
 ) {
   return render(ui, {
     wrapper: ({ children }) => (
-      <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider locale={locale} messages={messages} timeZone={TIME_ZONE}>
         {children}
       </NextIntlClientProvider>
     ),

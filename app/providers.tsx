@@ -4,13 +4,16 @@ import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { TIME_ZONE } from '@/i18n/routing'
 
 /**
  * Providers globais — ordem importa:
  *
  * - `NextIntlClientProvider` por fora: client components precisam do
- *   contexto i18n para `useTranslations`. As messages chegam por prop
- *   (já injetadas no server pelo layout do locale).
+ *   contexto i18n para `useTranslations`. Como passamos `messages`
+ *   explicitamente, também precisamos passar `timeZone` — caso contrário
+ *   o next-intl não consegue herdar do server config e dispara o warning
+ *   `ENVIRONMENT_FALLBACK` na primeira renderização do client.
  * - `ThemeProvider` (next-themes) em seguida: aplica classe no `<html>`.
  * - `TooltipProvider` mais interno: só afeta o subtree onde tem tooltip.
  *
@@ -26,7 +29,7 @@ interface ProvidersProps {
 
 export function Providers({ children, messages, locale }: ProvidersProps) {
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
+    <NextIntlClientProvider messages={messages} locale={locale} timeZone={TIME_ZONE}>
       <ThemeProvider>
         <TooltipProvider delayDuration={300}>{children}</TooltipProvider>
       </ThemeProvider>

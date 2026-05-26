@@ -154,6 +154,13 @@
     "successDescription": "Vou retornar em até 2 dias úteis.",
     "errorTitle": "Erro ao enviar",
     "errorDescription": "Tente novamente ou fale comigo direto pelos canais abaixo.",
+    "errorChallenge": "Verificação anti-spam falhou. Recarregue a página e tente de novo.",
+    "validation": {
+      "nameInvalid": "Informe seu nome (mínimo 2 caracteres).",
+      "emailInvalid": "Email inválido.",
+      "messageInvalid": "Mensagem muito curta (mínimo 10 caracteres).",
+      "consentInvalid": "Você precisa aceitar a política de privacidade para enviar."
+    },
     "channelsTitle": "Canais diretos",
     "channelEmail": "Email",
     "channelWhatsapp": "WhatsApp",

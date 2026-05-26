@@ -30,6 +30,18 @@ import { submitContact, type ContactFormState } from '@/server/actions/contact'
  */
 const initialState: ContactFormState = { status: 'idle' }
 
+/**
+ * Mapping de erros de validação retornados pela server action para
+ * chaves de mensagem específicas. Mantém o JSON de tradução como fonte
+ * única de cópia para cada erro.
+ */
+const FIELD_ERROR_KEY = {
+  name: 'validation.nameInvalid',
+  email: 'validation.emailInvalid',
+  message: 'validation.messageInvalid',
+  consent: 'validation.consentInvalid',
+} as const
+
 export function ContactForm() {
   const t = useTranslations('Contact')
   const [state, formAction, isPending] = React.useActionState(submitContact, initialState)
@@ -46,12 +58,16 @@ export function ContactForm() {
   }, [state.status])
 
   const fieldErrors = state.status === 'invalid' ? state.fields : {}
+  const errorBannerMessage =
+    state.status === 'error' && state.message === 'challenge_failed'
+      ? t('errorChallenge')
+      : t('errorDescription')
 
   return (
     <form ref={formRef} action={formAction} className="space-y-5" noValidate>
       {/* Honeypot — escondido para humanos, irresistível para bots ingênuos */}
       <div
-        className="pointer-events-none absolute -left-[10000px] size-0 opacity-0"
+        className="pointer-events-none absolute -left-2500 size-0 opacity-0"
         aria-hidden="true"
       >
         <label>
@@ -73,7 +89,7 @@ export function ContactForm() {
             minLength={2}
             disabled={isPending}
           />
-          {fieldErrors.name && <FieldError>{t('errorDescription')}</FieldError>}
+          {fieldErrors.name && <FieldError>{t(FIELD_ERROR_KEY.name)}</FieldError>}
         </Field>
 
         <Field data-invalid={fieldErrors.email ? 'true' : undefined}>
@@ -87,7 +103,7 @@ export function ContactForm() {
             required
             disabled={isPending}
           />
-          {fieldErrors.email && <FieldError>{t('errorDescription')}</FieldError>}
+          {fieldErrors.email && <FieldError>{t(FIELD_ERROR_KEY.email)}</FieldError>}
         </Field>
       </div>
 
@@ -113,7 +129,7 @@ export function ContactForm() {
           minLength={10}
           disabled={isPending}
         />
-        {fieldErrors.message && <FieldError>{t('errorDescription')}</FieldError>}
+        {fieldErrors.message && <FieldError>{t(FIELD_ERROR_KEY.message)}</FieldError>}
       </Field>
 
       <Field data-invalid={fieldErrors.consent ? 'true' : undefined}>
@@ -128,7 +144,9 @@ export function ContactForm() {
           <span className="text-muted-foreground">{t('fieldConsent')}</span>
         </FieldLabel>
         {fieldErrors.consent && (
-          <FieldDescription className="text-destructive">{t('errorDescription')}</FieldDescription>
+          <FieldDescription className="text-destructive">
+            {t(FIELD_ERROR_KEY.consent)}
+          </FieldDescription>
         )}
       </Field>
 
@@ -166,7 +184,7 @@ export function ContactForm() {
           <XCircle className="mt-0.5 size-4 text-destructive" aria-hidden="true" />
           <div>
             <p className="font-medium text-foreground">{t('errorTitle')}</p>
-            <p className="mt-1 text-muted-foreground">{t('errorDescription')}</p>
+            <p className="mt-1 text-muted-foreground">{errorBannerMessage}</p>
           </div>
         </div>
       )}

@@ -10,14 +10,21 @@ import { CONTACT_EMAIL } from '@/lib/site'
  * Anti-spam em camadas
  * --------------------
  * 1. Honeypot (`website` deve vir vazio) — pega bots burros sem custo.
- * 2. Cloudflare Turnstile invisible — validado server-side com o secret.
- *    Sem cookies third-party (LGPD-friendly vs reCAPTCHA).
- * 3. Validação de shape (zod-light manual).
+ * 2. Cloudflare Turnstile invisible — validado server-side com o secret
+ *    (`hostname` também é checado contra a allowlist como defesa em
+ *    profundidade).
+ * 3. Validação de shape (regex de email, tamanho mínimo, consent LGPD).
  *
  * Entrega
  * -------
- * Se SMTP_* setado → Nodemailer (dynamic import — não força a dep na
- * bundle de quem não envia). Caso contrário, console.log (modo dev).
+ * Resend SDK. A escolha pelo Resend (e não SMTP direto via Nodemailer)
+ * veio depois que o Outlook.com retornou `535 5.7.139 basic authentication
+ * is disabled` — Microsoft desativou auth básica e exigir OAuth2 não vale
+ * a pena para um form de portfólio. Resend tem free tier de 3k emails/mês,
+ * setup em uma chamada, API simples.
+ *
+ * Sem `RESEND_API_KEY` em runtime, a server action loga a mensagem no
+ * console e retorna sucesso (modo dev — facilita iteração local).
  *
  * Sem banco — portfólio não precisa de inbox persistente.
  */
@@ -64,9 +71,32 @@ function validate(input: ParsedInput): Record<string, string> | null {
 }
 
 /**
+ * Hostnames aceitos pelo Turnstile — validados na resposta do siteverify
+ * como defesa em profundidade contra reuso de token gerado em outro domínio.
+ *
+ * Em dev, a env `NEXT_PUBLIC_SITE_URL` aponta pra localhost, então o widget
+ * gera token com hostname `localhost`. Em prod, `inaciorodrigues.dev.br`.
+ */
+const ALLOWED_TURNSTILE_HOSTS = new Set([
+  'localhost',
+  'inaciorodrigues.dev.br',
+  'www.inaciorodrigues.dev.br',
+])
+
+interface TurnstileVerifyResponse {
+  success: boolean
+  hostname?: string
+  challenge_ts?: string
+  action?: string
+  'error-codes'?: string[]
+}
+
+/**
  * Valida o token do Turnstile no endpoint oficial da Cloudflare.
  * Retorna `true` se válido OU se o secret não estiver configurado (modo
  * dev) — assim o dev consegue testar o form sem precisar setar chave.
+ *
+ * Doc: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
  */
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY
@@ -88,21 +118,42 @@ async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
       method: 'POST',
       body,
     })
-    const json = (await res.json()) as { success: boolean; 'error-codes'?: string[] }
+    const json = (await res.json()) as TurnstileVerifyResponse
+
     if (!json.success) {
       console.warn('[contact] turnstile rejeitou:', json['error-codes'])
+      return false
     }
-    return json.success === true
+
+    if (json.hostname && !ALLOWED_TURNSTILE_HOSTS.has(json.hostname)) {
+      console.warn('[contact] turnstile hostname não permitido:', json.hostname)
+      return false
+    }
+
+    return true
   } catch (error) {
     console.error('[contact] erro ao verificar turnstile', error)
     return false
   }
 }
 
-async function deliver(input: ParsedInput, ip: string): Promise<void> {
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env
+/**
+ * Endereço `from` usado nos emails enviados via Resend.
+ *
+ * - Sem domínio próprio verificado: `onboarding@resend.dev` (Resend permite
+ *   por padrão pra testes — só consegue enviar pro email associado à conta).
+ * - Com domínio próprio verificado (`inaciorodrigues.dev.br`): `RESEND_FROM`
+ *   override no `.env.prod` apontando, p.ex., `Portfólio <contato@inaciorodrigues.dev.br>`.
+ *
+ * Doc: https://resend.com/docs/dashboard/domains/introduction
+ */
+const RESEND_DEFAULT_FROM = 'Portfólio <onboarding@resend.dev>'
 
-  const body =
+async function deliver(input: ParsedInput, ip: string): Promise<void> {
+  const apiKey = process.env.RESEND_API_KEY
+  const fromAddress = process.env.RESEND_FROM ?? RESEND_DEFAULT_FROM
+
+  const text =
     `Nova mensagem do portfólio\n\n` +
     `Nome: ${input.name}\n` +
     `Email: ${input.email}\n` +
@@ -110,26 +161,29 @@ async function deliver(input: ParsedInput, ip: string): Promise<void> {
     `IP: ${ip}\n\n` +
     `Mensagem:\n${input.message}\n`
 
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD) {
-    console.info('[contact] SMTP não configurado — gravando no console:\n', body)
+  if (!apiKey) {
+    console.info('[contact] RESEND_API_KEY não configurada — gravando no console:\n', text)
     return
   }
 
-  const nodemailer = await import('nodemailer').then((m) => m.default ?? m)
-  const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: Number(SMTP_PORT ?? 587),
-    secure: Number(SMTP_PORT) === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
-  })
+  // Dynamic import: deixa o tree-shaking remover o SDK quando a key não
+  // está configurada (build de preview, branch sem secret, etc).
+  const { Resend } = await import('resend')
+  const resend = new Resend(apiKey)
 
-  await transporter.sendMail({
-    from: `"Portfólio Inácio" <${SMTP_USER}>`,
+  const { error } = await resend.emails.send({
+    from: fromAddress,
     to: CONTACT_EMAIL,
     replyTo: input.email,
     subject: `[portfólio] ${input.subject || 'Novo contato'}`,
-    text: body,
+    text,
   })
+
+  if (error) {
+    // O SDK do Resend não lança em erros HTTP — retorna no campo `error`.
+    // Levantamos manualmente para o catch da `submitContact` capturar.
+    throw new Error(`resend: ${error.name} — ${error.message}`)
+  }
 }
 
 export async function submitContact(

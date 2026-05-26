@@ -12,7 +12,7 @@ Portfólio pessoal e open source de **Inácio Rodrigues** — Desenvolvedor Full
 - **next-themes** — dark-first com toggle e preferência do sistema
 - **Google Tag Manager + Consent Mode v2** — analytics LGPD-compliant
 - **Cloudflare Turnstile** — anti-spam invisível no form de contato
-- **Nodemailer** — entrega de email via SMTP (opcional)
+- **Resend** — entrega de email do form de contato (3k/mês no free tier)
 
 ## Estrutura
 
@@ -89,7 +89,7 @@ Veja [.env.example](./.env.example) para a lista completa com comentários. Resu
 
 - **Obrigatórias em prod**: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_WHATSAPP_NUMBER`
 - **Analytics**: `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_COOKIE_DOMAIN`
-- **Contato (opcionais)**: `SMTP_*` para envio real; sem eles, server action grava em log
+- **Contato (opcionais)**: `RESEND_API_KEY` + `RESEND_FROM` para envio real; sem eles, server action grava em log
 - **Anti-spam (opcionais)**: `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY`
 
 ## Scripts

@@ -1,7 +1,7 @@
 import { hasLocale } from 'next-intl'
 import { getRequestConfig } from 'next-intl/server'
 
-import { routing } from './routing'
+import { routing, TIME_ZONE } from './routing'
 
 /**
  * Config request-scoped do next-intl.
@@ -20,11 +20,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
-    // Fixar timezone evita o warning ENVIRONMENT_FALLBACK e elimina o risco
-    // de mismatch SSR/CSR quando o servidor roda em UTC e o cliente em GMT-3.
-    // O usuário é de Fortaleza (BR) e o conteúdo é global, então fixamos em
-    // São Paulo (mesmo offset, melhor reconhecimento de DST/feriados).
-    timeZone: 'America/Sao_Paulo',
+    // Constante compartilhada com o NextIntlClientProvider — ver
+    // `i18n/routing.ts` para a justificativa do timezone fixo.
+    timeZone: TIME_ZONE,
     messages: (await import(`../messages/${locale}.json`)).default,
   }
 })

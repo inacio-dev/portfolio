@@ -84,7 +84,11 @@ export function Turnstile({ onToken, theme = 'auto' }: TurnstileProps) {
   return (
     <>
       <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        // `?render=explicit` desliga o auto-render do Turnstile em divs com
+        // classe `cf-turnstile`. Como chamamos `turnstile.render()` manualmente
+        // no `renderWidget`, o explicit evita double-render em edge cases.
+        // Doc: https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
         strategy="lazyOnload"
         onLoad={renderWidget}
       />
